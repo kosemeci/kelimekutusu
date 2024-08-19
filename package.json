@@ -1,0 +1,28 @@
+{
+  "name": "kelimekutuları",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "description": "Kelimekutuları, İngilizce kelime dağarcığınızı genişletmek için özel olarak tasarlanmış kelime kutuları oluşturmanıza ve mevcut kutularla kendinizi test etmenize olanak tanır. Dinamik ve etkileşimli testler sayesinde İngilizce bilginizi artırabilirsiniz. Kullanıcı dostu arayüzümüz ve etkili öğrenme yöntemlerimiz ile kelime öğrenme sürecini eğlenceli hale getiriyoruz.",
+  "author": "kelimekutuları.com",
+  "keywords": [
+    "kelime",
+    "kutu",
+    "kelimekutuları",
+    "İngilizce öğrenme",
+    "kelime testleri",
+    "dil öğrenme",
+    "kelime oyunları",
+    "türkçe-ingilizce"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "html5-qrcode": "^2.3.8",
+    "mysql2": "^3.10.3"
+  }
+}

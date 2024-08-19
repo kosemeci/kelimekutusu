@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Display</title>
+    <p>hello</p>
+    <i class="fas fa-camera"></i>
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        #qr-code {
+            width: 250px; /* QR kodun boyutunu buradan ayarlayabilirsiniz */
+            height: 250px;
+            margin: 0 auto;
+        }
+        #status {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="qr-code">
+            <img id="qr-img" src="" alt="QR Code">
+        </div>
+        <div id="status">Scan this QR code with your phone</div>
+    </div>
+
+    <script>
+        const qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=http://192.168.1.39:3000/mybox'; // QR kodu içeriği
+
+        document.getElementById('qr-img').src = qrCodeUrl;
+    </script>
+</body>
+</html>
