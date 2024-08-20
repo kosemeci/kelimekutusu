@@ -19,32 +19,34 @@
     <meta name="og:keywords" content="kelime, kutu, İngilizce öğrenme, kelime testleri, dil öğrenme, kelime oyunları,kutukutukelime, kişiye özel kelime, ingilizce türkçe kelime kutusu, wordbox">
     <meta name="og:description" content="İngilizce kelime dağarcığınızı genişletmek için özel olarak tasarlanmış kelime kutuları oluşturmanıza ve mevcut kutularla kendinizi test etmenize olanak tanır.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Farklı kategorilerle ing-tr kelime kutuları">
+    <meta property="og:title" content="Oluşturduğum kelime kutusuna bakmak ister misin?">
     <meta property="og:description" content="İngilizce kelime dağarcığınızı genişletmek için özel olarak tasarlanmış kelime kutuları oluşturmanıza ve mevcut kutularla kendinizi test etmenize olanak tanır.">
     <meta property="og:image" content="/images/tra.webp" >
     <meta property="og:url" content="https://www.kutukutukelime.com">
 
     <link rel="icon" href="/images/box.webp" >
     <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="/css/boxes.css">
+    <link rel="stylesheet" href="/css/idbox.css">
 
     <title>İngilizce-Türkçe Kelime Kutuları - Kelime Öğrenin - kutukutukelime</title>
 </head>
 
 <body>
     <%- include('partials/navbar') %>
-        <div class="container-box">
+        <div class="container-box" id="data-container" data-boxid="<%= box_id %>">
             <%- include('partials/box') %>
-                <div id="words" style="display: none;">
-                    <ul>
-                        <% data.forEach(word=> { %>
-                            <li>
-                                <%= word.english %> - <%= word.turkish %>
-                            </li>
-                            <% }) %>
-                    </ul>
+            <div class="share-card">
+                <h3>Kutunu Paylaş!</h3>
+                <p>Bu kelime kutusunu arkadaşlarınla paylaşarak birlikte öğrenin!</p>
+                <div class="share-buttons">
+                    <button class="share-btn" id="copyLinkBtn">Linki Kopyala</button>
+                    <button class="share-btn" id="whatsappShareBtn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp ile Paylaş
+                    </button>
                 </div>
+            </div>
         </div>
-        <script src="/js/boxes.js"></script>
+        
+        <script src="/js/idbox.js"></script>
 </body>
 </html>

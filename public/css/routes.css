@@ -4,50 +4,45 @@
 .how-to-use-content h3{
     font-size: larger;
     margin-bottom: 40px;
+    color: #2c3e50;
 }
 .how-to-use-content {
     max-width: 1100px;
     margin: 8% auto 2%;
 }
-
 .step {
     display: flex;
     align-items: center;
     margin-bottom: 40px;
 }
-
 .step-text {
     flex: 1;
 }
-
 .step-image {
     flex: 1;
     text-align: center;
 }
-
 .step-image img {
     max-width: 600px;
     max-height: 600px;
     width: auto;
     height: auto;
 }
-
 h2 {
     text-align: center;
-    margin-bottom: 60px;
-}
+    margin-bottom: 40px;
+    color: #2c3e50;
 
+}
 h3 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.5em;
 }
-
 .how-to-use-content li strong {
     font-weight: bold;
     color: #333;
 }
-
 .contact-link {
     text-decoration: none;
     color: #2c3e50;
@@ -55,12 +50,10 @@ h3 {
     font-size: 16px;
     margin-right: 16px;
 }
-
 .contact-link i {
     color: #E5A601;
     font-size: 18px;
 }
-
 .contact-link:hover {
     text-decoration: underline;
     text-decoration-color: #E5A601;    
@@ -77,42 +70,50 @@ h3 {
     font-size: 1.1em;
     color: #555;
 }
+.info-content {
+    margin-bottom: 30px;
+}
+.info-content h2 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.info-content p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
 @media (max-width: 1100px) {
     .how-to-use-content {
         padding: 0 20px; 
     }
-
     .step {
         display: block;
         text-align: center;
     }
-
     .step-text,
     .step-image {
         flex: 100%;
         margin-bottom: 20px;
     }
-
     .step-text h3 {
         font-size: 1.3em;
     }
-
     .step-text h4,
     .other-text h3 {
         font-size: 1em;
         padding: 1px;
     }
-
     .step-image img {
         max-width: 100%;
         height: auto;
     }
-
     h2 {
         font-size: 1.8em;
         margin-bottom: 40px;
     }
-    
     .contact-link {
         font-size: 14px;
         margin-right: 0;

@@ -1,4 +1,3 @@
-
 const newBoxButton = document.getElementById("newBox");
 const wordBoxBrand = document.getElementById("wordBoxBrand");
 

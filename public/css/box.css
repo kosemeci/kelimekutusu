@@ -2,7 +2,6 @@
     perspective: 1000px;
     margin: 50px;
 }
-
 .box {
     width: 300px;
     height: 100px;
@@ -11,7 +10,6 @@
     transform: rotateX(-35deg) rotateY(-45deg);
     transition: transform 1s;
 }
-
 .face {
     position: absolute;
     width: 300px;
@@ -23,53 +21,41 @@
     font-weight: bold;
     color: #fff;
     border: 8px solid #ccc; 
-
 }
-
 .front {
     background-color: #2c3e50;
     border-color: #c8c7c5;
 }
-
 .back {
     background-color: #2c3e50;
     border-color: #c8c7c5;
 }
-
 .left {
     background-color: #2c3e50;
     border-color: #c8c7c5;
     border-radius:15px ;
     border: 8px solid #ccc;
-
 }
-
 .right {
     background-color: #2c3e50;
     border-color: #c8c7c5;
     border-radius:15px ;
     border: 8px solid #ccc;
-
-
 }
-
 .top {
     background-color: #E5A601;
     border-color: #c8c7c5;
 }
-
 .bottom {
     background-color: #2c3e50;
     border-color: #c8c7c5;
 }
-
 #selectZ {
     display: inline-block;
     font-size: 28px;
     font-weight: bold;
     color: #fff;
 }
-
 .paper {
     position: absolute;
     width: 180px;
@@ -96,27 +82,22 @@
 .box.open-top .top {
     transform: rotateX(90deg) translateZ(60px);
 }
-
 .paper {
     transform: translateY(50px);
     transition: transform 1s;
     opacity: 0;
     overflow-wrap: anywhere;
-
 }
-
 .box.open-top .paper {
     transform: translateY(-80px) rotateY(45deg) translateX(-30px) ;
     opacity: 1;
 }
-
 .answer-section {
     margin-top: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .answer-section p {
     font-size: 18px;
     font-weight: bold;
@@ -124,18 +105,15 @@
     text-align: center;
     max-width: 400px;
 }
-
 .answer-section input {
     margin-bottom: 10px;
     padding: 5px;
     font-size: 16px;
 }
-
 .answer-section button {
     padding: 5px 10px;
     font-size: 16px;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -148,39 +126,34 @@
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
-
 .modal-content {
-    background-color: #2C3E50; /* Koyu mavi arka plan */
-    color: #ffffff; /* Beyaz yazı rengi */
+    background-color: #2C3E50;
+    color: #ffffff;
     margin: 5% auto;
     padding: 20px;
     border: 3px solid #E5A601;
-    border-radius: 10px; /* Köşeleri yuvarlama */
+    border-radius: 10px;
     width: 30%;
 }
-
 .close {
-    color: #E5A601; /* Altın sarısı renk */
+    color: #E5A601;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
-    color: #ffffff; /* Beyaz renk */
+    color: #ffffff;
     text-decoration: none;
     cursor: pointer;
 }
-
 .yellow-border {
-    border: 2px solid #E5A601; /* Altın sarısı border */
+    border: 2px solid #E5A601;
     padding: 4px;
     border-radius: 5px;
-    margin-bottom: 4px; /* Alt boşluk */
-    display: inline-block; /* Her satırı blok öğesi olarak göster */
+    margin-bottom: 4px;
+    display: inline-block;
 }
-
 
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotateX(-35deg) rotateY(-45deg); }
@@ -195,12 +168,10 @@
     90% { transform: translate(1px, 2px) rotateX(-35deg) rotateY(-44deg); }
     100% { transform: translate(1px, -2px) rotateX(-35deg) rotateY(-45deg); }
 }
-
 .shake {
-    animation: shake 0.5s; /* Duration of the shake effect */
-    animation-iteration-count: infinite; /* Repeat indefinitely */
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
 }
-
 #submitAnswer {
     background-color: #E5A601; 
     border: none; 
@@ -213,10 +184,9 @@
     margin: 4px 2px; 
     cursor: pointer; 
     border-radius: 12px; 
-    transition: background-color 0.3s, transform 0.3s; /* Geçiş efekti */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Gölge efekti */
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
 #submitAnswer:hover {
     background-color: #e68900; 
     transform: scale(1.05); 
@@ -225,7 +195,6 @@
     background-color: #cc7a00; 
     transform: scale(1); 
 }
-
 #userAnswer {
     padding: 11px; 
     box-sizing: border-box; 
@@ -235,12 +204,10 @@
     outline: none; 
     transition: border-color 0.3s, box-shadow 0.3s; 
 }
-
 #userAnswer:focus {
     border-color: #2c3e50;  
     box-shadow: 0 0 8px rgba(229, 166, 1, 0.5); 
 }
-
 .progress-container {
     width: 80%;
     height: 16px;
@@ -248,49 +215,45 @@
     border-radius: 10px;
     overflow: hidden;
 }
-
 .progress-segment {
-    height: 100%; /* Yüksekliği tam olarak kapsayacak şekilde güncelleme */
-    width: 0; /* Başlangıçta 0 genişliğinde olacak şekilde ayarlandı */
-    background-color: #76c7c0; /* İlerleme rengini belirleyin */
+    height: 100%;
+    width: 0; 
+    background-color: #76c7c0;
     transition: width 0.3s ease, background-color 0.3s ease;
 }
-
 .yellow-color{
     color:#E5A601;
 }
-
-
 @media (max-width: 650px) {
     .box {
-        width: 200px; /* Kutunun genişliği ve yüksekliği küçültüldü */
+        width: 200px;
         height: 70px;
     }
     .face {
-        width: 200px; /* Yüzeylerin genişliği ve yüksekliği küçültüldü */
+        width: 200px;
         height: 70px;
-        font-size: 16px; /* Yazı fontu küçültüldü */
-        border: 5px solid #ccc; /* Border genişliği küçültüldü */
+        font-size: 16px; 
+        border: 5px solid #ccc; 
     }
     .left, .right {
-        width: 100px; /* Yan yüzeylerin genişliği küçültüldü */
+        width: 100px;
         height: 70px;
     }
     .paper {
-        width: 150px; /* Kağıdın genişliği ve yüksekliği küçültüldü */
+        width: 150px;
         height: 30px;
         top: 35px;
         left: 25px;
-        font-size: 14px; /* Yazı fontu küçültüldü */
+        font-size: 14px;
     }
     .answer-section p {
-        font-size: 14px; /* Yazı fontu küçültüldü */
+        font-size: 14px;
         margin-top: 10px;
         max-width: 300px;
     }
     .answer-section input, .answer-section button {
-        font-size: 14px; /* Yazı fontu küçültüldü */
-        padding: 4px; /* Padding küçültüldü */
+        font-size: 14px; 
+        padding: 4px;
     }
     .modal-content {
         margin-top: 25px;
