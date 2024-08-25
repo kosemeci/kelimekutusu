@@ -103,7 +103,7 @@
     font-weight: bold;
     margin: 10px 0;
     text-align: center;
-    max-width: 400px;
+    max-width: 380px;
 }
 .answer-section input {
     margin-bottom: 10px;
@@ -131,7 +131,6 @@
     color: #ffffff;
     margin: 5% auto;
     padding: 20px;
-    border: 3px solid #E5A601;
     border-radius: 10px;
     width: 30%;
 }
@@ -147,8 +146,24 @@
     text-decoration: none;
     cursor: pointer;
 }
+#retryButton {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #E5A601;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#retryButton:hover {
+    background-color: #b0820e;
+}
+
 .yellow-border {
-    border: 2px solid #E5A601;
+    border: 1px solid #E5A601;
     padding: 4px;
     border-radius: 5px;
     margin-bottom: 4px;
@@ -196,7 +211,7 @@
     transform: scale(1); 
 }
 #userAnswer {
-    padding: 11px; 
+    padding: 8px; 
     box-sizing: border-box; 
     border: 1px solid #2c3e50; 
     border-radius: 12px; 
@@ -209,7 +224,7 @@
     box-shadow: 0 0 8px rgba(229, 166, 1, 0.5); 
 }
 .progress-container {
-    width: 80%;
+    width: 75%;
     height: 16px;
     background-color: #e0e0e0;
     border-radius: 10px;
@@ -249,7 +264,7 @@
     .answer-section p {
         font-size: 14px;
         margin-top: 10px;
-        max-width: 300px;
+        max-width: 280px;
     }
     .answer-section input, .answer-section button {
         font-size: 14px; 
@@ -271,5 +286,6 @@
     }
     .progress-container{
         height: 12px;
+        width: 65%;
     }
 }

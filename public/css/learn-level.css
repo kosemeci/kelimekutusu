@@ -1,0 +1,21 @@
+.container-learn{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-learn h1{
+    color: #2c3e50;
+    font-size: 28px;
+
+}
+
+@media (max-width: 1050px) {
+    .container-learn{
+        margin-top:25%;    
+    }
+    .container-learn h1{
+        font-size: 22px;
+    }
+}

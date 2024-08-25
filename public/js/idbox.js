@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const answerText = document.getElementById("answerText");
     const modal = document.getElementById("resultModal");
     const span = document.getElementsByClassName("close")[0];
+    const retryButon = document.getElementById("retryButton");
     const progressContainer = document.querySelector('.progress-container');
     const dataContainer = document.getElementById('data-container');
-
-
+    
     let words = [];
     const red_color = "#E74C3C";
     const green_color = "#2ECC71";
@@ -39,10 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error('Error:', error));
 
-    document.getElementById('box').addEventListener('click', function () {
-        this.classList.remove('shake');
-    });
-
     function showGameResult(correctAnswers, totalQuestions) {
         const point = ((correctAnswers / totalQuestions) * 100).toFixed(2);
         let message_ = `<div style="text-align: center;"><h2>The word game is over!</h2></div> <h3 class="yellow-color">Success: ${point}% </h3> Word Results:<br>`;
@@ -54,6 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "/kutum"
     }
 
+    retryButon.onclick = function () {
+        window.location.href = url;
+    }
+
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -62,12 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     topFace.addEventListener("click", function () {
         answerSection.style.display = "flex";
-
         if (box.classList.contains("open-top")) {
-            submitAnswerButton.disabled = true;
+            if(ask_index<ask_line){
+                setTimeout(() => {
+                    document.getElementById('box').classList.add('shake');
+                }, 25);
+            }
             box.classList.remove("open-top");
         }
         else {
+            document.getElementById('box').classList.remove('shake');
             if (ask_index < ask_line) {
                 submitAnswerButton.disabled = false;
                 box.classList.toggle("open-top");
@@ -75,8 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             else {
                 submitAnswerButton.disabled = true;
-                showGameResult(correctNum, ask_line, message);
-
             }
         }
     });
@@ -92,11 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         currentWord = words[randomIndex];
         randomWords.push(randomIndex);
-
         askEnglish = Math.random() > 0.5;
         answerText.innerText = "";
         progressContainer.style.display = "flex";
-
 
         if (askEnglish) {
             paper.textContent = currentWord.turkish;
@@ -109,15 +109,13 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
             }
-
         }, { once: true });
     }
 
     submitAnswerButton.addEventListener("click", function () {
-
+        submitAnswerButton.disabled = true;
         let isCorrect = false;
         const answer = userAnswer.value.trim().toLowerCase();
-
         let correctAnswer = askEnglish ? currentWord.english.toLowerCase() : currentWord.turkish.toLowerCase();
         if (answer === correctAnswer) {
             answerText.innerText = "Correct Answer!"
@@ -128,21 +126,21 @@ document.addEventListener("DOMContentLoaded", function () {
             ${currentWord.english} = ${currentWord.turkish} 
             <span>✅</span></span><br>`;
         } else {
-            answerText.innerText = "Wrong Answer!"
+            answerText.innerText = correctAnswer;
             answerText.style.color = red_color;
             isCorrect = false;
             message += `<span class="yellow-border"> 
             ${currentWord.english} = ${currentWord.turkish} 
             <span>❌</span></span><br>`;
         }
-
-        topFace.classList.remove("disabled");
         updateProgress(isCorrect);
-
-        userAnswer.value = "";
-        questionText.innerText = "";
-        topFace.click();
-
+        setTimeout(() => {
+            userAnswer.value = "";
+            answerText.innerText = "";
+            questionText.innerText = "";
+            topFace.classList.remove("disabled");
+            topFace.click();
+        }, 1880);
     });
 
     function updateProgress(isCorrect) {
@@ -186,11 +184,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.share-btn').forEach(button => {
         button.addEventListener('click', () => {
             button.classList.add('temp-color');
-
             setTimeout(() => {
                 button.classList.remove('temp-color');
-            }, 2500);
+            }, 2000);
         });
     });
-
 });

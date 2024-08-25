@@ -35,18 +35,8 @@
     <%- include('partials/navbar') %>
         <div class="container-box" id="data-container" data-boxid="<%= box_id %>">
             <%- include('partials/box') %>
-            <div class="share-card">
-                <h3>Kutunu Paylaş!</h3>
-                <p>Bu kelime kutusunu arkadaşlarınla paylaşarak birlikte öğrenin!</p>
-                <div class="share-buttons">
-                    <button class="share-btn" id="copyLinkBtn">Linki Kopyala</button>
-                    <button class="share-btn" id="whatsappShareBtn">
-                        <i class="fab fa-whatsapp"></i> WhatsApp ile Paylaş
-                    </button>
-                </div>
-            </div>
+            <%- include('partials/share-card') %>
         </div>
-        
         <script src="/js/idbox.js"></script>
 </body>
 </html>
