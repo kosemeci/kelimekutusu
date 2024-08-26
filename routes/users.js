@@ -12,8 +12,8 @@ router.use("/seviye-ogrenme-testi", async (req, res) => {
 
 router.use("/seviye-ogren", async (req, res) => {
     try {
-        var [data,] = await db.execute("SELECT * FROM words WHERE level IN ('A', 'A+', 'A++') ORDER BY RAND() LIMIT 12");
-        var [dataB,] = await db.execute("SELECT * FROM words WHERE level IN ('B', 'B+', 'B++') ORDER BY RAND() LIMIT 8");
+        var [data,] = await db.execute("SELECT * FROM words WHERE level IN ('A', 'A+', 'A++') ORDER BY RAND() LIMIT 9");
+        var [dataB,] = await db.execute("SELECT * FROM words WHERE level IN ('B', 'B+', 'B++') ORDER BY RAND() LIMIT 6");
         var [dataC,] = await db.execute("SELECT * FROM words WHERE level IN ('C', 'C+', 'C++') ORDER BY RAND() LIMIT 5");
         
         data.forEach(item => item.point = 1); 

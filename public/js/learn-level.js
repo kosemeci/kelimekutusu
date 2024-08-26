@@ -35,9 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Hata:', error);
         });
 
-
     function showGameResult(correctAnswers) {
-        const point = ((correctAnswers / 43) * 100).toFixed(2);
+        const point = ((correctAnswers / 36) * 100).toFixed(2);
         let message_ = "";
 
         if (point >= 90) {
@@ -45,45 +44,38 @@ document.addEventListener("DOMContentLoaded", function () {
         <div style="text-align: center;"><h2>Kelime testi tamamlandı!</h2></div>
         <h3 class="yellow-color">Başarı: ${point}%</h3>
         <p>Performansınız mükemmel! <strong>C2</strong> seviyesine ulaştınız.</p>
-        <p>Sonuçlar: Dili mükemmel bir şekilde kavradınız!</p>
     `;
         } else if (point >= 80) {
             message_ = `
         <div style="text-align: center;"><h2>Kelime testi tamamlandı!</h2></div>
         <h3 class="yellow-color">Başarı: ${point}%</h3>
         <p>Performansınız çok iyi! <strong>C1</strong> seviyesine ulaştınız.</p>
-        <p>Sonuçlar: Dili çok güçlü bir şekilde kavradınız!</p>
     `;
         } else if (point >= 70) {
             message_ = `
         <div style="text-align: center;"><h2>Kelime testi tamamlandı!</h2></div>
         <h3 class="yellow-color">Başarı: ${point}%</h3>
         <p>Performansınız iyi! <strong>B2</strong> seviyesine ulaştınız.</p>
-        <p>Sonuçlar: Dili iyi bir şekilde kavradınız!</p>
     `;
         } else if (point >= 55) {
             message_ = `
         <div style="text-align: center;"><h2>Kelime testi tamamlandı!</h2></div>
         <h3 class="yellow-color">Başarı: ${point}%</h3>
         <p>Performansınız tatmin edici! <strong>B</strong> seviyesine ulaştınız.</p>
-        <p>Sonuçlar: Dili tatmin edici bir şekilde kavradınız.</p>
     `;
         } else if (point >= 40) {
             message_ = `
         <div style="text-align: center;"><h2>Kelime testi tamamlandı!</h2></div>
         <h3 class="yellow-color">Başarı: ${point}%</h3>
         <p>Performansınız ortalama. <strong>A2</strong> seviyesine ulaştınız.</p>
-        <p>Sonuçlar: Dili temel bir şekilde kavradınız.</p>
     `;
         } else {
             message_ = `
         <div style="text-align: center;"><h2>Kelime testi tamamlandı!</h2></div>
         <h3 class="yellow-color">Başarı: ${point}%</h3>
         <p>Performansınızın geliştirilmesi gerekiyor. Şu anda <strong>A1</strong> seviyesindesiniz.</p>
-        <p>Sonuçlar: Dili daha iyi kavrayabilmek için geliştirilmesi gereken alanlar var.</p>
     `;
         }
-
         document.getElementById("resultMessage").innerHTML = message_ + message;
         modal.style.display = "block";
     }
@@ -103,22 +95,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     topFace.addEventListener("click", function () {
-        answerSection.style.display = "flex";
-
         if (box.classList.contains("open-top")) {
-            console.log(words);
-            submitAnswerButton.disabled = true;
             if (ask_index < ask_line) {
+                answerSection.style.display = "none";
+                answerText.style.color="black";
+                answerText.innerText = "Click the box!";
                 setTimeout(() => {
                     document.getElementById('box').classList.add('shake');
-                }, 1000);
+                }, 400);
             }
             box.classList.remove("open-top");
         }
         else {
-            document.getElementById('box').classList.remove('shake');
-
-            if (ask_index < ask_line) {
+            answerSection.style.display = "flex";
+            setTimeout(() => {
+                document.getElementById('box').classList.remove('shake');
+            }, 100);             if (ask_index < ask_line) {
                 submitAnswerButton.disabled = false;
                 box.classList.toggle("open-top");
                 createAsk();
@@ -132,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function createAsk() {
         topFace.classList.add("disabled");
         ask_index++;
-
         let randomIndex;
 
         do {
@@ -156,12 +147,12 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
             }
-
         }, { once: true });
     }
 
     submitAnswerButton.addEventListener("click", function () {
-
+        submitAnswerButton.disabled = true ;
+        window.scrollTo(0, 0);
         let isCorrect = false;
         const answer = userAnswer.value.trim().toLowerCase();
         let correctAnswer = askEnglish ? currentWord.english.toLowerCase() : currentWord.turkish.toLowerCase();
@@ -181,14 +172,14 @@ document.addEventListener("DOMContentLoaded", function () {
             ${currentWord.english} = ${currentWord.turkish} 
             <span>❌</span></span><br>`;
         }
-        topFace.classList.remove("disabled");
         updateProgress(isCorrect);
         setTimeout(() => {
             userAnswer.value = "";
             answerText.innerText = "";
             questionText.innerText = "";
+            topFace.classList.remove("disabled");
             topFace.click();
-        }, 2000);
+        }, 1700);
 
     });
 
@@ -238,5 +229,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 2000);
         });
     });
-
 }); 

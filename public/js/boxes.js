@@ -56,17 +56,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("words").remove(); 
     topFace.addEventListener("click", function () {
-        answerSection.style.display = "flex";
         if (box.classList.contains("open-top")) {
+            answerSection.style.display = "none";
+            answerText.style.color="black";
+            answerText.innerText = "Click the box!";
             if(ask_index<ask_line){
                 setTimeout(() => {
                     document.getElementById('box').classList.add('shake');
-                }, 25);
+                }, 400);
             }
             box.classList.remove("open-top");
         }
         else {
-            document.getElementById('box').classList.remove('shake');
+            answerSection.style.display = "flex";
+            setTimeout(() => {
+                document.getElementById('box').classList.remove('shake');
+            }, 100);            
             if (ask_index < ask_line) {
                 submitAnswerButton.disabled = false;
                 box.classList.toggle("open-top");
@@ -110,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     submitAnswerButton.addEventListener("click", function () {
         submitAnswerButton.disabled = true ;
+        window.scrollTo(0, 0);
         let isCorrect = false;
         const answer = userAnswer.value.trim().toLowerCase();
         let correctAnswer = askEnglish ? currentWord.English.toLowerCase() : currentWord.Turkish.toLowerCase();
@@ -136,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
             questionText.innerText = "";
             topFace.classList.remove("disabled");
             topFace.click();
-        }, 1880);
+        }, 1700);
     });
 
     function updateProgress(isCorrect) {

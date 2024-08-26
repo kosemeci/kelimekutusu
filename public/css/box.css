@@ -271,7 +271,7 @@
         padding: 4px;
     }
     .modal-content {
-        margin-top: 25px;
+        margin: 25px auto;
         width: 80%; 
         padding: 10px; 
     }
@@ -287,5 +287,8 @@
     .progress-container{
         height: 12px;
         width: 65%;
+    }
+    #retryButton{
+        margin-bottom: 30px;
     }
 }
