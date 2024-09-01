@@ -45,15 +45,36 @@ router.post('/create_box', async (req, res) => {
     }
 });
 
+router.get("/fetch/kategori_:box_name", async (req, res) => {
+    try {
+        const [data,] = await db.execute("SELECT * FROM categories WHERE category = ? ORDER BY RAND() LIMIT 10", [req.params.box_name]);
+        res.status(200).json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 router.use("/kategori_:box_name", async (req, res) => {
     try {
         const [data,] = await db.execute("SELECT * FROM categories  where category = ?", [req.params.box_name]);
-        res.render("boxes", { data: data });
+        res.render("boxes");
     }
     catch (err) {
         console.log(err);
     }
 });
+
+router.get("/fetch/seviye_:box_name", async (req, res) => {
+    try {
+        const [data,] = await db.execute("SELECT * FROM words WHERE level = ? ORDER BY RAND() LIMIT 10", [req.params.box_name]);
+        res.status(200).json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 
 router.use("/seviye_:box_name", async (req, res) => {
     try {
@@ -159,10 +180,7 @@ async function fetchDataAndUpdateDB() {
                 }
             }
         );
-
         const token = tokenResponse.data.response.token;
-
-        // Verileri almak için PATCH isteği
         const dataResponse = await axios.patch(
             'https://efatura.etrsoft.com/fmi/data/v1/databases/testdb/layouts/testdb/records/1',
             {
@@ -185,14 +203,11 @@ async function fetchDataAndUpdateDB() {
             const hesap_kodu = item.hesap_kodu;
             const borc = item.borc === '' ? 0 : parseFloat(item.borc);
 
-            // Veritabanında var mı kontrol et
             const [checkResult] = await db.execute('SELECT COUNT(*) AS count FROM data WHERE hesap_kodu = ?', [hesap_kodu]);
 
             if (checkResult[0].count > 0) {
-                // Güncelleme yap
                 await db.execute('UPDATE data SET borcu = ? WHERE hesap_kodu = ?', [borc, hesap_kodu]);
             } else {
-                // Ekleme yap
                 await db.execute('INSERT INTO data (hesap_kodu, borcu) VALUES (?, ?)', [hesap_kodu, borc]);
             }
         }

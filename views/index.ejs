@@ -15,6 +15,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self'; 
+    script-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://ep2.adtrafficquality.google; 
+    style-src 'self' 'unsafe-inline'; 
+    img-src 'self' https://pagead2.googlesyndication.com; 
+    connect-src 'self' https://www.google-analytics.com https://pagead2.googlesyndication.com https://ep1.adtrafficquality.google; 
+    frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com; 
+    child-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com;">
     <meta name="description"
         content="İngilizce kelime dağarcığınızı genişletmek için özenle hazırlanmış kelime kutuları oluşturmanıza ve mevcut kutularla kendinizi test etmenize olanak tanır.Ayrıca, sitemizde yer alan Kelime Seviye Testi ile mevcut kelime bilginizi değerlendirebilirsiniz.">
     <meta name="og:keywords"
@@ -27,25 +35,28 @@
         content="İngilizce kelime dağarcığınızı genişletmek için özenle hazırlanmış kelime kutuları oluşturmanıza ve mevcut kutularla kendinizi test etmenize olanak tanır.Ayrıca, sitemizde yer alan Kelime Seviye Testi ile mevcut kelime bilginizi değerlendirebilirsiniz.">
     <meta property="og:image" content="/images/tra.webp">
     <meta property="og:url" content="https://www.kutukutukelime.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Özenle hazırlanmış kelime kutuları">
+    <meta name="twitter:description" content="İngilizce kelime dağarcığınızı genişletmek için özenle hazırlanmış kelime kutuları oluşturmanıza ve mevcut kutularla kendinizi test etmenize olanak tanır.Ayrıca, sitemizde yer alan Kelime Seviye Testi ile mevcut kelime bilginizi değerlendirebilirsiniz.">
 
     <link rel="icon" href="/images/box.webp">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
-    <title>İngilizce-Türkçe Kelime Kutuları - Kelime Öğrenin - kutukutukelime</title>
+    <title>İngilizce-Türkçe Kelime Kutuları - Eğlenceli Kelime Öğrenin</title>
 </head>
-
 <body>
     <%- include('partials/navbar') %>
         <main class="container">
             <h1>
-                <a href="/kutum" class="createBox">Kelime kutunu oluştur</a> ya da aşağıdaki kutulardan birine tıkla!
+                İngilizce Öğrenmenin En Eğlenceli Yolu: Kelime Oyunları!            
             </h1>
-            <h2> 
+            <div> 
                 <a href="/seviye-ogrenme-testi" class="test-level-btn">Kelime Seviyeni Öğren</a>
-            </h2>
+                <a href="/kutum" class="test-level-btn">Kelime Kutunu Oluştur</a>
+            </div>
             <div class="cards">
                 <% words.forEach((word,index)=> { %>
-                    <div class="card color<%=++index%>" id="<%= word.level %>">
+                    <div class="card color<%=++index%>" id="<%= word.level %>" aria-label="<%= word.level %> seviyesi için kelime kutusu">
                         <div class="box level-a">
                             <% ['front', 'back' , 'left' , 'right' , 'top' , 'bottom' ].forEach(face=> { %>
                                 <div class="face <%= face %>">
@@ -62,7 +73,7 @@
             <div class="separator"></div>
             <div class="cards">
                 <% words_category.forEach((word,index)=> { %>
-                    <div class="card color<%=++index+9%>" id="<%= word.category %>">
+                    <div class="card color<%=++index+9%>" id="<%= word.category %>"aria-label="<%= word.category %> kategorisi için kelime kutusu">
                         <div class="box level-a">
                             <% ['front', 'back' , 'left' , 'right' , 'top' , 'bottom' ].forEach(face=> { %>
                                 <div class="face <%= face %>">
@@ -81,12 +92,12 @@
                     </div>
                     <% }) %>
             </div>
-            <div class="create-box">
-                <a href="/kutum" class="create-box-btn">Kelime Kutunu Oluştur</a>
+            <div>
+                <a href="/kutum" class="test-level-btn">Kelime Kutunu Oluştur</a>
+                <a href="/seviye-ogrenme-testi" class="test-level-btn">Kelime Seviyeni Öğren</a>
             </div>
             <%- include('partials/routes') %>
         </main>
         <script src="/js/index.js"></script>
 </body>
-
 </html>

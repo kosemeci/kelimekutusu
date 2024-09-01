@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('box').classList.add('shake');
     submitAnswerButton.disabled = true ;
 
-    const words = [];
+    var words = [];
     const red_color = "#E74C3C";
     const green_color = "#2ECC71";
     let currentWord = null;
@@ -24,14 +24,23 @@ document.addEventListener("DOMContentLoaded", function () {
     let progress = 0;
     let randomWords = [];
 
-    const listItems = document.querySelectorAll("#words li");
-    listItems.forEach((item) => {
+    // const listItems = document.querySelectorAll("#words li");
+    // listItems.forEach((item) => {
 
-        const text = item.innerText.trim();
-        const [english, turkish] = text.split(' - ');
+    //     const text = item.innerText.trim();
+    //     const [english, turkish] = text.split(' - ');
 
-        words.push({ English: english, Turkish: turkish });
-    });
+    //     words.push({ English: english, Turkish: turkish });
+    // });
+    // console.log(words);
+
+    const url_fetch = `${window.location.pathname}`;
+    fetch(`/fetch${url_fetch}`)
+    .then(response => response.json())
+    .then(get_words => {
+        words.push(...get_words);
+    })
+    .catch(error => console.error('Error:', error));
 
     function showGameResult(correctAnswers, totalQuestions) {
         const point = ((correctAnswers/totalQuestions)*100).toFixed(2);
@@ -54,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    document.getElementById("words").remove(); 
     topFace.addEventListener("click", function () {
         if (box.classList.contains("open-top")) {
             answerSection.style.display = "none";
@@ -71,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
             answerSection.style.display = "flex";
             setTimeout(() => {
                 document.getElementById('box').classList.remove('shake');
-            }, 100);            
+            }, 100);
             if (ask_index < ask_line) {
                 submitAnswerButton.disabled = false;
                 box.classList.toggle("open-top");
@@ -93,46 +101,56 @@ document.addEventListener("DOMContentLoaded", function () {
         } while (randomWords.includes(randomIndex));
 
         currentWord = words[randomIndex];
-        randomWords.push(randomIndex); 
+        randomWords.push(randomIndex);
         askEnglish = Math.random() > 0.5;
         answerText.innerText = "";
         progressContainer.style.display = "flex";
 
         if (askEnglish) {
-            paper.textContent = currentWord.Turkish;
+            paper.textContent = currentWord.turkish;
         } else {
-            paper.textContent = currentWord.English;
+            paper.textContent = currentWord.english;
         }
         paper.addEventListener('transitionend', function () {
             if (askEnglish) {
-                questionText.textContent = `What is the English translation of "${currentWord.Turkish}"?`;
+                questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
             } else {
-                questionText.textContent = `What is the Turkish translation of "${currentWord.English}"?`;
+                questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
             }
 
         }, { once: true });
     }
 
     submitAnswerButton.addEventListener("click", function () {
-        submitAnswerButton.disabled = true ;
+        submitAnswerButton.disabled = true;
         window.scrollTo(0, 0);
         let isCorrect = false;
-        const answer = userAnswer.value.trim().toLowerCase();
-        let correctAnswer = askEnglish ? currentWord.English.toLowerCase() : currentWord.Turkish.toLowerCase();
-        if (answer === correctAnswer) {
-            answerText.innerText = "Correct Answer!"
+        const answer = userAnswer.value.trim().toLocaleLowerCase('tr-TR');
+        let correctAnswer = askEnglish ? currentWord.english.toLowerCase() : currentWord.turkish.toLowerCase();     
+        let correctAnswers = [correctAnswer];
+        if (askEnglish) {
+            if (currentWord.other_english) {
+                correctAnswers = correctAnswers.concat(currentWord.other_english.split(',').map(s => s.trim().toLowerCase()));
+            }
+        } else {
+            if (currentWord.other_turkish) {
+                correctAnswers = correctAnswers.concat(currentWord.other_turkish.split(',').map(s => s.trim().toLowerCase()));
+            }
+        }
+        if (correctAnswers.includes(answer)) {
+            answerText.innerText = "Correct Answer!";
             answerText.style.color = green_color;
             correctNum++;
             isCorrect = true;
-            message += `<span class="yellow-border"> 
-            ${currentWord.English} = ${currentWord.Turkish} 
+            message += `<span class="yellow-border">
+            ${currentWord.english} = ${answer}
             <span>✅</span></span><br>`;
         } else {
             answerText.innerText = correctAnswer;
             answerText.style.color = red_color;
             isCorrect = false;
-            message += `<span class="yellow-border"> 
-            ${currentWord.English} = ${currentWord.Turkish} 
+            message += `<span class="yellow-border">
+            ${currentWord.english} = ${currentWord.turkish}
             <span>❌</span></span><br>`;
         }
         updateProgress(isCorrect);
@@ -144,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
             topFace.click();
         }, 1700);
     });
-
+    
     function updateProgress(isCorrect) {
         if (progress < 100) {
             progress += 100 / ask_line;
@@ -161,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     userAnswer.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {            
+        if (event.key === 'Enter') {
             if(userAnswer.innerText!==null){
                 submitAnswerButton.click();
             }
@@ -169,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const url = `${window.location.origin}${window.location.pathname}`;
-    const text = encodeURIComponent('Hadi bakalım!Özenle hazırlanmış bu kelime kutusunda kaç puan alıcaksın 😊'); 
+    const text = encodeURIComponent('Hadi bakalım!Özenle hazırlanmış bu kelime kutusunda kaç puan alıcaksın 😊');
 
     document.getElementById('whatsappShareBtn').addEventListener('click', () => {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -191,4 +209,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 2500);
         });
     });
-}); 
+});

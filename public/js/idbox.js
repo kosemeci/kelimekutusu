@@ -121,9 +121,9 @@ document.addEventListener("DOMContentLoaded", function () {
         submitAnswerButton.disabled = true;
         window.scrollTo(0, 0);
         let isCorrect = false;
-        const answer = userAnswer.value.trim().toLowerCase();
+        const answer = userAnswer.value.trim().toLocaleLowerCase('tr-TR');
         let correctAnswer = askEnglish ? currentWord.english.toLowerCase() : currentWord.turkish.toLowerCase();
-        if (answer === correctAnswer) {
+        if (correctAnswers.includes(answer)) {
             answerText.innerText = "Correct Answer!"
             answerText.style.color = green_color;
             correctNum++;

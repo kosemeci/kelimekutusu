@@ -1,11 +1,6 @@
 body {
     margin: 0;
 }
-
-h1, h2, h3, h4 {
-    margin: 0;
-}
-
 .container {
     margin: 200px 0px 60px; 
     width: 100%;
@@ -13,17 +8,10 @@ h1, h2, h3, h4 {
     flex-direction: column;
     align-items: center;
 }
-
-h1 {
+.container h1{
     color: #2c3e50;
     font-size: 28px;
 }
-
-h1 a {
-    color: #2c3e50;
-    text-decoration: underline #E5A601;
-}
-
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -39,6 +27,7 @@ h1 a {
     text-align: center;
     transition: transform 0.3s;
     width: min-content;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -101,26 +90,6 @@ h1 a {
 .color19 .face { background-color: #27bc36; }
 .color20 .face { background-color: #6423aa; }
 .color21 .face { background-color: #3a5353; }
-
-.create-box {
-    margin: 30px 0 120px;
-}
-
-.create-box-btn {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-    transition: background-color 0.3s;
-}
-
-.create-box-btn:hover {
-    background-color: #E5A601;
-    transform: translateY(2px);
-}
-
 .cards p {
     font-family: "Times New Roman", serif;
     margin: 40px 0 12px;
@@ -142,6 +111,7 @@ h1 a {
 
 .test-level-btn {
     display: inline-block;
+    margin: 3px;
     padding: 12px 25px;
     font-size: 18px;
     font-weight: 500;
@@ -162,39 +132,37 @@ h1 a {
 .test-level-btn:active {
     transform: translateY(0);
 }
-
-
 @media (max-width: 600px) {
     .container {
         margin: 120px 0px 40px; 
         padding: 0 10px;
     }
-
-    h1 {
-        font-size: 18px;
-        text-align: center;
-        margin: 20px 0;
-        padding: 0 25px;
+    .test-level-btn {
+        margin: 2px;
+        padding: 10px 8px;
+        font-size: 15px;
+        font-weight: 400;
     }
-
+    .container h1 {
+        font-size: 18px !important;
+        margin: 20px 0;
+        padding: 0 15px;
+    }
     .cards {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         margin: 20px 0;
     }
-
     .card {
         width: 88%;
         padding: 15px 10px 0;
         font-size: 14px;
         margin-bottom: 10px;
     }
-
     .box {
         width: 60px;
         height: 100px;
     }
-
     .face {
         width: 60px;
         height: 60px;
@@ -206,16 +174,6 @@ h1 a {
         font-size: 14px;
         min-width: 160px;
     }
-
-    .create-box {
-        margin: 20px 0 100px;
-    }
-
-    .create-box-btn {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-
     .face.front  { transform: translateZ(30px); }
     .face.back   { transform: rotateY(180deg) translateZ(30px); }
     .face.left   { transform: rotateY(-90deg) translateZ(30px); }
@@ -236,8 +194,8 @@ h1 a {
     .container {
         width: 95%;
     }
-    h1 {
-        font-size: 24px;
+    .container h1 {
+        font-size: 26px;
         text-align: center;
     }
 }

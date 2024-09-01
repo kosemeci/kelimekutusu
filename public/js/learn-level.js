@@ -154,15 +154,25 @@ document.addEventListener("DOMContentLoaded", function () {
         submitAnswerButton.disabled = true ;
         window.scrollTo(0, 0);
         let isCorrect = false;
-        const answer = userAnswer.value.trim().toLowerCase();
+        const answer = userAnswer.value.trim().toLocaleLowerCase('tr-TR');
         let correctAnswer = askEnglish ? currentWord.english.toLowerCase() : currentWord.turkish.toLowerCase();
-        if (answer === correctAnswer) {
+        let correctAnswers = [correctAnswer];
+        if (askEnglish) {
+            if (currentWord.other_english) {
+                correctAnswers = correctAnswers.concat(currentWord.other_english.split(',').map(s => s.trim().toLowerCase()));
+            }
+        } else {
+            if (currentWord.other_turkish) {
+                correctAnswers = correctAnswers.concat(currentWord.other_turkish.split(',').map(s => s.trim().toLowerCase()));
+            }
+        }
+        if (correctAnswers.includes(answer)) {
             answerText.innerText = "Correct Answer!"
             answerText.style.color = green_color;
             correctNum += currentWord.point;
             isCorrect = true;
             message += `<span class="yellow-border"> 
-            ${currentWord.english} = ${currentWord.turkish} 
+            ${currentWord.english} = ${answer} 
             <span>✅</span></span><br>`;
         } else {
             answerText.innerText = correctAnswer;
