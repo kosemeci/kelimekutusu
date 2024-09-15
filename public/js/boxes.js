@@ -24,16 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let progress = 0;
     let randomWords = [];
 
-    // const listItems = document.querySelectorAll("#words li");
-    // listItems.forEach((item) => {
-
-    //     const text = item.innerText.trim();
-    //     const [english, turkish] = text.split(' - ');
-
-    //     words.push({ English: english, Turkish: turkish });
-    // });
-    // console.log(words);
-
     const url_fetch = `${window.location.pathname}`;
     fetch(`/fetch${url_fetch}`)
     .then(response => response.json())
@@ -64,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     topFace.addEventListener("click", function () {
+        this.blur();
         if (box.classList.contains("open-top")) {
             answerSection.style.display = "none";
             answerText.style.color="black";

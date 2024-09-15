@@ -34,6 +34,7 @@ body {
     transform: translateY(-10px);
 }
 
+
 .box {
     width: 120px;
     height: 120px;
@@ -52,8 +53,8 @@ body {
     position: absolute;
     width: 120px;
     height: 120px;
-    background-color: #3498db;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,27 +70,28 @@ body {
 .face.top    { transform: rotateX(90deg) translateZ(60px); }
 .face.bottom { transform: rotateX(-90deg) translateZ(60px); }
 
-.color1 .face { background-color: #5be2e2; }
-.color2 .face { background-color: #4da2db; }
-.color3 .face { background-color: #206b9d; }
-.color4 .face { background-color: #f1c40f; }
-.color5 .face { background-color: #f39c12; }
-.color6 .face { background-color: #e67e22; }
-.color7 .face { background-color: #da607a; }
-.color8 .face { background-color: #e53f3f; }
-.color9 .face { background-color: #841d11; }
-.color10 .face { background-color: #7d5fff; }
-.color11 .face { background-color: #854d7b; }
-.color12 .face { background-color: #1d2a36; }
-.color13 .face { background-color: #374c61; }
-.color14 .face { background-color: #561472; }
-.color15 .face { background-color: #1f6b26; }
-.color16 .face { background-color: #716cbe; }
-.color17 .face { background-color: #b5b416; }
-.color18 .face { background-color: #b3186b; }
-.color19 .face { background-color: #27bc36; }
-.color20 .face { background-color: #6423aa; }
-.color21 .face { background-color: #3a5353; }
+.color1 .face { background: linear-gradient(45deg, #5be2e2, #4dd0d0); }
+.color2 .face { background: linear-gradient(45deg, #4da2db, #4b94d2); }
+.color3 .face { background: linear-gradient(45deg, #206b9d, #1f638f); }
+.color4 .face { background: linear-gradient(45deg, #f1c40f, #eab907); }
+.color5 .face { background: linear-gradient(45deg, #f39c12, #e89210); }
+.color6 .face { background: linear-gradient(45deg, #e67e22, #d9711d); }
+.color7 .face { background: linear-gradient(45deg, #da607a, #d15769); }
+.color8 .face { background: linear-gradient(45deg, #e53f3f, #d83838); }
+.color9 .face { background: linear-gradient(45deg, #841d11, #7a1b10); }
+.color10 .face { background: linear-gradient(45deg, #7d5fff, #7156e6); }
+.color11 .face { background: linear-gradient(45deg, #854d7b, #7c476f); }
+.color12 .face { background: linear-gradient(45deg, #1d2a36, #1a2530); }
+.color13 .face { background: linear-gradient(45deg, #374c61, #324457); }
+.color14 .face { background: linear-gradient(45deg, #561472, #4e1266); }
+.color15 .face { background: linear-gradient(45deg, #1f6b26, #1c6022); }
+.color16 .face { background: linear-gradient(45deg, #716cbe, #6661ad); }
+.color17 .face { background: linear-gradient(45deg, #b5b416, #a9a214); }
+.color18 .face { background: linear-gradient(45deg, #b3186b, #a11661); }
+.color19 .face { background: linear-gradient(45deg, #27bc36, #23a730); }
+.color20 .face { background: linear-gradient(45deg, #6423aa, #5b2098); }
+.color21 .face { background: linear-gradient(45deg, #3a5353, #354c4c); }
+
 .cards p {
     font-family: "Times New Roman", serif;
     margin: 40px 0 12px;
@@ -111,7 +113,7 @@ body {
 
 .test-level-btn {
     display: inline-block;
-    margin: 3px;
+    margin: 5px;
     padding: 12px 25px;
     font-size: 18px;
     font-weight: 500;

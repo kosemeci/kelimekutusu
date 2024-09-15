@@ -1,20 +1,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://kutukutukelime.com/</loc>
+        <loc>https://kutukutukelime.com/</loc>
         <lastmod>2024-08-27</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://kutukutukelime.com/seviye-ogrenme-testi</loc>
+        <loc>https://kutukutukelime.com/arkadaslarinla-oyna</loc>
+        <lastmod>2024-09-15T17:09:57+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://kutukutukelime.com/seviye-ogrenme-testi</loc>
         <lastmod>2024-08-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://kutukutukelime.com/kutum</loc>
+        <loc>https://kutukutukelime.com/kutum</loc>
         <lastmod>2024-08-27</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://kutukutukelime.com/gizlilik-politikasi</loc>
+        <lastmod>2024-09-15T17:09:57+00:00</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 

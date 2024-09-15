@@ -7,6 +7,7 @@ body, html {
     align-items: center;
     background-color: #f0f0f0;
 }
+
 .navbar {
     width: 100%;
     background-color: #2c3e50;
@@ -22,6 +23,7 @@ body, html {
     z-index: 1000;
     border-bottom: 3px ridge  #E5A601;
 }
+
 .navbar-brand {
     font-weight: bold;
     margin: 15px;
@@ -30,24 +32,27 @@ body, html {
     margin-left: 120px;
     cursor: pointer; 
 }
-.navbar-brand i{
+
+.navbar-brand i {
     color: #E5A601;
 }
+
 .navbar-menu a {
     color: white;
     text-decoration: none;
     margin: 15px;
     margin-right: 120px;
     cursor: pointer;
+    padding: 5px;
+    border: 2px solid #F28C00;
 }
-.navbar-menu a:hover {
-    text-decoration: underline #E5A601;
-}
+
 .inline-icon {
     vertical-align: middle;
     width: 30px;
     height: 30px;
 }
+
 @media (max-width: 1050px) {
     .navbar {
         align-items: flex-start;
@@ -99,11 +104,28 @@ body, html {
     }
 }
 @media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
     .navbar-brand {
         font-size: 24px;
+        margin-bottom: 10px;
+        margin-left: 14px;
+    }
+
+    .navbar-menu {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
     }
 
     .navbar-menu a {
-        display: none;
+        margin: 0;
+        margin-right: 14px;
+        font-size: 18px;
+        align-self: flex-end;
     }
 }

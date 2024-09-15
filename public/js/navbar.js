@@ -1,8 +1,8 @@
-const newBoxButton = document.getElementById("newBox");
+const newRoomButton = document.getElementById("newRoom");
 const wordBoxBrand = document.getElementById("wordBoxBrand");
 
-newBoxButton.addEventListener("click", function() {
-    window.location.href = '/kutum';
+newRoomButton.addEventListener("click", function() {
+    window.location.href = '/kelime-yarismasi';
 });
 
 wordBoxBrand.addEventListener("click", function () {

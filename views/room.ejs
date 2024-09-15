@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPY9Z1R57Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-LPY9Z1R57Z');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9918689262702859"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="Arkadaşlarınızla İngilizce kelime yarışmaları düzenleyin, seviyenize uygun kelimelerle bilginizi test edin ve eğlenceli bir şekilde dil becerilerinizi geliştirin.">
+    <meta name="keywords"
+        content="İngilizce kelime yarışması, kelime oyunu, online yarışma, kelime bilgisi, dil öğrenme, kelime geliştirme, arkadaşlarla oyun, İngilizce pratiği, yarışma odaları, online İngilizce yarışma, kelime bilgi testi, İngilizce öğrenme oyunları">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arkadaşlarınızla İngilizce Kelime Yarışması">
+    <meta property="og:description"
+        content="İngilizce kelime bilginizi arkadaşlarınızla yarışarak test edin. Kendi odanızı kurun veya mevcut odalara katılın ve dil becerilerinizi eğlenceli bir şekilde geliştirin.">
+    <meta property="og:image" content="/images/tra.webp">
+    <meta property="og:url" content="https://www.kutukutukelime.com/kelime-yarismasi">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Arkadaşlarınızla İngilizce Kelime Yarışması">
+    <meta name="twitter:description"
+        content="İngilizce kelime bilginizi eğlenceli bir yarışmada test edin. Kendi odanızı kurarak arkadaşlarınızla yarışın.">
+    <link rel="icon" href="/images/box.webp">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="/css/room.css">
+    <title>İngilizce Kelime Yarışması - Kelime Kutuları</title>
+
+    <title>Kelime Yarışması Online - Kelime kutuları</title>
+    <script src="/socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+        <div id="gameRulesInfo" style="display: none;">
+            <%- include('partials/gameRules') %>
+        </div>
+
+        <div class="form-container" id="form-container">
+            <div class="tab-header">
+                <button class="tab-link active" id="createRoomTab" onclick="openForm(event, 'createRoom')">Oda
+                    Oluştur</button>
+                <button class="tab-link" id="joinRoomTab" onclick="openForm(event, 'joinRoom')">Odaya Katıl</button>
+            </div>
+            <div id="createRoom" class="tab-content" style="display: block;">
+                <div class="form-box">
+                    <form id="createRoomForm">
+                        <label for="newUserName">Kullanıcı Adı</label>
+                        <input type="text" id="newUserName" name="newUserName" minlength="3" maxlength="20" required>
+                        <label for="category">Kategori</label>
+                        <div class="custom-dropdown">
+                            <p class="dropdown-toggle" id="dropdown-btn" data-selected="false" >Bir kategori seçin</p>
+                            <ul class="dropdown-menu" id="dropdown-menu">
+                                <% level.forEach(element=> { %>
+                                    <li class="dropdown-item" data-value="<%= element.level %>">
+                                        <%= element.level %>
+                                    </li>
+                                    <% }) %>
+                                        <% category.forEach(element=> { %>
+                                            <li class="dropdown-item" data-value="<%= element.turkish %>">
+                                                <%= element.turkish %>
+                                            </li>
+                                            <% }) %>
+                            </ul>
+                        </div>
+                        <label for="questionCount">Soru Sayısı</label>
+                        <select id="questionCount" name="questionCount" required>
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                        <label for="newRoomId" id="roomIdLabel" style="display: none;">Oda Numarası</label>
+                        <input type="text" id="newRoomId" name="newRoomId" style="display: none;">
+                        <input type="hidden" name="category" id="category">
+                        <button type="submit" id="createNewRoom">Oda Oluştur</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="joinRoom" class="tab-content">
+                <div class="user-info-form">
+                    <form id="joinRoomForm">
+                        <label for="username">Kullanıcı Adı</label>
+                        <input type="text" id="username" name="username" minlength="3" maxlength="20" required>
+                        <label for="roomNumber">Oda Numarası <div id="error-message">Oda bulunamadı.</div></label>
+                        <input type="number" id="roomNumber" name="roomNumber" max="9999" min="0" required>
+                        <button type="submit" id="readyButton">Hazırım</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="info-container">
+            <i class="fas fa-info-circle info-icon" onclick="openModal()">Oyun Kuralları</i>
+        </div>
+
+        <div class="container-box" id="container-box" style="display: none;">
+            <%- include('partials/box') %>
+        </div>
+
+        <div id="waitingMessage" class="waiting-message" style="display: none;">
+            Oda sahibinin oyunu başlatması bekleniyor...
+        </div>
+
+        <div id="userList" class="user-list" style="display: none;">
+            <h3>Odadaki Kullanıcılar</h3>
+            <table id="userListTable">
+                <thead>
+                    <tr>
+                        <th class="hashtag"><i class="fa-solid fa-ranking-star" style="color: #f28c00;"></i></th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Puan</th>
+                    </tr>
+                </thead>
+                <tbody id="userListContainer">
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="confetti-container" style="display: none;"></div>
+        <div id="winner">
+            <h1 id="winner-name"></h1>
+        </div>
+
+        <div class="result-container" id="result-container">
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>Soru</th>
+                        <th>Cevaplar</th>
+                    </tr>
+                </thead>
+                <tbody id="resultList"></tbody>
+            </table>
+        </div>
+
+        <div class="action-buttons" id="action-buttons" style="display: none;">
+            <button id="newGameButton">Yeni Oyun</button>
+            <button id="homeButton">Ana Sayfa</button>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+        <script src="/js/room.js"></script>
+</body>
+</html>

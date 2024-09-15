@@ -5,7 +5,6 @@ const axios = require('axios');
 const https = require('https');
 const cron = require('node-cron');
 
-
 router.use("/seviye-ogrenme-testi", async (req, res) => {
     res.render('learn-level');
 });
@@ -15,11 +14,11 @@ router.use("/seviye-ogren", async (req, res) => {
         var [data,] = await db.execute("SELECT * FROM words WHERE level IN ('A', 'A+', 'A++') ORDER BY RAND() LIMIT 9");
         var [dataB,] = await db.execute("SELECT * FROM words WHERE level IN ('B', 'B+', 'B++') ORDER BY RAND() LIMIT 6");
         var [dataC,] = await db.execute("SELECT * FROM words WHERE level IN ('C', 'C+', 'C++') ORDER BY RAND() LIMIT 5");
-        
-        data.forEach(item => item.point = 1); 
-        dataB.forEach(item => item.point = 2); 
-        dataC.forEach(item => item.point = 3);   
-        var combinedData = [...data,...dataB, ...dataC];
+
+        data.forEach(item => item.point = 1);
+        dataB.forEach(item => item.point = 2);
+        dataC.forEach(item => item.point = 3);
+        var combinedData = [...data, ...dataB, ...dataC];
 
         res.json(combinedData);
     }
@@ -75,7 +74,6 @@ router.get("/fetch/seviye_:box_name", async (req, res) => {
     }
 });
 
-
 router.use("/seviye_:box_name", async (req, res) => {
     try {
         const [data,] = await db.execute("SELECT * FROM words  where level = ?", [req.params.box_name]);
@@ -105,6 +103,26 @@ router.use("/kutum", (req, res) => {
     res.render("mybox");
 });
 
+router.use("/kelime-yarismasi", async (req, res) => {
+    const query = "SELECT level FROM words  GROUP BY level ORDER BY level ASC;";
+    const queryTrCategory = "SELECT turkish FROM t_category ORDER BY turkish ASC";
+
+    try {
+        const [data,] = await db.execute(query);
+        const [turkishCategory,] = await db.execute(queryTrCategory);
+            
+        res.render("room", {
+            level: data,
+            category: turkishCategory,
+        });
+
+
+    } catch (err) {
+        console.log(err);
+    }
+
+});
+
 router.get("/sitemap.xml", (req, res) => {
     res.sendFile("sitemap.xml", { root: __dirname });
 });
@@ -112,6 +130,10 @@ router.get("/sitemap.xml", (req, res) => {
 router.get("/robots.txt", (req, res) => {
     res.sendFile("robots.txt", { root: __dirname });
 });
+
+router.use("/gizlilik-politikasi",(req,res)=>{
+    res.render("privacy");
+})
 
 router.use('/etrsoft_odev', async (req, res) => {
     try {
@@ -129,8 +151,8 @@ ORDER BY
 
   `;
 
-    const [rows] = await db.execute(query);
-    res.render('etr', { data: rows });
+        const [rows] = await db.execute(query);
+        res.render('etr', { data: rows });
     } catch (error) {
         console.error('Veri çekme hatası:', error.message);
         res.status(500).send('Veri çekme işlemi başarısız.');
