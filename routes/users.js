@@ -103,6 +103,10 @@ router.use("/kutum", (req, res) => {
     res.render("mybox");
 });
 
+router.use("/a", (req, res) => {
+    res.render("a");
+});
+
 router.use("/kelime-yarismasi", async (req, res) => {
     const query = "SELECT level FROM words  GROUP BY level ORDER BY level ASC;";
     const queryTrCategory = "SELECT turkish FROM t_category ORDER BY turkish ASC";

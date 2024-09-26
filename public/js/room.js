@@ -21,11 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultContainer = document.getElementById('result-container');
     const resultList = document.getElementById('resultList');
     const homeButton = document.getElementById('homeButton');
+    const orderQuestion = document.getElementById('selectZ');
     const randomRoomId = Math.floor(Math.random() * 9000) + 1000;
     var activeRoomId = "";
     var correctAnswer = [];
     let countdownStartTime = null;
     var elapsedTime = 11;
+    let maxCount = 5;
+    let count = 0;
 
     const socket = io('https://kutukutukelime.com');
 
@@ -42,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (createNewRoomBtn.innerText === "Oyunu Başlat") {
             const roomStarter = {
                 id: randomRoomId,
-                status: "start"
+                status: "start",
+                questionCount: parseInt(questionCount.value),
             };
             socket.emit('startGame', roomStarter);
         } else {
@@ -150,12 +154,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    socket.on("gameStarted", (roomId) => {
-        activeRoomId = roomId;
+    socket.on("gameStarted", (roomIdInfo) => {
+        activeRoomId = roomIdInfo.roomId;
+        maxCount = roomIdInfo.maxCount;
         formContainer.style.display = "none";
         waitingMessage.style.display = 'none';
         boxContainer.style.display = "block";
         closeModal();
+        orderQuestion.innerText = "1.Soru";
         answerText.textContent = 'Oyun başlıyor...';
         userList.querySelector('h3').innerText = "Skor Tablosu";
     });
@@ -166,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userAnswer.disabled = false;
         const askEnglish = questionInfo.askEnglish;
         const questions = questionInfo.question;
+        count = questionInfo.count;
 
         if (askEnglish) {
             paperText.innerText = questions.turkish;
@@ -205,7 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     function startCountdown(duration, display) {
-        console.log("saymaya başladık");
         let timer = duration * 1000;
         countdownStartTime = Date.now();
         elapsedTime = duration + 1;
@@ -242,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 answerSection.style.display = "none";
                 questionText.textContent = '';
                 box.classList.remove("open-top");
+                if(count<maxCount+1){orderQuestion.innerText = count + ".Soru";};
             }
         }, 10);
     }
@@ -259,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
         boxContainer.style.display = "none";
         const screenWidth = window.innerWidth;
         if (screenWidth <= 600) {
-            userList.style.marginTop = '20%';
+            userList.style.marginTop = '26%';
         } else if (screenWidth > 600 && screenWidth <= 1024) {
             userList.style.marginTop = '14%';
         } else {
@@ -331,7 +338,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = '/';
     });
     newGameButton.addEventListener('click', () => {
-        window.location.href = '/a';
+        window.location.href = '/kelime-yarismasi';
     });
 });
 function openForm(evt, formName) {

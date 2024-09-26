@@ -6,7 +6,6 @@ module.exports = function (io) {
     io.on("connection", (socket) => {
 
         socket.on("joinRoom", (roomData) => {
-            console.log('joined');
 
             const roomId = String(roomData.id);
             var infoUser = roomData.newPlayer;
@@ -45,11 +44,16 @@ module.exports = function (io) {
         });
         socket.on("startGame", (roomStart) => {
             const roomId = String(roomStart.id);
+            const maxCount = roomStart.questionCount;
+            const startId = {
+                roomId : roomId,
+                maxCount : maxCount,
+            }
             if (roomStart.status === 'start') {
                 rooms[roomId].isGameStarted = true;
             }
             if (rooms[roomId].isGameStarted) {
-                io.to(roomId).emit("gameStarted", roomId);
+                io.to(roomId).emit("gameStarted", startId);
                 sendQuestions(roomId);
             } else {
                 console.log("Oyun henüz başlatılmadı.");
@@ -91,6 +95,7 @@ module.exports = function (io) {
             const questionInfo = {
                 question: questions[questionIndex],
                 askEnglish: Math.random() > 0.5,
+                count : questionIndex+2,
             };
             io.to(roomId).emit("newQuestion", questionInfo);
             const countdownTime = 15;
@@ -101,6 +106,7 @@ module.exports = function (io) {
                     const questionInfo = {
                         question: questions[questionIndex],
                         askEnglish: Math.random() > 0.5,
+                        count:questionIndex+2,
                     };
                     io.to(roomId).emit("newQuestion", questionInfo);
                     questionIndex++;
@@ -108,7 +114,7 @@ module.exports = function (io) {
                     clearInterval(interval);
                     io.to(roomId).emit("gameEnded", rooms[roomId].players);
                 }
-            }, 22000);
+            }, 20500);
         }, 5000);
     }
     async function getQuestionsByCategory(category, questionCount) {

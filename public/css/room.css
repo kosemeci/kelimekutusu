@@ -454,6 +454,7 @@ input {
     text-align: center;
     word-wrap: break-word; 
     word-break: break-all; 
+    hyphens: auto;
 }
 
 .result-table th {

@@ -194,14 +194,6 @@
     transition: background-color 0.3s, transform 0.3s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-#submitAnswer:hover {
-    background-color: #e68900; 
-    transform: scale(1.05); 
-}
-#submitAnswer:active {
-    background-color: #cc7a00; 
-    transform: scale(1); 
-}
 #userAnswer {
     padding: 10px;
     box-sizing: border-box;
