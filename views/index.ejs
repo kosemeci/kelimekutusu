@@ -24,7 +24,7 @@
     <meta property="og:title" content="Kelime Yarışmaları ve Eğlenceli Testlerle İngilizce Bilginizi Artırın!">
     <meta property="og:description"
         content="İngilizce kelime dağarcığınızı geliştirmek için özenle tasarlanmış kelime kutuları oluşturun ve mevcut kutularla kendinizi test edin. Kelime yarışmalarına katılarak arkadaşlarınızla eğlenceli bir şekilde rekabet edin! Ayrıca, sitemizde bulunan Kelime Seviye Testi ile kelime bilginizi kapsamlı bir şekilde değerlendirin ve ilerlemenizi takip edin. Hedeflerinize ulaşmak ve dil becerilerinizi artırmak için bu fırsatları kaçırmayın!">
-    <meta property="og:image" content="/images/tra.webp">
+    <meta property="og:image" content="/images/aaa.jpg">
     <meta property="og:url" content="https://www.kutukutukelime.com">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Kelime Yarışmaları ve Eğlenceli Testlerle İngilizce Bilginizi Artırın!">
@@ -37,17 +37,22 @@
 </head>
 <body>
     <%- include('partials/navbar') %>
-        <main class="container">
-            <h1>
-                İngilizce Öğrenmenin En Eğlenceli Yolu: Kelime Oyunları!            
-            </h1>
-            <div> 
+    <%- include('a') %>
+
+        <main class="container" id="main-containers">
+            <span class="container-title">
+                Kutuya Tıkla Kelime Çalışmanı Başlat!            
+            </span>
+            <div class="mrntp"> 
                 <a href="/seviye-ogrenme-testi" class="test-level-btn">Kelime Seviyeni Öğren</a>
                 <a href="/kutum" class="test-level-btn">Kelime Kutunu Oluştur</a>
             </div>
+            <div class="separator">
+                <span>Seviyeler</span>
+              </div>
             <div class="cards">
                 <% words.forEach((word,index)=> { %>
-                    <div class="card color<%=++index%>" id="<%= word.level %>" aria-label="<%= word.level %> seviyesi için kelime kutusu">
+                    <div class="card color<%=++index%> lazy-card hidden" id="<%= word.level %>" aria-label="<%= word.level %> seviyesi için kelime kutusu">
                         <div class="box level-a">
                             <% ['front', 'back', 'left', 'right', 'top', 'bottom'].forEach(face => { %>
                                 <div class="face <%= face %>">
@@ -63,10 +68,12 @@
                     </div>
                     <% }) %>
             </div>
-            <div class="separator"></div>
+            <div class="separator">
+                <span>Kategoriler</span>
+              </div>
             <div class="cards">
                 <% words_category.forEach((word,index)=> { %>
-                    <div class="card color<%=++index+9%>" id="<%= word.category %>"aria-label="<%= word.category %> kategorisi için kelime kutusu">
+                    <div class="card color<%=++index+9%> lazy-card hidden" id="<%= word.category %>"aria-label="<%= word.category %> kategorisi için kelime kutusu">
                         <div class="box level-a">
                             <% ['front', 'back', 'left', 'right', 'top', 'bottom'].forEach(face => { %>
                                 <div class="face <%= face %>">

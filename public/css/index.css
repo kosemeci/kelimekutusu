@@ -2,21 +2,25 @@ body {
     margin: 0;
 }
 .container {
-    margin: 200px 0px 60px; 
+    margin: 120px 0px 60px; 
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.container h1{
+.container-title{
     color: #2c3e50;
     font-size: 28px;
+    margin-bottom: 2%;
 }
 .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin: 25px 0;
+}
+.mrntp{
+    margin-bottom: 2%;
 }
 
 .card {
@@ -98,19 +102,48 @@ body {
     font-size: 16px;
     min-width: 185px;
 }
+
 .separator {
     width: 30%;
-    height: 1px;
+    height: 2px;
     background-color: #E5A601;
-    margin: 20px 0;
+    margin: 30px 0;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
 
+.separator span {
+    position: relative;
+    top: -12px;
+    background-color: #f0f0f0; /* Yazının arka planı */
+    padding: 0 15px; /* Daha fazla boşluk verelim */
+    color: #2c3e50; /* Yazı rengi */
+    font-size: 18px; /* Yazı boyutunu büyütelim */
+    letter-spacing: 2px; /* Yazılar arasına biraz boşluk ekleyelim */
+    text-transform: uppercase; /* Büyük harfe çevirelim */
+    font-family: 'Arial', sans-serif; /* Şık bir yazı tipi */
+}
+
+.separator::before, .separator::after {
+    content: '★';
+    color: #E5A601;
+    font-size: 14px;
+    position: absolute;
+    top: -10px;
+}
+.separator::before {
+    left: -20px;
+}
+.separator::after {
+    right: -20px;
+}
 .container h2 {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 .test-level-btn {
     display: inline-block;
     margin: 5px;
@@ -136,7 +169,7 @@ body {
 }
 @media (max-width: 600px) {
     .container {
-        margin: 120px 0px 40px; 
+        margin: 40px 0; 
         padding: 0 10px;
     }
     .test-level-btn {
@@ -145,10 +178,13 @@ body {
         font-size: 15px;
         font-weight: 400;
     }
-    .container h1 {
+    .container-title {
         font-size: 18px !important;
-        margin: 20px 0;
+        margin: 20px 0 25px;
         padding: 0 15px;
+    }
+    .mrntp{
+        margin-bottom: 8%;
     }
     .cards {
         grid-template-columns: repeat(2, 1fr);
@@ -184,20 +220,38 @@ body {
     .face.bottom { transform: rotateX(-90deg) translateZ(30px); }
 
     .separator {
-        width: 60%;
+        width: 75%;
         margin: 10px 0;
     }
+    .separator span {
+        font-size: 16px;
+    }
+
 }
 @media (max-width: 1050px) {
     .separator {
-        width: 50%;
+        width: 75%;
         margin: 12px 0;
     }
     .container {
         width: 95%;
     }
-    .container h1 {
+    .container-title {
         font-size: 26px;
+        margin: 20px 0 25px;
         text-align: center;
     }
+    .mrntp{
+        margin-bottom: 8%;
+    }
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 1.5s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }

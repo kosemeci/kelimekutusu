@@ -1,190 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Makale Page</title>
-</head>
+<link rel="stylesheet" type="text/css" href="/css/main-routes.css">
 <body>
-  <div class="container">
+  <div class="container-head">
     <div class="header">
       <div class="header-content">
-        <span class="badge">Rahat Kullanın Rahatınıza Bakın</span>
-        <h1>Rahat Makale ile Makalelerini Rahatça Dinle!</h1>
-        <p>
-          SGK, Muhasebe, Ekonomi ve Vergi gibi alanlarda güncel makaleler anında
-          cebinde.
+        <span class="badge">Eğlen, Öğren, Geliş!</span>
+        <h1>Kelime Kutularıyla İngilizce Öğrenmeye Başla!</h1>
+        <p class="p-content"> Özenle hazırlanmış kutularla veya kendi kutunuzu oluşturarak öğrenme yolculuğunuza
+          başlayın. <br>
+          Kelime seviye testleriyle seviyenizi öğrenin! <br>
+          Arkadaşlarınızla oda kurarak eğlenceli bir rekabet ortamı yaratın ve birlikte öğrenmenin tadını çıkarın! </p>
+        <p class="mobil-p-content">
+          Özenle hazırlanmış kutularla veya kendi kutunuzu oluşturarak öğrenme yolculuğunuza başlayın.
         </p>
-        <button class="register-btn" onclick="register()">TIKLA KAYIT OL!</button>
       </div>
-      <img src="/images/makale.png" alt="Makale Image" class="hero-image" />
+      <img src="/images/jpg/13.gif" alt="Kelime Kutusu" class="hero-image" />
+
     </div>
 
     <div class="feature-cards">
-      <div class="feature-card">
-        <span class="icon">👤</span>
-        <h3>Kayıt Ol</h3>
-        <p>Kayıt formunu doldurarak sisteme kayıt olabilirsin.</p>
+      <div class="feature-card" id="main-boxes-page">
+        <span class="icon"><img src="/images/rrrr.png" width="60px" height="60px" alt="Kutulara Tıkla"></span>
+        <h3>Kutulara Tıkla</h3>
+        <p>Özenle hazırlanmış kelime kutularına tıklayın ve kelime çalışmanızı başlatın.</p>
       </div>
-      <div class="feature-card">
-        <span class="icon">📤</span>
-        <h3>Makaleler Gelsin</h3>
-        <p>Makaleler Whatsapp üzerinden telefonuna gelsin.</p>
+      <div class="feature-card" id="create-box-page">
+        <span class="icon"><img src="/images/vvv.png" width="60px" height="60px" alt="Kutunu Oluştur"></span>
+        <h3>Kutunu Oluştur</h3>
+        <p>İhtiyacınıza göre kişisel kelime kutunuzu oluşturun, ezberlemek istediğiniz kelimelerle çalışmaya başlayın.
+        </p>
       </div>
-      <div class="feature-card">
-        <span class="icon">🎧</span>
-        <h3>Makaleyi Dinle</h3>
-        <p>Açılan pencerede makaleyi ister oku ister dinle.</p>
+      <div class="feature-card" id="learn-level-page">
+        <span class="icon"><img src="/images/ex.png" width="60px" height="60px" alt="Seviyeni Test Et"></span>
+        <h3>Seviyeni Test Et</h3>
+        <p>Kelime bilginizi test edip hangi seviyede olduğunuzu öğrenmek için kelime testi yapın.</p>
+      </div>
+      <div class="feature-card" id="competition-page">
+        <span class="icon"><img src="/images/cc.png" width="60px" height="60px" alt="Yarışmalara Katıl"></span>
+        <h3>Yarışmalara Katıl</h3>
+        <p>Arkadaşlarınızla yarışarak İngilizce kelime bilginizi eğlenceli bir şekilde geliştirin.</p>
       </div>
     </div>
-    <div id="bubbles"></div>
-
+    <div id="words"></div>
   </div>
-
-  <script src="script.js"></script>
 </body>
-</html>
-
-<style>
-    body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #4b12cb, #2575fc);
-  color: #fff;
-}
-
-.container {
-  text-align: center;
-}
-
-.header {
-  position: relative;
-  padding: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-content {
-  max-width: 600px;
-  text-align: left;
-}
-
-.badge {
-  background-color: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.hero-image {
-  max-width: 50%;
-  height: auto;
-}
-
-.register-btn {
-  background-color: #ffd700;
-  color: rgba(0, 0, 0, 0.8);
-  padding: 10px 20px;
-  border-radius: 24px;
-  border: none;
-  cursor: pointer;
-}
-
-.register-btn:hover {
-  background-color: #e6c200;
-}
-
-.feature-cards {
-  display: flex;
-  justify-content: center;
-  margin: 50px 0;
-}
-
-.feature-card {
-  background-color: #fff;
-  color: #000;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 15px;
-  width: 200px;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
-}
-
-.feature-card:hover {
-  transform: scale(1.05);
-}
-
-.icon {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-#bubbles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.bubble {
-  position: absolute;
-  bottom: -50px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation: moveUp 6s ease-in-out infinite;
-}
-
-@keyframes moveUp {
-  0% {
-    transform: translateY(0);
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh);
-    opacity: 0.1;
-  }
-}
-
-</style>
 
 <script>
-    function createBubbles() {
-  const bubblesContainer = document.getElementById('bubbles');
-  const numBubbles = 15;
+  function createWords() {
+    const wordsContainer = document.getElementById('words');
+    const words = ['table', 'key', 'hospital', 'student', 'school', 'book', 'apple', 'car', 'pen', 'phone', 'brave', 'army',
+      'computer', 'box', 'house', 'dog', 'cat', 'mother', 'brother', 'girl', 'summer', 'window', 'yesterday', 'freedom', 'wallet', 'president',
+      'milk', 'animals', 'door', 'country', 'city', 'father', 'sister', 'winter', 'snow', 'television', 'football', 'moon', 'green', 'passenger',
+      'travel', 'holiday', 'furniture', 'honey', 'lion', 'bird', 'banana', 'strawberry', 'red', 'blue', 'yellow', 'black', 'white', 'sun', 'tomorrow'
+    ];
+    const numWords = 20;
 
-  for (let i = 0; i < numBubbles; i++) {
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble');
+    for (let i = 0; i < numWords; i++) {
+      const word = document.createElement('div');
+      word.classList.add('word');
 
-    // Rastgele boyut
-    const size = Math.random() * 30 + 20 + 'px';
-    bubble.style.width = size;
-    bubble.style.height = size;
+      const randomWord = words[Math.floor(Math.random() * words.length)];
+      word.textContent = randomWord;
 
-    // Rastgele pozisyon
-    bubble.style.left = Math.random() * 100 + 'vw';
+      word.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
 
-    // Rastgele animasyon gecikmesi
-    bubble.style.animationDelay = Math.random() * 5 + 's';
+      word.style.left = Math.random() * 80 + '%';
 
-    bubblesContainer.appendChild(bubble);
+      word.style.animationDelay = Math.random() * 8 + 's';
+
+      wordsContainer.appendChild(word);
+    }
   }
-}
 
-function register() {
-  window.location.href = 'https://makale.rahatyonetim.com/Register';
-}
 
-window.onload = createBubbles;
+  document.getElementById('main-boxes-page').addEventListener('click', function () {
+    const targetElement = document.getElementById('main-containers');
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  });
+
+
+  document.getElementById('create-box-page').addEventListener('click', function () {
+    window.location.href = '/kutum';
+  });
+
+  document.getElementById('learn-level-page').addEventListener('click', function () {
+    window.location.href = '/seviye-ogrenme-testi';
+  });
+
+  document.getElementById('competition-page').addEventListener('click', function () {
+    window.location.href = '/kelime-yarismasi';
+  });
+
+  window.onload = createWords;
 
 </script>

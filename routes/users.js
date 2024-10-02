@@ -139,29 +139,29 @@ router.use("/gizlilik-politikasi",(req,res)=>{
     res.render("privacy");
 })
 
-router.use('/etrsoft_odev', async (req, res) => {
-    try {
-        cron.schedule('*/30 * * * *', fetchDataAndUpdateDB);
-        const query = `
-      SELECT 
-    hesap_kodu, 
-    borcu,
-    SUBSTRING_INDEX(hesap_kodu, '.', 1) AS level_1,
-    SUBSTRING_INDEX(hesap_kodu, '.', 2) AS level_2
-FROM 
-    data
-ORDER BY 
-    hesap_kodu;
+// router.use('/etrsoft_odev', async (req, res) => {
+//     try {
+//         cron.schedule('*/30 * * * *', fetchDataAndUpdateDB);
+//         const query = `
+//       SELECT 
+//     hesap_kodu, 
+//     borcu,
+//     SUBSTRING_INDEX(hesap_kodu, '.', 1) AS level_1,
+//     SUBSTRING_INDEX(hesap_kodu, '.', 2) AS level_2
+// FROM 
+//     data
+// ORDER BY 
+//     hesap_kodu;
 
-  `;
+//   `;
 
-        const [rows] = await db.execute(query);
-        res.render('etr', { data: rows });
-    } catch (error) {
-        console.error('Veri çekme hatası:', error.message);
-        res.status(500).send('Veri çekme işlemi başarısız.');
-    }
-});
+//         const [rows] = await db.execute(query);
+//         res.render('etr', { data: rows });
+//     } catch (error) {
+//         console.error('Veri çekme hatası:', error.message);
+//         res.status(500).send('Veri çekme işlemi başarısız.');
+//     }
+// });
 
 router.use("/", async (req, res) => {
     const query = "SELECT level, COUNT(*) AS count FROM words  GROUP BY level ORDER BY level ASC;";

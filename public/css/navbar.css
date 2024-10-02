@@ -29,19 +29,18 @@ body, html {
     margin: 15px;
     letter-spacing: 5px;
     font-size: 30px;
-    margin-left: 120px;
+    margin-left: 10%;
     cursor: pointer; 
 }
 
 .navbar-brand i {
     color: #e68c05;
 }
+.navbar-menu{margin-right: 10%;}
 
 .navbar-menu a {
     color: white;
     text-decoration: none;
-    margin: 15px;
-    margin-right: 120px;
     cursor: pointer;
     padding: 5px;
     background-color:#F28C00;
