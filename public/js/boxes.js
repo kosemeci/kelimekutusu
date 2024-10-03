@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const topFace = document.getElementById("top");
     const answerSection = document.getElementById("answer-section");
+    const containerBoxes = document.getElementById("container-boxes");
     const questionText = document.getElementById("questionText");
     const userAnswer = document.getElementById("userAnswer");
     const submitAnswerButton = document.getElementById("submitAnswer");
     const answerText = document.getElementById("answerText");
-    const modal = document.getElementById("resultModal");
-    const retryButon = document.getElementById("retryButton");
-    const span = document.getElementsByClassName("close")[0];
+    const resultContainer = document.getElementById('result-container');
+    const resultList = document.getElementById('resultList');
     const progressContainer = document.querySelector('.progress-container');
     document.getElementById('box').classList.add('shake');
     submitAnswerButton.disabled = true ;
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentWord = null;
     let askEnglish = true;
     let correctNum = 0;
-    let message = "";
     let ask_index = 0;
     let ask_line = 10;
     let progress = 0;
@@ -33,25 +32,28 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(error => console.error('Error:', error));
 
     function showGameResult(correctAnswers, totalQuestions) {
-        const point = ((correctAnswers/totalQuestions)*100).toFixed(2);
-        let message_ = `<div style="text-align: center;"><h2>The word game is over!</h2></div> <h3 class="yellow-color">Success: ${point}% </h3> Word Results:<br>`;
-        document.getElementById("resultMessage").innerHTML = message_ + message;
-        modal.style.display = "block";
+        const point = ((correctAnswers / totalQuestions) * 100).toFixed(2);
+        
+        let resultMessage = `
+            <div style="text-align: center;">
+                <h2>Oyun bitti!</h2>
+                <h3 class="yellow-color">Başarı Oranı: ${point}%</h3>
+            </div>
+        `;
+        
+        containerBoxes.style.display = 'none';
+        resultContainer.style.display ='block';
+        document.getElementById("resultMessageGame").innerHTML = resultMessage;
+        document.getElementById("action-buttons").style.display = "block";
     }
 
-    span.onclick = function () {
-        window.location.href = "/"
-    }
+    // span.onclick = function () {
+    //     window.location.href = "/"
+    // }
 
-    retryButon.onclick = function () {
-        window.location.href = url;
-    }
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // retryButon.onclick = function () {
+    //     window.location.href = url;
+    // }
 
     topFace.addEventListener("click", function () {
         this.blur();
@@ -123,26 +125,36 @@ document.addEventListener("DOMContentLoaded", function () {
             if (currentWord.other_english) {
                 correctAnswers = correctAnswers.concat(currentWord.other_english.split(',').map(s => s.trim().toLowerCase()));
             }
+            const tr = document.createElement('tr');
+            const tdAsk = document.createElement('td');
+            const tdAnswer = document.createElement('td');
+            tdAsk.textContent=currentWord.turkish;
+            tdAnswer.textContent = correctAnswers.join(', ');
+            tr.appendChild(tdAsk);
+            tr.appendChild(tdAnswer);
+            resultList.appendChild(tr); 
         } else {
             if (currentWord.other_turkish) {
                 correctAnswers = correctAnswers.concat(currentWord.other_turkish.split(',').map(s => s.trim().toLowerCase()));
             }
+            const tr = document.createElement('tr');
+            const tdAsk = document.createElement('td');
+            const tdAnswer = document.createElement('td');
+            tdAsk.textContent=currentWord.english;
+            tdAnswer.textContent = correctAnswers.join(', ');
+            tr.appendChild(tdAsk);
+            tr.appendChild(tdAnswer);
+            resultList.appendChild(tr); 
         }
         if (correctAnswers.includes(answer)) {
             answerText.innerText = "Correct Answer!";
             answerText.style.color = green_color;
             correctNum++;
             isCorrect = true;
-            message += `<span class="yellow-border">
-            ${currentWord.english} = ${answer}
-            <span>✅</span></span><br>`;
         } else {
             answerText.innerText = correctAnswer;
             answerText.style.color = red_color;
             isCorrect = false;
-            message += `<span class="yellow-border">
-            ${currentWord.english} = ${currentWord.turkish}
-            <span>❌</span></span><br>`;
         }
         updateProgress(isCorrect);
         setTimeout(() => {

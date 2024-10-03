@@ -40,7 +40,7 @@
 
 <body>
     <%- include('partials/navbar') %>
-        <main class="container-learn">
+        <main class="container-learn" id="container-learn">
             <h1>Kelime Seviyeni Öğren!</h1>
             <%- include('partials/box') %>
             <%- include('partials/gameRoutes', { 
@@ -58,6 +58,7 @@
                 startButtonText: 'Oyunu Başlat'
             }) %>
         </main>
+        <%- include('partials/show-result') %>
         <%- include('partials/share-card') %>
         <script src="/js/learn-level.js"></script>
 </body>

@@ -35,7 +35,7 @@
 </head>
 <body>
     <%- include('partials/navbar') %>
-        <div class="container-box">
+        <div class="container-box" id="container-boxes">
             <%- include('partials/box') %>
             <%- include('partials/gameRoutes', { 
                 gameRules: [
@@ -51,6 +51,7 @@
             }) %>
             
         </div>
+        <%- include('partials/show-result') %>
         <%- include('partials/share-card') %>
 
         <script src="/js/boxes.js"></script>
