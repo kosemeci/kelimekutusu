@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shareCard = document.getElementById('shareCard');
     const homeButtonRes = document.getElementById('homeButtonRes');
     const progressContainer = document.querySelector('.progress-container');
-
-
+    
     document.getElementById('box').classList.add('shake');
     submitAnswerButton.disabled = true ;
 

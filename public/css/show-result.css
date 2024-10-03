@@ -37,9 +37,9 @@
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: center;
-    word-wrap: break-word; 
-    word-break: break-all; 
-    hyphens: auto;
+    white-space: normal;
+    word-break: normal;
+    hyphens: none;
 }
 
 .result-table th {

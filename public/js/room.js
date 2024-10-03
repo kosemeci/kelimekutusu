@@ -186,7 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
             tdAnswer.textContent = correctAnswer.join(', ');
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
-            resultList.appendChild(tr); 
+            resultList.appendChild(tr);
+            speakText(currentWord.turkish, 'tr-TR');  
         } else {
             paperText.innerText = questions.english;
             correctAnswer.push(questions.turkish);
@@ -199,7 +200,8 @@ document.addEventListener("DOMContentLoaded", function () {
             tdAnswer.textContent = correctAnswer.join(', '); 
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
-            resultList.appendChild(tr); 
+            resultList.appendChild(tr);
+            speakText(currentWord.english, 'en-GB');  
         }
         answerText.textContent = '15'
         box.classList.toggle("open-top");
@@ -251,6 +253,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 if(count<maxCount+1){orderQuestion.innerText = count + ".Soru";};
             }
         }, 10);
+    }
+    function speakText(text, language = 'en-GB') {
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = language;
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        window.speechSynthesis.speak(utterance);
     }
     submitAnswerButton.addEventListener("click", function () {
         submitAnswerButton.disabled = true;
