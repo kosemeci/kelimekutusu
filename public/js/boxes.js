@@ -8,7 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const answerText = document.getElementById("answerText");
     const resultContainer = document.getElementById('result-container');
     const resultList = document.getElementById('resultList');
+    const newGameButtonRes = document.getElementById('newGameButtonRes');
+    const shareCard = document.getElementById('shareCard');
+    const homeButtonRes = document.getElementById('homeButtonRes');
     const progressContainer = document.querySelector('.progress-container');
+
+
     document.getElementById('box').classList.add('shake');
     submitAnswerButton.disabled = true ;
 
@@ -30,30 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
         words.push(...get_words);
     })
     .catch(error => console.error('Error:', error));
-
     function showGameResult(correctAnswers, totalQuestions) {
         const point = ((correctAnswers / totalQuestions) * 100).toFixed(2);
-        
         let resultMessage = `
             <div style="text-align: center;">
                 <h2>Oyun bitti!</h2>
                 <h3 class="yellow-color">Başarı Oranı: ${point}%</h3>
-            </div>
-        `;
-        
+            </div>`;
         containerBoxes.style.display = 'none';
         resultContainer.style.display ='block';
         document.getElementById("resultMessageGame").innerHTML = resultMessage;
         document.getElementById("action-buttons").style.display = "block";
     }
-
-    // span.onclick = function () {
-    //     window.location.href = "/"
-    // }
-
-    // retryButon.onclick = function () {
-    //     window.location.href = url;
-    // }
+    newGameButtonRes.onclick = function () {window.location.href = url;}
+    homeButtonRes.onclick = function () {window.location.href = "/";}
 
     topFace.addEventListener("click", function () {
         this.blur();
@@ -107,11 +102,21 @@ document.addEventListener("DOMContentLoaded", function () {
         paper.addEventListener('transitionend', function () {
             if (askEnglish) {
                 questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
+                speakText(currentWord.turkish, 'tr-TR'); 
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
+                speakText(currentWord.english, 'en-GB'); 
             }
-
         }, { once: true });
+    }
+
+    function speakText(text, language = 'en-GB') {
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = language;
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        // Sesli okuma işlemini başlat
+        window.speechSynthesis.speak(utterance);
     }
 
     submitAnswerButton.addEventListener("click", function () {
@@ -174,8 +179,8 @@ document.addEventListener("DOMContentLoaded", function () {
             segment.style.width = (100 / ask_line) + '%';
             segment.style.backgroundColor = isCorrect ? green_color : red_color;
             progressContainer.appendChild(segment);
-
             if (progress >= 100) {
+                shareCard.style.display="none";
                 showGameResult(correctNum, ask_line);
             }
         }

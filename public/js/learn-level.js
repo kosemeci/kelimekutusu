@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitAnswerButton = document.getElementById("submitAnswer");
     const answerText = document.getElementById("answerText");
     const progressContainer = document.querySelector('.progress-container');
+    const newGameButtonRes = document.getElementById('newGameButtonRes');
+    const homeButtonRes = document.getElementById('homeButtonRes');
     const resultContainer = document.getElementById('result-container');
+    const shareCard = document.getElementById('shareCard');
     const resultList = document.getElementById('resultList');
-
     document.getElementById('box').classList.add('shake');
     submitAnswerButton.disabled = true;
 
@@ -19,11 +21,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentWord = null;
     let askEnglish = true;
     let correctNum = 0;
-    let message = "";
     let ask_index = 0;
     let ask_line = 1;
     let progress = 0;
     let randomWords = [];
+
+    newGameButtonRes.onclick = function () {window.location.href = url;}
+    homeButtonRes.onclick = function () {window.location.href = "/";}
 
     fetch('/seviye-ogren')
         .then(response => response.json())
@@ -81,6 +85,14 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("resultMessageGame").innerHTML = message_;
         document.getElementById("action-buttons").style.display = "block";
     }
+    function speakText(text, language = 'en-GB') {
+        let utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = language;
+        utterance.rate = 1;
+        utterance.pitch = 1;
+        // Sesli okuma işlemini başlat
+        window.speechSynthesis.speak(utterance);
+    }
 
     topFace.addEventListener("click", function () {
         if (box.classList.contains("open-top")) {
@@ -132,8 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
         paper.addEventListener('transitionend', function () {
             if (askEnglish) {
                 questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
+                speakText(currentWord.turkish, 'tr-TR'); 
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
+                speakText(currentWord.english, 'en-GB'); 
             }
         }, { once: true });
     }
@@ -199,8 +213,8 @@ document.addEventListener("DOMContentLoaded", function () {
             segment.style.width = (100 / ask_line) + '%';
             segment.style.backgroundColor = isCorrect ? green_color : red_color;
             progressContainer.appendChild(segment);
-
             if (progress >= 100) {
+                shareCard.style.display="none";
                 showGameResult(correctNum);
             }
         }
