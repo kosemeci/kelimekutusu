@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            speakText(currentWord.turkish, 'tr-TR');  
+            speakText(questions.turkish, 'tr-TR');  
         } else {
             paperText.innerText = questions.english;
             correctAnswer.push(questions.turkish);
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            speakText(currentWord.english, 'en-GB');  
+            speakText(questions.english, 'en-GB');  
         }
         answerText.textContent = '15'
         box.classList.toggle("open-top");
