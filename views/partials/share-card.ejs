@@ -1,11 +1,31 @@
 <link rel="stylesheet" href="/css/share-card.css">
-<div class="share-card">
-    <h3>Kutunu Paylaş!</h3>
-    <p>Bu kelime kutusunu arkadaşlarınla paylaşarak birlikte öğrenin!</p>
-    <div class="share-buttons">
-        <button class="share-btn" id="copyLinkBtn">Linki Kopyala</button>
-        <button class="share-btn" id="whatsappShareBtn">
-            <i class="fab fa-whatsapp"></i> WhatsApp ile Paylaş
-        </button>
+
+<div class="share-card" id="shareCard">
+    <h3 id="shareToggleBtn"><i class="fa-solid fa-share-nodes"></i> Kutunu Paylaş </h3>
+    <div id="shareContent" class="share-content" style="display: none;">
+        <p>Bu kelime kutusunu arkadaşlarınla paylaşarak birlikte öğrenin!</p>
+        <div class="share-buttons">
+            <button class="share-btn" id="copyLinkBtn">Linki Kopyala</button>
+            <button class="share-btn" id="whatsappShareBtn">
+                <i class="fab fa-whatsapp"></i> WhatsApp ile Paylaş
+            </button>
+        </div>
     </div>
 </div>
+<script>
+    document.getElementById('shareToggleBtn').addEventListener('click', function() {
+    var shareContent = document.getElementById('shareContent');
+    
+    if (shareContent.style.display === 'none') {
+        shareContent.style.display = 'block';
+        setTimeout(function() {
+            shareContent.classList.add('open');
+        }, 10);
+    } else {
+        shareContent.classList.remove('open');
+        setTimeout(function() {
+            shareContent.style.display = 'none';
+        }, 10);
+    }
+});
+</script>

@@ -37,8 +37,20 @@
     <%- include('partials/navbar') %>
         <div class="container-box" id="data-container" data-boxid="<%= box_id %>">
             <%- include('partials/box') %>
-            <%- include('partials/share-card') %>
+            <%- include('partials/gameRoutes', { 
+                gameRules: [
+                    'Kutudan sadece sizin hazırladığınız kelimeler çıkar.',
+                    'Kelimeler rastgele gelir, Türkçe ya da İngilizce olabilir.',
+                    'Kutudaki \'click\' kısmına tıklayarak yeni soruya geçebilirsiniz.',
+                    'İlgili kutucuğa cevabınızı yazın. Sadece sizin belirlediğiniz cevap kabul edilir. Eş anlamlı doğru cevaplar kabul edilmez.',
+                    'Cevabınızı yazarken dikkatli olun! Kelimenin yazılışının tamamen doğru olması gerekir.',
+                    'Testi tamamladıktan sonra açılan ekranda cevaplarını kontrol edebilirsiniz.'
+                ], 
+                extraMessage: 'Unutmayın, dil öğrenimi sürekli bir yolculuktur.',
+                startButtonText: 'Oyunu Başlat'
+            }) %>
         </div>
+        <%- include('partials/share-card') %>
         <script src="/js/idbox.js"></script>
 </body>
 </html>

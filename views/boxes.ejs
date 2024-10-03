@@ -37,8 +37,22 @@
     <%- include('partials/navbar') %>
         <div class="container-box">
             <%- include('partials/box') %>
-            <%- include('partials/share-card') %>
+            <%- include('partials/gameRoutes', { 
+                gameRules: [
+                    'Seçtiğiniz seviye ya da kategoriden 10 soru sorulur.',
+                    'Kelimeler rastgele gelir, Türkçe ya da İngilizce olabilir.',
+                    'Kutudaki \'click\' kısmına tıklayarak yeni soruya geçebilirsiniz.',
+                    'İlgili kutucuğa cevabınızı yazın. Eş anlamlı kelimeler için birden fazla cevap kabul edilebilir.',
+                    'Cevabınızı yazarken dikkatli olun! Kelimenin yazılışının tamamen doğru olması gerekir.',
+                    'Cevaplarınıza göre ilerleme barının renklendiğini gözlemleyebilirsiniz.'
+                ], 
+                extraMessage: 'Unutmayın, dil öğrenimi sürekli bir yolculuktur.',
+                startButtonText: 'Oyunu Başlat'
+            }) %>
+            
         </div>
+        <%- include('partials/share-card') %>
+
         <script src="/js/boxes.js"></script>
 </body>
 </html>

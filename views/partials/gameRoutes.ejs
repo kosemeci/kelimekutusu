@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/css/gameRoutes.css">
+<div id="gameModal-i" class="modal-i">
+    <div class="modal-content-i">
+        <span class="close-i">&times;</span>
+        <h2>Oyun Kuralları</h2>
+        <ul>
+            <% gameRules.forEach(function(rule) { %>
+                <li><%= rule %></li>
+            <% }); %>
+        </ul>
+        <p><%= extraMessage %></p>
+        <button id="startGame-i"><%= startButtonText %></button>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("gameModal-i");
+    var closeBtn = document.querySelector(".close-i");
+    var startBtn = document.getElementById("startGame-i");
+
+    modal.style.display = "flex";
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    startBtn.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+});
+
+</script>

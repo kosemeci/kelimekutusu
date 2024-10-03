@@ -37,8 +37,6 @@ body {
 .card:hover {
     transform: translateY(-10px);
 }
-
-
 .box {
     width: 120px;
     height: 120px;

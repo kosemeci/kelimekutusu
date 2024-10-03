@@ -40,9 +40,6 @@
     border-color: #b0b0b0;
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
 }
-.box:hover {
-    transform: rotateX(-30deg) rotateY(-40deg) scale(1.05);
-}
 #selectZ {
     display: inline-block;
     font-size: 28px;
@@ -283,7 +280,7 @@
     }
     .progress-container{
         height: 15px;
-        width: 58%;
+        width: 70%;
     }
     #retryButton{
         margin-bottom: 30px;
