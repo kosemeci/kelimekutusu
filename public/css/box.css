@@ -288,3 +288,12 @@
     .box:hover {transform: rotateX(-35deg) rotateY(-45deg) scale(1.00);}
 }
 #answerText{color:#2C3E50;}
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.icon-container i {
+    transition: color 0.3s;
+}

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shareCard = document.getElementById('shareCard');
     const homeButtonRes = document.getElementById('homeButtonRes');
     const progressContainer = document.querySelector('.progress-container');
+    const speakButton = document.getElementById('speakButton');
     
     document.getElementById('box').classList.add('shake');
     submitAnswerButton.disabled = true ;
@@ -26,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let ask_line = 10;
     let progress = 0;
     let randomWords = [];
+    var isMuted = true;
+
     const url_fetch = `${window.location.pathname}`;
     fetch(`/fetch${url_fetch}`)
     .then(response => response.json())
@@ -76,9 +79,16 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-    // document.getElementById('speakButton').addEventListener('click', () => {
-    //     speakText(currentWord.english, 'en-GB');
-    // });
+    speakButton.addEventListener('click', () => {
+        isMuted = !isMuted;
+            if (isMuted) {
+                speakButton.classList.remove("fa-volume-up");
+                speakButton.classList.add("fa-volume-mute");
+            } else {
+                speakButton.classList.remove("fa-volume-mute");
+                speakButton.classList.add("fa-volume-up");
+            }
+    });
 
     function createAsk() {
         topFace.classList.add("disabled");
@@ -103,10 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
         paper.addEventListener('transitionend', function () {
             if (askEnglish) {
                 questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
-                speakText(currentWord.turkish, 'tr-TR');
+                if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
-                speakText(currentWord.english, 'en-GB');
+                if(!isMuted){speakText(currentWord.english, 'en-GB');}
             }
         }, { once: true });
         // if ('speechSynthesis' in window) {
