@@ -187,7 +187,9 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            speakText(questions.turkish, 'tr-TR');  
+            setTimeout(()=>{
+                speakText(questions.turkish, 'tr-TR');
+            },10)  
         } else {
             paperText.innerText = questions.english;
             correctAnswer.push(questions.turkish);

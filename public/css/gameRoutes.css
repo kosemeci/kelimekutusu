@@ -22,6 +22,15 @@
         color: #333;
         max-height: 90vh;
         overflow-y: auto;
+        animation: slideDown 2.5s forwards;
+    }
+    @keyframes slideDown {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+        }
     }
 
     @media (max-width: 600px) {
