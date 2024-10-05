@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const shareCard = document.getElementById('shareCard');
     const resultList = document.getElementById('resultList');
     document.getElementById('box').classList.add('shake');
+    const speakButton = document.getElementById('speakButton');
     submitAnswerButton.disabled = true;
 
     const words = [];
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let ask_line = 1;
     let progress = 0;
     let randomWords = [];
+    var isMuted = true;
 
     newGameButtonRes.onclick = function () {window.location.href = url;}
     homeButtonRes.onclick = function () {window.location.href = "/";}
@@ -90,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
         utterance.lang = language;
         utterance.rate = 1;
         utterance.pitch = 1;
-        // Sesli okuma işlemini başlat
         window.speechSynthesis.speak(utterance);
     }
 
@@ -144,13 +145,24 @@ document.addEventListener("DOMContentLoaded", function () {
         paper.addEventListener('transitionend', function () {
             if (askEnglish) {
                 questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
-                speakText(currentWord.turkish, 'tr-TR'); 
+                if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
-                speakText(currentWord.english, 'en-GB'); 
+                if(!isMuted){speakText(currentWord.english, 'en-GB');}
             }
         }, { once: true });
     }
+
+    speakButton.addEventListener('click', () => {
+        isMuted = !isMuted;
+            if (isMuted) {
+                speakButton.classList.remove("fa-volume-up");
+                speakButton.classList.add("fa-volume-mute");
+            } else {
+                speakButton.classList.remove("fa-volume-mute");
+                speakButton.classList.add("fa-volume-up");
+            }
+    });
 
     submitAnswerButton.addEventListener("click", function () {
         submitAnswerButton.disabled = true ;

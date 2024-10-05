@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded",function(){
     const dataContainer=document.getElementById('data-container');
     const newGameButtonRes = document.getElementById('newGameButtonRes');
     const homeButtonRes = document.getElementById('homeButtonRes');
-    const shareCard = document.getElementById('shareCard');
+    const speakButton = document.getElementById('speakButton');
+    const shareCard = document.getElementById('shareCard');var isMuted = true;
     let words=[];const red_color="#E74C3C";const green_color="#2ECC71";let currentWord=null;let askEnglish=!0;let correctNum=0;let ask_index=0;let ask_line=1;let progress=0;let randomWords=[];const boxId=dataContainer.getAttribute('data-boxid');fetch(`/box_create/${boxId}`).then(response=>response.json()).then(get_words=>{let wordsArray=JSON.parse(get_words);words=wordsArray.map(word=>({english:word.english,turkish:word.turkish}));ask_line=words.length;document.getElementById('box').classList.add('shake')}).catch(error=>console.error('Error:',error));
     newGameButtonRes.onclick = function () {window.location.href = url;}
     homeButtonRes.onclick = function () {window.location.href = "/";}
@@ -33,11 +34,23 @@ if(askEnglish)
     {paper.textContent=currentWord.turkish}
 else{paper.textContent=currentWord.english}
 paper.addEventListener('transitionend',function(){
-    if(askEnglish){questionText.textContent=`What is the English translation of "${currentWord.turkish}"?`;speakText(currentWord.turkish, 'tr-TR');}
-    else{questionText.textContent=`What is the Turkish translation of "${currentWord.english}"?`;speakText(currentWord.english, 'en-GB');}},{once:!0})}
+    if(askEnglish){questionText.textContent=`What is the English translation of "${currentWord.turkish}"?`;
+        if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}}
+    else{questionText.textContent=`What is the Turkish translation of "${currentWord.english}"?`;
+        if(!isMuted){speakText(currentWord.english, 'en-GB');}}},{once:!0})}
     function speakText(text, language = 'en-GB') {
         let utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = language;utterance.rate = 1;utterance.pitch = 1;window.speechSynthesis.speak(utterance);}
+    speakButton.addEventListener('click', () => {
+        isMuted = !isMuted;
+            if (isMuted) {
+                speakButton.classList.remove("fa-volume-up");
+                speakButton.classList.add("fa-volume-mute");
+            } else {
+                speakButton.classList.remove("fa-volume-mute");
+                speakButton.classList.add("fa-volume-up");
+            }
+    });
 submitAnswerButton.addEventListener("click",function(){
     submitAnswerButton.disabled=!0;window.scrollTo(0,0);let isCorrect=!1;
     const answer=userAnswer.value.trim().toLocaleLowerCase('tr-TR');

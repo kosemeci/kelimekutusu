@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultList = document.getElementById('resultList');
     const homeButton = document.getElementById('homeButton');
     const orderQuestion = document.getElementById('selectZ');
+    const speakButton = document.getElementById('speakButton');
     const randomRoomId = Math.floor(Math.random() * 9000) + 1000;
     var activeRoomId = "";
     var correctAnswer = [];
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var elapsedTime = 11;
     let maxCount = 5;
     let count = 0;
+    var isMuted = true;
 
     const socket = io('https://kutukutukelime.com');
 
@@ -187,9 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            setTimeout(()=>{
-                speakText(questions.turkish, 'tr-TR');
-            },10)  
+            if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}
         } else {
             paperText.innerText = questions.english;
             correctAnswer.push(questions.turkish);
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            speakText(questions.english, 'en-GB');  
+            if(!isMuted){speakText(currentWord.english, 'en-GB');}  
         }
         answerText.textContent = '15'
         box.classList.toggle("open-top");
@@ -271,7 +271,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentTime = Date.now();
         elapsedTime = currentTime - countdownStartTime;
     });
-
+    speakButton.addEventListener('click', () => {
+        isMuted = !isMuted;
+            if (isMuted) {
+                speakButton.classList.remove("fa-volume-up");
+                speakButton.classList.add("fa-volume-mute");
+            } else {
+                speakButton.classList.remove("fa-volume-mute");
+                speakButton.classList.add("fa-volume-up");
+            }
+    });
     socket.on('gameEnded', function (players) {
         var userList = document.getElementById('userList');
         boxContainer.style.display = "none";
