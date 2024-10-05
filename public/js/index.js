@@ -24,11 +24,5 @@ document.addEventListener("DOMContentLoaded", function () {
     lazyCards.forEach(card => {
         cardObserver.observe(card);
     });
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 1024) {
-            // Masaüstü görünümü zorlanıyorsa, kullanıcıyı uyarabilirsiniz.
-            alert("Mobil görünümde kalmanız önerilir!");
-            window.location.reload(); // Sayfayı yeniden yükleyebilirsiniz
-        }
-    });
+
 });

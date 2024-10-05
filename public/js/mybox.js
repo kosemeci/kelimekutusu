@@ -99,9 +99,4 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 1024) {
-            window.location.reload();
-        }
-    });
 });
