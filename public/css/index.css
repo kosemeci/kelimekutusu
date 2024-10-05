@@ -253,3 +253,13 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+@media only screen and (max-width: 1024px) {
+    /* Mobilde masaüstü görünümü zorlanırsa, bu CSS devreye girecek */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .container {
+        max-width: 100%; /* Genişliğin mobil cihazda sınırlı kalmasını sağlar */
+    }
+}

@@ -263,4 +263,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 2000);
         });
     });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1024) {
+            window.location.reload();
+        }
+    });
 }); 
