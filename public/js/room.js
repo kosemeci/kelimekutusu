@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}
+            if(!isMuted){speakText(questions.turkish, 'tr-TR');}
         } else {
             paperText.innerText = questions.english;
             correctAnswer.push(questions.turkish);
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            if(!isMuted){speakText(currentWord.english, 'en-GB');}  
+            if(!isMuted){speakText(questions.english, 'en-GB');}  
         }
         answerText.textContent = '15'
         box.classList.toggle("open-top");
