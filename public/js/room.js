@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var elapsedTime = 11;
     let maxCount = 5;
     let count = 0;
-    var isMuted = true;
+    var isMuted = false;
 
     const socket = io('https://kutukutukelime.com');
 
@@ -189,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAsk);
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
-            if(!isMuted){speakText(questions.turkish, 'tr-TR');}
         } else {
             paperText.innerText = questions.english;
             correctAnswer.push(questions.turkish);
@@ -204,6 +203,15 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(tdAnswer);
             resultList.appendChild(tr);
             if(!isMuted){speakText(questions.english, 'en-GB');}  
+        }
+        if (!isMuted) {
+            setTimeout(() => {
+                if (askEnglish) {
+                    speakText(questions.turkish, 'tr-TR');
+                } else {
+                    speakText(questions.english, 'en-GB');
+                }
+            }, 500);
         }
         answerText.textContent = '15'
         box.classList.toggle("open-top");
@@ -256,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }, 10);
     }
-    function speakText(text, language = 'en-GB') {
+    function speakText(text, language) {
         let utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = language;
         utterance.rate = 1;

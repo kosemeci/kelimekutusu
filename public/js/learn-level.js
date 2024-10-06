@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let ask_line = 1;
     let progress = 0;
     let randomWords = [];
-    var isMuted = true;
+    var isMuted = false;
 
     newGameButtonRes.onclick = function () {window.location.href = url;}
     homeButtonRes.onclick = function () {window.location.href = "/";}
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("resultMessageGame").innerHTML = message_;
         document.getElementById("action-buttons").style.display = "block";
     }
-    function speakText(text, language = 'en-GB') {
+    function speakText(text, language) {
         let utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = language;
         utterance.rate = 1;
@@ -145,12 +145,19 @@ document.addEventListener("DOMContentLoaded", function () {
         paper.addEventListener('transitionend', function () {
             if (askEnglish) {
                 questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
-                if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
-                if(!isMuted){speakText(currentWord.english, 'en-GB');}
             }
         }, { once: true });
+        if (!isMuted) {
+            setTimeout(() => {
+                if (askEnglish) {
+                    speakText(currentWord.turkish, 'tr-TR');
+                } else {
+                    speakText(currentWord.english, 'en-GB');
+                }
+            }, 500);
+        }
     }
 
     speakButton.addEventListener('click', () => {

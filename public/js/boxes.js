@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let ask_line = 10;
     let progress = 0;
     let randomWords = [];
-    var isMuted = true;
+    var isMuted = false;
 
     const url_fetch = `${window.location.pathname}`;
     fetch(`/fetch${url_fetch}`)
@@ -110,29 +110,29 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             paper.textContent = currentWord.english;
         }
-        paper.addEventListener('transitionend', function () {
+        paper.addEventListener('transitionend',  function () {
             if (askEnglish) {
                 questionText.textContent = `What is the English translation of "${currentWord.turkish}"?`;
-                if(!isMuted){speakText(currentWord.turkish, 'tr-TR');}
             } else {
                 questionText.textContent = `What is the Turkish translation of "${currentWord.english}"?`;
-                if(!isMuted){speakText(currentWord.english, 'en-GB');}
             }
         }, { once: true });
-        // if ('speechSynthesis' in window) {
-        //     // API destekleniyor
-        // } else {
-        //     // API desteklenmiyor
-        //     alert('Speech Synthesis API is not supported in this browser.');
-        // }
+        if (!isMuted) {
+            setTimeout(() => {
+                if (askEnglish) {
+                    speakText(currentWord.turkish, 'tr-TR');
+                } else {
+                    speakText(currentWord.english, 'en-GB');
+                }
+            }, 500);
+        }
     }
-
-    function speakText(text, language = 'en-GB') {
+    
+    function speakText(text, language) {
         let utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = language;
         utterance.rate = 1;
         utterance.pitch = 1;
-        // Sesli okuma işlemini başlat
         window.speechSynthesis.speak(utterance);
     }
 
