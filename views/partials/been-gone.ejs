@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </aside>
+            <div class="main content">
+                <h1 id="content-title">Been to ve Gone to: Farkı Nedir ve Nasıl Kullanılır?</h1>
+                <p><strong>Been to</strong>, geçmişte bir yere gidip geri dönmüş olduğunuzu ifade etmek için kullanılır.
+                    Örneğin, "I have been to Paris" cümlesi, Paris'e gitmiş ve şu anda başka bir yerde olduğunuzu
+                    belirtir. Bu ifade, o yerin deneyimini paylaşma amacı taşır ve genellikle seyahat veya ziyaret
+                    konularında kullanılır.</p>
+                <p>Öte yandan, <strong>gone to</strong>, bir yere gitmiş olduğunuzu ancak hala orada bulunduğunuzu ifade
+                    eder. Örneğin, "He has gone to the store" cümlesi, onun mağazaya gittiğini ve şu anda orada olduğunu
+                    gösterir. Bu kullanım, kişinin bulunduğu yeri veya şu anki durumunu vurgulamak için tercih edilir.
+                </p>
+
+                <h2>Kullanım Örnekleri</h2>
+                <ul>
+                    <li>"We have <strong>been to</strong> the museum three times this year." (Bu yıl müzeye üç kez gittik ve döndük.)</li>
+                    <li>"She has <strong>gone to</strong> the gym for a workout." (O, spor yapmak için spor salonuna gitti ve hâlâ orada.)</li>
+                    <li>"I have <strong>been to</strong> Italy twice, and I loved the food there." (İtalya'ya iki kez gittim ve oradaki yiyecekleri çok sevdim.)</li>
+                    <li>"They have <strong>gone to</strong> the beach for the weekend." (Onlar hafta sonu için plaja gitti ve hâlâ oradalar.)</li>
+                    <li>"He has <strong>been to</strong> a lot of concerts this year." (Bu yıl birçok konsere gittim ve döndüm.)</li>
+                    <li>"My friends have <strong>gone to</strong> the concert, so the house is quiet." (Arkadaşlarım konsere gitti, bu yüzden ev sessiz.)</li>
+                </ul>
+
+                <h2>Önemli Noktalar</h2>
+                <p>Bu iki ifadenin arasındaki fark, zaman ve mekân ilişkisi ile ilgilidir. <strong>Been to</strong>
+                    kullanımı, ziyaret edilen yerin geride bırakıldığını ve artık orada bulunmadığınızı belirtirken,
+                    <strong>gone to</strong> ifadesi kişinin şu anda gittiği yerde olduğunu ifade eder. Bu nedenle,
+                    cümlelerin bağlamına dikkat etmek, doğru kullanımı sağlamak açısından önemlidir.
+                </p>
+
+                <h2>Sonuç</h2>
+                <p>İngilizcede "been to" ve "gone to" ifadelerinin doğru bir şekilde kullanılması, dil becerilerinizi
+                    geliştirmenize yardımcı olur. Bu ifadeleri anlamak, seyahatleriniz veya günlük konuşmalarınızda daha
+                    etkili ve net iletişim kurmanıza olanak tanır. Bu nedenle, her iki yapıyı iyi bir şekilde
+                    kavrayarak, dilinizdeki akıcılığı artırabilirsiniz.</p>
+
+            </div>
+
+        </div>
+
+        <script src="/js/blog.js"></script>
+
+</body>
+
+</html>

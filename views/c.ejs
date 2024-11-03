@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Completion Test</title>
+  <link rel="stylesheet" href="/css/story-style.css">
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* Eğlenceli bir yazı tipi */
+      background-color: #e0f7fa; /* Açık mavi arka plan */
+      padding: 20px;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 3rem; /* Daha büyük başlık */
+      margin-bottom: 20px;
+      color: #ff6f61; /* Canlı turuncu rengi */
+      text-shadow: 2px 2px #ffccbc; /* Gölge efekti */
+    }
+
+    .test-container {
+      display: flex;
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      background-color: #ffffff; /* Beyaz arka plan */
+      border-radius: 20px; /* Daha yuvarlak köşeler */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+    }
+
+    .image-container {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      border-radius: 15px; /* Görselin köşeleri yuvarlak */
+    }
+
+    .story-container {
+      flex: 2;
+    }
+
+    .story {
+      font-size: 1.5rem; /* Daha büyük metin boyutu */
+      line-height: 1.6;
+      text-align: left;
+      margin-bottom: 20px;
+      background-color: #ffe0b2; /* Hafif turuncu arka plan */
+      border-radius: 10px; /* Yuvarlak köşeler */
+      padding: 15px; /* İçerik için boşluk */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    }
+
+    .options {
+      margin-top: 20px;
+    }
+
+    .option {
+      background-color: #64b5f6; /* Canlı mavi rengi */
+      color: #fff;
+      padding: 12px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, transform 0.3s; /* Efektler eklendi */
+    }
+
+    .option:hover {
+      background-color: #2196f3; /* Hover rengi */
+      transform: scale(1.05); /* Hover'da büyüme efekti */
+    }
+
+    .hidden {
+      display: none; /* Varsayılan olarak gizli */
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2rem; /* Sonuç yazısı için büyük font */
+    }
+
+    .correct {
+      background-color: #66bb6a; /* Doğru cevap yeşil */
+      color: #fff; /* Yazı rengi beyaz */
+      padding: 10px;
+      border-radius: 5px; /* Yuvarlak köşeler */
+    }
+
+    .incorrect {
+      background-color: #ef5350; /* Yanlış cevap kırmızı */
+      color: #fff; /* Yazı rengi beyaz */
+      padding: 10px;
+      border-radius: 5px; /* Yuvarlak köşeler */
+    }
+
+    .hidden-content {
+      display: none; /* Gizli içerik */
+    }
+
+  </style>
+</head>
+<body>
+    <h1>Masal Tamamlama Testi</h1>
+
+    <div class="test-container">
+        <div class="image-container">
+            <img src="path/to/your/image.jpg" alt="Masal Resmi">
+        </div>
+
+        <div class="story-container" id="story-container-1">
+            <div class="story-card" id="story-card-1">
+                <div class="story">
+                    <p id="story-part-1">Bir zamanlar küçük bir köyde cesur bir şövalye yaşarmış. En büyük kahraman olmak hayaliyle yanıp tutuşuyormuş. Bir gün, köylüleri terörize eden bir ejderhadan haberdar olmuş. Şövalye, ejderhayı <span id="blank-1">______</span> karar vermiş. Ne yapmalı?</p>
+                </div>
+                <div class="options" id="options-part-1">
+                    <div class="option" data-answer="A">A) Kaçmak</div>
+                    <div class="option" data-answer="B">B) Meydan okumak</div>
+                    <div class="option" data-answer="C">C) Yardım istemek</div>
+                </div>
+                <div class="result hidden" id="result-part-1"></div>
+                <div class="page-number">Sayfa 1</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const optionsPart1 = document.querySelectorAll('#options-part-1 .option');
+        const resultPart1 = document.getElementById('result-part-1');
+
+        optionsPart1.forEach(option => {
+            option.addEventListener('click', function () {
+                const answer = this.getAttribute('data-answer');
+
+                // Eski seçenekleri kaldır
+                removeOldOptions(optionsPart1);
+
+                if (answer === 'B') {
+                    fillBlank('meydan okudu', 'green');
+                    showNextPart(2); // İkinci hikaye kısmını göster
+                } else {
+                    this.classList.add('incorrect'); // Yanlış seçeneği kırmızı yap
+                    fillBlank('meydan okudu', 'red');
+                    resultPart1.innerText = 'Yanlış cevap. Lütfen tekrar dene.';
+                    resultPart1.classList.remove('hidden');
+                }
+            });
+        });
+
+        function removeOldOptions(options) {
+            options.forEach(option => {
+                option.parentElement.removeChild(option);
+            });
+        }
+
+        function fillBlank(word, color) {
+            const blank = document.getElementById('blank-1');
+            blank.innerText = word; // Boşluğu doldur
+            blank.style.color = color; // Rengini ayarla
+        }
+
+        function showNextPart(part) {
+            // Yeni bir story-container oluştur
+            const newStoryContainer = document.createElement('div');
+            newStoryContainer.classList.add('story-container');
+            newStoryContainer.id = `story-container-${part}`;
+
+            let newStoryPart;
+
+            if (part === 2) {
+                newStoryPart = `
+                    <div class="story-card" id="story-card-2">
+                        <div class="story">
+                            <p id="story-part-2">Ejderha yenildikten sonra, şövalye köye bir kahraman olarak döndü. Köylüler cesaretini kutladı. Ona bir sihirli kılıç ödül olarak verildi. Kılıcı ile ne yapmalı? <span id="blank-2">______</span></p>
+                        </div>
+                        <div class="options" id="options-part-2">
+                            <div class="option" data-answer="A">A) Kendisi için saklamak</div>
+                            <div class="option" data-answer="B">B) Köylülerle paylaşmak</div>
+                            <div class="option" data-answer="C">C) Kral'a geri vermek</div>
+                        </div>
+                        <div class="result hidden" id="result-part-2"></div>
+                        <div class="page-number">Sayfa 2</div>
+                    </div>
+                `;
+            } else if (part === 3) {
+                newStoryPart = `
+                    <div class="story-card" id="story-card-3">
+                        <div class="story">
+                            <p id="story-part-3">Sir Cedric chose to share the sword with the villagers, uniting them against any future threats. They decided to train together to protect their home. One day, they heard rumors of a dark sorcerer planning to invade their village. Sir Cedric and the villagers had to <span id="blank-3">______</span>. What action should they take?</p>
+                        </div>
+                        <div class="options" id="options-part-3">
+                            <div class="option" data-answer="A">A) Fortify the village</div>
+                            <div class="option" data-answer="B">B) Seek alliances with neighboring villages</div>
+                            <div class="option" data-answer="C">C) Confront the sorcerer immediately</div>
+                        </div>
+                        <div class="result hidden" id="result-part-3"></div>
+                        <div class="page-number">Sayfa 3</div>
+                    </div>
+                `;
+            }
+
+            // Yeni içerik oluştur
+            newStoryContainer.innerHTML = newStoryPart;
+            document.body.appendChild(newStoryContainer);
+
+            const optionsPart = newStoryContainer.querySelectorAll('.options .option');
+
+            optionsPart.forEach(option => {
+                option.addEventListener('click', function () {
+                    const answer = this.getAttribute('data-answer');
+                    let correctAnswer;
+
+                    // Eski seçenekleri kaldır
+                    removeOldOptions(optionsPart);
+
+                    if (part === 2) {
+                        if (answer === 'B') {
+                            fillBlank('köylülerle paylaştı', 'green');
+                            showNextPart(3); // Üçüncü hikaye kısmını göster
+                        } else {
+                            this.classList.add('incorrect'); // Yanlış seçeneği kırmızı yap
+                            fillBlank('köylülerle paylaştı', 'red');
+                            const resultPart2 = document.createElement('div');
+                            resultPart2.className = 'result';
+                            resultPart2.innerText = 'Yanlış cevap. Lütfen tekrar dene.';
+                            newStoryContainer.appendChild(resultPart2);
+                        }
+                    } else if (part === 3) {
+                        if (answer === 'A') {
+                            fillBlank('güçlendirdiler', 'green');
+                        } else {
+                            this.classList.add('incorrect'); // Yanlış seçeneği kırmızı yap
+                            fillBlank('güçlendirdiler', 'red');
+                            const resultPart3 = document.createElement('div');
+                            resultPart3.className = 'result';
+                            resultPart3.innerText = 'Yanlış cevap. Lütfen tekrar dene.';
+                            newStoryContainer.appendChild(resultPart3);
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+
+    <style>
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .hidden {
+            display: none;
+        }
+        .story-card {
+            border: 1px solid #ccc; /* Kart kenarlığı */
+            border-radius: 10px; /* Yuvarlak köşeler */
+            padding: 10px; /* İç boşluk */
+            margin: 10px 0; /* Kartlar arası boşluk */
+            background-color: #f9f9f9; /* Kart arka plan rengi */
+        }
+        .page-number {
+            text-align: center; /* Sayfa numarasını ortala */
+            font-weight: bold; /* Kalın yazı */
+            margin-top: 10px; /* Üst boşluk */
+        }
+    </style>
+</body>
+
+
+  
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </aside>
+            <div class="main content">
+                <h1 id="content-title">Make, Do ve Play: Farkları ve Kullanımları</h1>
+                <p>
+                    "Make", "do" ve "play", İngilizce'de sıkça kullanılan üç önemli fiildir. Her biri farklı anlamlara
+                    ve kullanımlara sahiptir. Bu yazıda, bu üç fiilin nasıl kullanıldığını ve aralarındaki farkları
+                    inceleyeceğiz.
+                </p>
+
+                <h2>1. Make (Yapmak)</h2>
+                <p><strong>Make</strong>, genellikle bir şey oluşturmak, hazırlamak veya üretmek anlamında kullanılır.
+                    Bir şeyin meydana gelmesini sağlamak veya bir şey yaratmak için bu fiil tercih edilir.</p>
+
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + make + nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + do not (don’t) make + nesne</li>
+                    <li><strong>Soru:</strong> Do + özne + make + nesne?</li>
+                </ul>
+
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> She makes a cake every Sunday. (Her pazar bir kek yapar.)</li>
+                    <li><strong>Olumsuz:</strong> They don’t make mistakes. (Hata yapmazlar.)</li>
+                    <li><strong>Soru:</strong> Do you make your bed in the morning? (Sabah yatağını toplar mısın?)</li>
+                </ul>
+
+                <h3>Karıştırılan Cümleler:</h3>
+                <ul>
+                    <li><strong>❌</strong> She does a cake every Sunday.<br><strong>✔️</strong> She makes a
+                        cake every Sunday.<br><strong>Açıklama:</strong> "Do" eylemi gerçekleştirmek anlamına gelirken,
+                        "make" bir şeyi yaratmak için kullanılır.</li>
+                    <li><strong>❌</strong> I make my homework every day.<br><strong>✔️</strong> I do my
+                        homework every day.<br><strong>Açıklama:</strong> "Do" burada bir görev veya işi yerine getirmek
+                        için kullanılır; "make" doğru bir kullanım değildir.</li>
+                </ul>
+
+                <h2>2. Do (Yapmak)</h2>
+                <p><strong>Do</strong>, genellikle bir eylemi gerçekleştirmek, görev veya iş yapmak anlamında
+                    kullanılır. Genellikle aktiviteleri ve görevleri ifade eder.</p>
+
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + do + nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + do not (don’t) do + nesne</li>
+                    <li><strong>Soru:</strong> Do + özne + do + nesne?</li>
+                </ul>
+
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> He does his homework every day. (Her gün ödevini yapar.)</li>
+                    <li><strong>Olumlu:</strong> She does yoga in the morning. (Sabahları yoga yapar.)</li>
+                    <li><strong>Olumsuz:</strong> I don’t do the laundry on weekends. (Hafta sonları çamaşır yıkamam.)
+                    </li>
+                    <li><strong>Soru:</strong> Do they do their chores? (Görevlerini yaparlar mı?)</li>
+                </ul>
+
+                <h3>Karıştırılan Cümleler:</h3>
+                <ul>
+                    <li><strong>❌</strong> He makes his homework every day.<br><strong>✔️</strong> He does his
+                        homework every day.<br><strong>Açıklama:</strong> "Make" burada yanlış bir kullanım; "do"
+                        kelimesi görev veya işleri belirtmek için kullanılmalıdır.</li>
+                    <li><strong>❌</strong> I make my work every morning.<br><strong>✔️</strong> I do my work
+                        every morning.<br><strong>Açıklama:</strong> "Do" kelimesi burada iş yapmak anlamında
+                        kullanılmalı, "make" uygun değildir.</li>
+                </ul>
+
+                <h2>3. Play (Oynamak)</h2>
+                <p><strong>Play</strong>, genellikle bir aktivite içinde eğlenmek, oyun oynamak veya bir müzik aleti
+                    çalmak anlamında kullanılır. Eğlence veya sanatsal bir etkinlikte yer almak için bu fiil kullanılır.
+                </p>
+
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + play + nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + do not (don’t) play + nesne</li>
+                    <li><strong>Soru:</strong> Do + özne + play + nesne?</li>
+                </ul>
+
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> They play football every Saturday. (Her cumartesi futbol oynarlar.)
+                    </li>
+                    <li><strong>Olumlu:</strong> She plays the guitar beautifully. (Gitarı güzel çalar.)</li>
+                    <li><strong>Olumsuz:</strong> I don’t play video games anymore. (Artık video oyunları oynamıyorum.)
+                    </li>
+                    <li><strong>Soru:</strong> Do you play the piano? (Piyano çalar mısın?)</li>
+                </ul>
+
+                <h3>Karıştırılan Cümleler:</h3>
+                <ul>
+                    <li><strong>❌</strong> She makes football on Sundays.<br><strong>✔️</strong> She plays
+                        football on Sundays.<br><strong>Açıklama:</strong> "Make" burada yanlış bir kullanım; futbol
+                        oynamak için "play" kelimesi kullanılmalıdır.</li>
+                    <li><strong>❌</strong> He does the guitar beautifully.<br><strong>✔️</strong> He plays the
+                        guitar beautifully.<br><strong>Açıklama:</strong> "Do" burada yanlış; müzik aleti çalmak için
+                        "play" kullanmak gerekir.</li>
+                </ul>
+
+                <h2>Make, Do ve Play Arasındaki Farklar</h2>
+                <ol>
+                    <li>
+                        <strong>Anlam:</strong> <br>
+                        "Make", yaratma veya ortaya bir şey çıkarma anlamına gelir; somut ya da soyut yeni bir şey
+                        oluşturmak için kullanılır. Örneğin, "make a decision" (bir karar vermek) veya "make a cake"
+                        (bir kek yapmak) ifadelerinde olduğu gibi. <br>
+                         "Do" ise, belirli bir görevi veya aktiviteyi yerine getirmek için kullanılır ve genellikle daha genel, tekrarlanan işleri veya sorumlulukları
+                        kapsar. Örneğin, "do homework" (ödev yapmak) veya "do the dishes" (bulaşıkları yıkamak). <br> 
+                        "Play" ise, eğlence, oyun veya müzikle ilgili aktiviteleri anlatır. Örneğin, "play the guitar" (gitar
+                        çalmak) veya "play soccer" (futbol oynamak).
+                    </li> <br>
+
+                    <li>
+                        <strong>Kullanım Alanları:</strong> <br>
+                        "Make" fiili, özellikle yaratıcı veya üretken faaliyetlerde kullanılır ve fiziksel veya zihinsel
+                        olarak ortaya konulan sonuçlarla ilişkilidir. Bu nedenle, "make dinner" (akşam yemeği
+                        hazırlamak) veya "make an effort" (çaba göstermek) gibi ifadelerde tercih edilir. <br> "Do" daha çok
+                        genel sorumluluklar, işler ve görevlerde kullanılır ve kişisel gelişim veya günlük işler gibi
+                        rutin aktiviteleri anlatmak için idealdir. "Do the laundry" (çamaşırları yıkamak) veya "do your
+                        best" (elinden gelenin en iyisini yapmak) ifadelerinde olduğu gibi. <br> "Play" ise sportif veya
+                        sanatsal aktiviteler, özellikle de oyun ve müzik alanında kullanılır; örneğin, "play chess"
+                        (satranç oynamak) ya da "play the piano" (piyano çalmak).
+                    </li>  <br>
+
+                    <li>
+                        <strong>Örnekler:</strong> <br>
+                        Bu fiillerin farklı bağlamlarda kullanımı, İngilizce konuşmada akıcılığı artırır. "Make" ile
+                        ilgili örnekler arasında "make a plan" (bir plan yapmak) veya "make friends" (arkadaş edinmek)
+                        gibi ifadeler yer alır. "Do" ise "do the housework" (ev işlerini yapmak) veya "do a favor" (bir
+                        iyilik yapmak) gibi genel görevlerde kullanılır. "Play" ise, eğlence veya sporla ilgili
+                        bağlamlarda kullanılır; örneğin, "play basketball" (basketbol oynamak) veya "play in a band"
+                        (bir grupta çalmak).
+                    </li>
+                </ol>
+
+
+                <h2>Sonuç Olarak Make-Do-Play</h2>
+                <p>"Make," "do" ve "play" fiilleri, İngilizce dilinde sıklıkla karıştırılan ancak oldukça önemli olan üç
+                    fiildir. Her biri farklı durumlarda kullanılır ve bu kelimeleri doğru anlamda ve doğru cümle
+                    yapısıyla kullanmak, İngilizce dilinde kendinizi daha akıcı ve anlaşılır bir şekilde ifade etmenizi
+                    sağlar. Bu fiiller arasındaki farkları öğrenmek, yalnızca yazma ve konuşma becerilerinizi
+                    geliştirmekle kalmaz, aynı zamanda İngilizceyi daha bilinçli ve etkili bir şekilde kullanmanıza da
+                    katkıda bulunur. <br>
+                    Örneğin, "make" fiili bir şeyi oluşturmak veya hazırlamak anlamına gelirken, "do" bir eylemi yerine
+                    getirmek veya bir görev yapmak anlamında kullanılır. Öte yandan, "play" ise oyun veya müzik gibi
+                    eğlence amaçlı etkinliklerde tercih edilir. İngilizce’de bu fiilleri doğru kullanarak dil
+                    becerilerinizi ileri seviyeye taşıyabilirsiniz.</p>
+            </div>
+
+        </div>
+
+        <script src="/js/blog.js"></script>
+
+</body>
+
+</html>

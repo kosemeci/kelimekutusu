@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verb Forms Table</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </aside>
+            <main class="content">
+                <img class="responsive-img" src="/images/blog/irregular.png" alt="">
+                <h2>Irregular Verbs (Düzensiz Fiiller)</h2>
+                <p>
+                    <strong>Düzensiz fiiller</strong>, geçmiş zaman yapılarında standart "-ed" ekini almayan fiillerdir. Her bir düzensiz
+                    fiilin kendine özgü bir <strong>ikinci</strong> ve <strong>üçüncü</strong> hali bulunmaktadır. Bu fiiller, günlük konuşmada
+                    ve yazıda sıkça kullanılır ve farklı zaman yapılarında yer alarak cümlelerin anlamını belirgin bir şekilde etkiler.
+                </p>
+                <p>
+                    Düzensiz fiillerin <strong>ikinci halleri</strong>, geçmiş zaman yapılarında kullanılır ve genellikle bir eylemin geçmişte
+                    belirli bir zamanda gerçekleştiğini belirtmek için kullanılır. Örneğin, <em>"I went to the store yesterday"</em>
+                    <strong>(Dün dükkâna gittim)</strong> cümlesinde <strong>"went"</strong> fiili, geçmişte yapılan bir eylemi ifade eder.
+                </p>
+                <p>
+                    Düzensiz fiillerin <strong>üçüncü halleri</strong> ise genellikle <strong>perfect (mükemmel)</strong> zaman yapılarında,
+                    yani <strong>"have"</strong> veya <strong>"has"</strong> ile birlikte kullanılır. Bu yapı, bir eylemin geçmişte
+                    başladığını ve şu anla bir bağlantısı olduğunu vurgular. Örneğin, <em>"I have gone to the store"</em>
+                    <strong>(Dükkâna gittim)</strong> cümlesinde <strong>"gone"</strong> fiili, geçmişte gerçekleşen ve etkisi hala süren
+                    bir durumu belirtir.
+                </p>
+                <p>
+                    Bazı düzensiz fiillerin <strong>ikinci</strong> ve <strong>üçüncü halleri</strong> aynı olabilir. Bu fiiller,
+                    geçmiş zaman yapısında ya da perfect zaman yapısında kullanıldıklarında aynı formu alır. Örneğin:
+                </p>
+                <ul>
+                    <li><strong>put</strong> → <strong>put</strong> → <strong>put</strong>
+                        <ul>
+                            <li>Örnek: <em>"I put the keys on the table."</em> <strong>(Anahtarları masanın üzerine koydum.)</strong></li>
+                            <li>Örnek: <em>"I have put the keys on the table."</em> <strong>(Anahtarları masanın üzerine koydum.)</strong></li>
+                        </ul>
+                    </li>
+                    <li><strong>cut</strong> → <strong>cut</strong> → <strong>cut</strong>
+                        <ul>
+                            <li>Örnek: <em>"She cut the paper."</em> <strong>(Kağıdı kesti.)</strong></li>
+                            <li>Örnek: <em>"She has cut the paper."</em> <strong>(Kağıdı kesti.)</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>
+                    Bu gibi durumlar, fiilin geçmiş zaman ve perfect zaman yapılarında nasıl kullanıldığını anlamak için önemlidir.
+                    <strong>Düzensiz fiiller</strong>, dilin dinamik yapısında önemli bir yere sahip olduğundan, bu fiilleri doğru kullanmak,
+                    iletişimi daha akıcı ve etkili hale getirir.
+                </p>
+                <h3>Kullanım Kuralları:</h3>
+                <ul>
+                    <li><strong>Örnek Fiiller:</strong>
+                        <ul>
+                            <li><em>go</em> → <em>went</em> → <em>gone</em></li>
+                            <li><em>see</em> → <em>saw</em> → <em>seen</em></li>
+                            <li><em>come</em> → <em>came</em> → <em>come</em></li>
+                        </ul>
+                    </li>
+                    <li><strong>Olumlu Kullanım:</strong> Özne + Düzensiz Fiil’in 2. Hali + Nesne</li>
+                    <li><strong>Olumsuz Kullanım:</strong> Özne + didn’t + Düzensiz Fiil’in 1. Hali + Nesne</li>
+                    <li><strong>Soru Kullanımı:</strong> Did + Özne + Düzensiz Fiil’in 1. Hali + Nesne?</li>
+                </ul>
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> I saw a movie yesterday. <em>(Dün bir film izledim.)</em></li>
+                    <li><strong>Olumsuz:</strong> She didn’t go to the party. <em>(Partiye gitmedi.)</em></li>
+                    <li><strong>Soru:</strong> Did they eat lunch? <em>(Öğle yemeği yediler mi?)</em></li>
+                    <li><strong>Olumlu:</strong> He came to the meeting on time. <em>(Toplantıya zamanında geldi.)</em>
+                    </li>
+                    <li><strong>Olumsuz:</strong> We didn’t take the bus. <em>(Otobüsü almadık.)</em></li>
+                    <li><strong>Soru:</strong> Did you know the answer? <em>(Cevabı biliyor muydun?)</em></li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>V1 - Base Form</th>
+                            <th>V2 - Past Simple</th>
+                            <th>V3 - Past Participle</th>
+                            <th>Türkçe Anlamı</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>awake</td>
+                            <td>awoke</td>
+                            <td>awoken</td>
+                            <td>uyandırmak</td>
+                        </tr>
+                        <tr>
+                            <td>be</td>
+                            <td>was, were</td>
+                            <td>been</td>
+                            <td>olmak</td>
+                        </tr>
+                        <tr>
+                            <td>beat</td>
+                            <td>beat</td>
+                            <td>beaten</td>
+                            <td>vurmak</td>
+                        </tr>
+                        <tr>
+                            <td>become</td>
+                            <td>became</td>
+                            <td>become</td>
+                            <td>olmak</td>
+                        </tr>
+                        <tr>
+                            <td>begin</td>
+                            <td>began</td>
+                            <td>begun</td>
+                            <td>başlamak</td>
+                        </tr>
+                        <tr>
+                            <td>bend</td>
+                            <td>bent</td>
+                            <td>bent</td>
+                            <td>bükmek</td>
+                        </tr>
+                        <tr>
+                            <td>bet</td>
+                            <td>bet</td>
+                            <td>bet</td>
+                            <td>bahse girmek</td>
+                        </tr>
+                        <tr>
+                            <td>bid</td>
+                            <td>bid</td>
+                            <td>bid</td>
+                            <td>emretmek</td>
+                        </tr>
+                        <tr>
+                            <td>bite</td>
+                            <td>bit</td>
+                            <td>bitten</td>
+                            <td>ısırmak</td>
+                        </tr>
+                        <tr>
+                            <td>blow</td>
+                            <td>blew</td>
+                            <td>blown</td>
+                            <td>esmek</td>
+                        </tr>
+                        <tr>
+                            <td>break</td>
+                            <td>broke</td>
+                            <td>broken</td>
+                            <td>kırmak</td>
+                        </tr>
+                        <tr>
+                            <td>bring</td>
+                            <td>brought</td>
+                            <td>brought</td>
+                            <td>getirmek</td>
+                        </tr>
+                        <tr>
+                            <td>broadcast</td>
+                            <td>broadcast</td>
+                            <td>broadcast</td>
+                            <td>yayımlamak</td>
+                        </tr>
+                        <tr>
+                            <td>build</td>
+                            <td>built</td>
+                            <td>built</td>
+                            <td>inşa etmek</td>
+                        </tr>
+                        <tr>
+                            <td>burn</td>
+                            <td>burned, burnt</td>
+                            <td>burned, burnt</td>
+                            <td>yakmak</td>
+                        </tr>
+                        <tr>
+                            <td>burst</td>
+                            <td>burst</td>
+                            <td>burst</td>
+                            <td>patlamak</td>
+                        </tr>
+                        <tr>
+                            <td>buy</td>
+                            <td>bought</td>
+                            <td>bought</td>
+                            <td>satın almak</td>
+                        </tr>
+                        <tr>
+                            <td>catch</td>
+                            <td>caught</td>
+                            <td>caught</td>
+                            <td>yakalamak</td>
+                        </tr>
+                        <tr>
+                            <td>choose</td>
+                            <td>chose</td>
+                            <td>chosen</td>
+                            <td>seçmek</td>
+                        </tr>
+                        <tr>
+                            <td>come</td>
+                            <td>came</td>
+                            <td>come</td>
+                            <td>gelmek</td>
+                        </tr>
+                        <tr>
+                            <td>cost</td>
+                            <td>cost</td>
+                            <td>cost</td>
+                            <td>mal olmak (masraf)</td>
+                        </tr>
+                        <tr>
+                            <td>creep</td>
+                            <td>crept</td>
+                            <td>crept</td>
+                            <td>emeklemek</td>
+                        </tr>
+                        <tr>
+                            <td>cut</td>
+                            <td>cut</td>
+                            <td>cut</td>
+                            <td>kesmek</td>
+                        </tr>
+                        <tr>
+                            <td>deal</td>
+                            <td>dealt</td>
+                            <td>dealt</td>
+                            <td>anlaşmak</td>
+                        </tr>
+                        <tr>
+                            <td>dig</td>
+                            <td>dug</td>
+                            <td>dug</td>
+                            <td>kazmak</td>
+                        </tr>
+                        <tr>
+                            <td>do</td>
+                            <td>did</td>
+                            <td>done</td>
+                            <td>yapmak</td>
+                        </tr>
+                        <tr>
+                            <td>draw</td>
+                            <td>drew</td>
+                            <td>drawn</td>
+                            <td>çizmek</td>
+                        </tr>
+                        <tr>
+                            <td>dream</td>
+                            <td>dreamed, dreamt</td>
+                            <td>dreamed, dreamt</td>
+                            <td>rüya görmek</td>
+                        </tr>
+                        <tr>
+                            <td>drive</td>
+                            <td>drove</td>
+                            <td>driven</td>
+                            <td>sürmek</td>
+                        </tr>
+                        <tr>
+                            <td>drink</td>
+                            <td>drank</td>
+                            <td>drunk</td>
+                            <td>içmek</td>
+                        </tr>
+                        <tr>
+                            <td>eat</td>
+                            <td>ate</td>
+                            <td>eaten</td>
+                            <td>yemek</td>
+                        </tr>
+                        <tr>
+                            <td>fall</td>
+                            <td>fell</td>
+                            <td>fallen</td>
+                            <td>düşmek</td>
+                        </tr>
+                        <tr>
+                            <td>feed</td>
+                            <td>fed</td>
+                            <td>fed</td>
+                            <td>beslemek</td>
+                        </tr>
+                        <tr>
+                            <td>feel</td>
+                            <td>felt</td>
+                            <td>felt</td>
+                            <td>hissetmek</td>
+                        </tr>
+                        <tr>
+                            <td>fight</td>
+                            <td>fought</td>
+                            <td>fought</td>
+                            <td>dövüşmek</td>
+                        </tr>
+                        <tr>
+                            <td>find</td>
+                            <td>found</td>
+                            <td>found</td>
+                            <td>bulmak</td>
+                        </tr>
+                        <tr>
+                            <td>flee</td>
+                            <td>fled</td>
+                            <td>fled</td>
+                            <td>firar etmek</td>
+                        </tr>
+                        <tr>
+                            <td>fly</td>
+                            <td>flew</td>
+                            <td>flown</td>
+                            <td>uçmak</td>
+                        </tr>
+                        <tr>
+                            <td>forbid</td>
+                            <td>forbade</td>
+                            <td>forbidden</td>
+                            <td>yasaklamak</td>
+                        </tr>
+                        <tr>
+                            <td>forget</td>
+                            <td>forgot</td>
+                            <td>forgotten</td>
+                            <td>unutmak</td>
+                        </tr>
+                        <tr>
+                            <td>forgive</td>
+                            <td>forgave</td>
+                            <td>forgiven</td>
+                            <td>affetmek</td>
+                        </tr>
+                        <tr>
+                            <td>freeze</td>
+                            <td>froze</td>
+                            <td>frozen</td>
+                            <td>dondurmak</td>
+                        </tr>
+                        <tr>
+                            <td>get</td>
+                            <td>got</td>
+                            <td>got, gotten</td>
+                            <td>almak</td>
+                        </tr>
+                        <tr>
+                            <td>give</td>
+                            <td>gave</td>
+                            <td>given</td>
+                            <td>vermek</td>
+                        </tr>
+                        <tr>
+                            <td>go</td>
+                            <td>went</td>
+                            <td>gone</td>
+                            <td>gitmek</td>
+                        </tr>
+                        <tr>
+                            <td>grow</td>
+                            <td>grew</td>
+                            <td>grown</td>
+                            <td>büyümek</td>
+                        </tr>
+                        <tr>
+                            <td>hang</td>
+                            <td>hung</td>
+                            <td>hung</td>
+                            <td>asmak</td>
+                        </tr>
+                        <tr>
+                            <td>have</td>
+                            <td>had</td>
+                            <td>had</td>
+                            <td>sahip olmak</td>
+                        </tr>
+                        <tr>
+                            <td>hear</td>
+                            <td>heard</td>
+                            <td>heard</td>
+                            <td>işitmek</td>
+                        </tr>
+                        <tr>
+                            <td>hide</td>
+                            <td>hid</td>
+                            <td>hidden</td>
+                            <td>saklamak</td>
+                        </tr>
+                        <tr>
+                            <td>hit</td>
+                            <td>hit</td>
+                            <td>hit</td>
+                            <td>vurmak</td>
+                        </tr>
+                        <tr>
+                            <td>hold</td>
+                            <td>held</td>
+                            <td>held</td>
+                            <td>tutmak</td>
+                        </tr>
+                        <tr>
+                            <td>hurt</td>
+                            <td>hurt</td>
+                            <td>hurt</td>
+                            <td>incitmek</td>
+                        </tr>
+                        <tr>
+                            <td>keep</td>
+                            <td>kept</td>
+                            <td>kept</td>
+                            <td>tutmak</td>
+                        </tr>
+                        <tr>
+                            <td>know</td>
+                            <td>knew</td>
+                            <td>known</td>
+                            <td>bilmek</td>
+                        </tr>
+                        <tr>
+                            <td>lay</td>
+                            <td>laid</td>
+                            <td>laid</td>
+                            <td>uzanmak</td>
+                        </tr>
+                        <tr>
+                            <td>lead</td>
+                            <td>led</td>
+                            <td>led</td>
+                            <td>önderlik etmek</td>
+                        </tr>
+                        <tr>
+                            <td>learn</td>
+                            <td>learned, learnt</td>
+                            <td>learned, learnt</td>
+                            <td>öğrenmek</td>
+                        </tr>
+                        <tr>
+                            <td>leave</td>
+                            <td>left</td>
+                            <td>left</td>
+                            <td>terk etmek</td>
+                        </tr>
+                        <tr>
+                            <td>lend</td>
+                            <td>lent</td>
+                            <td>lent</td>
+                            <td>ödünç vermek</td>
+                        </tr>
+                        <tr>
+                            <td>let</td>
+                            <td>let</td>
+                            <td>let</td>
+                            <td>izin almak</td>
+                        </tr>
+                        <tr>
+                            <td>lie</td>
+                            <td>lay</td>
+                            <td>lain</td>
+                            <td>yalan söylemek</td>
+                        </tr>
+                        <tr>
+                            <td>lose</td>
+                            <td>lost</td>
+                            <td>lost</td>
+                            <td>kaybetmek</td>
+                        </tr>
+                        <tr>
+                            <td>make</td>
+                            <td>made</td>
+                            <td>made</td>
+                            <td>yapmak</td>
+                        </tr>
+                        <tr>
+                            <td>mean</td>
+                            <td>meant</td>
+                            <td>meant</td>
+                            <td>anlamına gelmek</td>
+                        </tr>
+                        <tr>
+                            <td>meet</td>
+                            <td>met</td>
+                            <td>met</td>
+                            <td>görüşmek</td>
+                        </tr>
+                        <tr>
+                            <td>pay</td>
+                            <td>paid</td>
+                            <td>paid</td>
+                            <td>ödemek</td>
+                        </tr>
+                        <tr>
+                            <td>put</td>
+                            <td>put</td>
+                            <td>put</td>
+                            <td>koymak</td>
+                        </tr>
+                        <tr>
+                            <td>read</td>
+                            <td>read</td>
+                            <td>read</td>
+                            <td>okumak</td>
+                        </tr>
+                        <tr>
+                            <td>ride</td>
+                            <td>rode</td>
+                            <td>ridden</td>
+                            <td>sürmek</td>
+                        </tr>
+                        <tr>
+                            <td>ring</td>
+                            <td>rang</td>
+                            <td>rung</td>
+                            <td>zil çalmak</td>
+                        </tr>
+                        <tr>
+                            <td>rise</td>
+                            <td>rose</td>
+                            <td>risen</td>
+                            <td>yükselmek</td>
+                        </tr>
+                        <tr>
+                            <td>run</td>
+                            <td>ran</td>
+                            <td>run</td>
+                            <td>koşmak</td>
+                        </tr>
+                        <tr>
+                            <td>say</td>
+                            <td>said</td>
+                            <td>said</td>
+                            <td>söylemek</td>
+                        </tr>
+                        <tr>
+                            <td>see</td>
+                            <td>saw</td>
+                            <td>seen</td>
+                            <td>görmek</td>
+                        </tr>
+                        <tr>
+                            <td>sell</td>
+                            <td>sold</td>
+                            <td>sold</td>
+                            <td>satmak</td>
+                        </tr>
+                        <tr>
+                            <td>send</td>
+                            <td>sent</td>
+                            <td>sent</td>
+                            <td>göndermek</td>
+                        </tr>
+                        <tr>
+                            <td>show</td>
+                            <td>showed</td>
+                            <td>shown</td>
+                            <td>göstermek</td>
+                        </tr>
+                        <tr>
+                            <td>shut</td>
+                            <td>shut</td>
+                            <td>shut</td>
+                            <td>kapatmak</td>
+                        </tr>
+                        <tr>
+                            <td>sing</td>
+                            <td>sang</td>
+                            <td>sung</td>
+                            <td>şarkı söylemek</td>
+                        </tr>
+                        <tr>
+                            <td>sit</td>
+                            <td>sat</td>
+                            <td>sat</td>
+                            <td>oturmak</td>
+                        </tr>
+                        <tr>
+                            <td>sleep</td>
+                            <td>slept</td>
+                            <td>slept</td>
+                            <td>uyumak</td>
+                        </tr>
+                        <tr>
+                            <td>speak</td>
+                            <td>spoke</td>
+                            <td>spoken</td>
+                            <td>konuşmak</td>
+                        </tr>
+                        <tr>
+                            <td>spend</td>
+                            <td>spent</td>
+                            <td>spent</td>
+                            <td>harcamak</td>
+                        </tr>
+                        <tr>
+                            <td>stand</td>
+                            <td>stood</td>
+                            <td>stood</td>
+                            <td>beklemek</td>
+                        </tr>
+                        <tr>
+                            <td>swim</td>
+                            <td>swam</td>
+                            <td>swum</td>
+                            <td>yüzmek</td>
+                        </tr>
+                        <tr>
+                            <td>take</td>
+                            <td>took</td>
+                            <td>taken</td>
+                            <td>almak</td>
+                        </tr>
+                        <tr>
+                            <td>teach</td>
+                            <td>taught</td>
+                            <td>taught</td>
+                            <td>öğretmek</td>
+                        </tr>
+                        <tr>
+                            <td>tear</td>
+                            <td>tore</td>
+                            <td>torn</td>
+                            <td>yırtmak</td>
+                        </tr>
+                        <tr>
+                            <td>tell</td>
+                            <td>told</td>
+                            <td>told</td>
+                            <td>anlatmak</td>
+                        </tr>
+                        <tr>
+                            <td>think</td>
+                            <td>thought</td>
+                            <td>thought</td>
+                            <td>düşünmek</td>
+                        </tr>
+                        <tr>
+                            <td>throw</td>
+                            <td>threw</td>
+                            <td>thrown</td>
+                            <td>atmak</td>
+                        </tr>
+                        <tr>
+                            <td>understand</td>
+                            <td>understood</td>
+                            <td>understood</td>
+                            <td>anlamak</td>
+                        </tr>
+                        <tr>
+                            <td>wake</td>
+                            <td>woke</td>
+                            <td>woken</td>
+                            <td>uyanmak</td>
+                        </tr>
+                        <tr>
+                            <td>wear</td>
+                            <td>wore</td>
+                            <td>worn</td>
+                            <td>giymek</td>
+                        </tr>
+                        <tr>
+                            <td>win</td>
+                            <td>won</td>
+                            <td>won</td>
+                            <td>kazanmak</td>
+                        </tr>
+                        <tr>
+                            <td>write</td>
+                            <td>wrote</td>
+                            <td>written</td>
+                            <td>yazmak</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+
+        </div>
+        <script src="/js/blog.js"></script>
+</body>
+
+</html>
+
+<style>
+    table {
+        width: 90%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #eaf2e3;
+    }
+
+    @media (max-width: 768px) {
+        table {
+            width: 100%;
+            font-size: 0.9em;
+        }
+
+        th,
+        td {
+            padding: 8px;
+        }
+    }
+</style>

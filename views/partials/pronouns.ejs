@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </aside>
+            <main class="content">
+                <h1 id="content-title">Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</h1>
+                <p><strong>Pronouns (zamirler)</strong>, isimlerin yerini alan kelimelerdir. Bu sayede dilimiz daha akıcı ve etkili olur. İngilizce'de zamirler, isimlerin tekrarını önleyerek cümleleri daha anlaşılır hale getirir. Örneğin, "Ali bir kitap okuyor. Ali kitabı çok beğendi" yerine "Ali bir kitap okuyor. O kitabı çok beğendi" diyerek "o" zamirini kullanabiliriz. Bu yazıda zamirlerin türlerini ve nasıl kullanılacağını öğreneceksiniz.</p>
+                
+                <img class="responsive-img" src="/images/blog/pronouns.jpg" alt="">
+
+                <p>İngilizce’de 6 ana tür pronouns vardır: Personal Pronouns (Kişi Zamirleri), Possessive Pronouns (İyelik Zamirleri), Reflexive Pronouns (Dönüşlü Zamirler), Demonstrative Pronouns (Gösterme Zamirleri), Interrogative Pronouns (Soru Zamirleri) ve Indefinite Pronouns (Belirsiz Zamirler). Her bir zamir türü farklı bir işlev görür ve doğru kullanımla cümlelerinizin anlamını güçlendirir.</p>
+                
+                <h2>1. Personal Pronouns (Kişi Zamirleri): Günlük İletişimde Sıklıkla Kullanılan Temel Zamirler</h2>
+                <p>Personal pronouns (kişi zamirleri), özne ve nesne zamirleri olmak üzere iki gruba ayrılır.</p>
+                
+                <h3>Subject Pronouns (Özne Zamirleri): Eylemi Kim Yapıyor?</h3>
+                <p>Özne zamirleri, cümlede eylemi kimin gerçekleştirdiğini belirtmek için kullanılır. İngilizce'de 'I' (ben), 'you' (sen/siz), 'he' (o - erkek), 'she' (o - kadın), 'it' (o - cansız varlık veya hayvan), 'we' (biz) ve 'they' (onlar) gibi zamirler, özne pozisyonunda yer alarak cümleleri daha akıcı hale getirir. Doğru kullanıldığında, özne zamirleri iletişimin netliğini artırır ve ifadelerin anlamını güçlendirir.</p>
+
+                <!-- <table>
+                    <tr>
+                        <th>Subject Pronouns</th>
+                        <th>Özne Zamirleri</th>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>Ben</td>
+                    </tr>
+                    <tr>
+                        <td>You</td>
+                        <td>Sen / Siz</td>
+                    </tr>
+                    <tr>
+                        <td>He</td>
+                        <td>O (Erkek)</td>
+                    </tr>
+                    <tr>
+                        <td>She</td>
+                        <td>O (Kadın)</td>
+                    </tr>
+                    <tr>
+                        <td>It</td>
+                        <td>O (Cansız Varlık)</td>
+                    </tr>
+                    <tr>
+                        <td>We</td>
+                        <td>Biz</td>
+                    </tr>
+                    <tr>
+                        <td>They</td>
+                        <td>Onlar</td>
+                    </tr>
+                </table> -->
+                <img class="responsive-img" src="/images/blog/personal.jpg" alt="">
+
+                <p><strong>Örnek Cümle:</strong><br>
+                    "<strong>I</strong> love pizza." (<strong>Ben</strong> pizzayı severim.)<br>
+                    "<strong>They</strong> are going to the park." (<strong>Onlar</strong> parka gidiyor.) <br>
+                    "<strong>She</strong> reads books every evening." (<strong>O</strong>, her akşam kitap okur.) <br>
+                    "<strong>We</strong> will bake a cake this weekend." (<strong>Biz</strong> bu hafta sonu bir kek yapacağız.)
+                </p>
+                
+                <h3>Object Pronouns (Nesne Zamirleri): Eylem Kime Yöneltiliyor?</h3>
+                <p>Nesne zamirleri, cümlede eylemin kime veya neye yöneldiğini belirtmek için kullanılır. İngilizce'de 'me' (beni), 'you' (seni), 'him' (onu - erkek), 'her' (onu - kadın), 'it' (onu - cansız varlık veya hayvan), 'us' (bizi) ve 'them' (onları) gibi zamirler, nesne pozisyonunda yer alarak cümlelerin anlamını zenginleştirir. Bu zamirler, cümle içindeki akışı sağlarken, hangi varlıkların etkileşimde bulunduğunu açıkça ifade eder.</p>
+                <table>
+                    <tr>
+                        <th>Object Pronouns</th>
+                        <th>Nesne Zamirleri</th>
+                    </tr>
+                    <tr>
+                        <td>Me</td>
+                        <td>Beni / Bana</td>
+                    </tr>
+                    <tr>
+                        <td>You</td>
+                        <td>Seni / Sana</td>
+                    </tr>
+                    <tr>
+                        <td>Him</td>
+                        <td>Onu / Ona (Erkek)</td>
+                    </tr>
+                    <tr>
+                        <td>Her</td>
+                        <td>Onu / Ona (Kadın)</td>
+                    </tr>
+                    <tr>
+                        <td>It</td>
+                        <td>Onu / Ona (Cansız)</td>
+                    </tr>
+                    <tr>
+                        <td>Us</td>
+                        <td>Bizi / Bize</td>
+                    </tr>
+                    <tr>
+                        <td>Them</td>
+                        <td>Onları / Onlara</td>
+                    </tr>
+                </table>
+                <img class="responsive-img" src="/images/blog/object-pronouns.jpg" alt="">
+                <p><strong>Örnek Cümle:</strong> <br>
+
+                "Can you help <strong>me</strong>?" (<strong>Bana</strong> yardım eder misin?)<br>
+                "We saw <strong>them</strong> at the cinema." (<strong>Onları</strong> sinemada gördük.) <br>
+                "She invited <strong>us</strong> to her party." (<strong>Bizi</strong> partisine davet etti.) <br>
+                "I’ll call <strong>you</strong> tomorrow." (<strong>Seni</strong> yarın arayacağım.)</p>
+                
+                <h2>2. Possessive Pronouns (İyelik Zamirleri): Kime Ait Olduğunu Gösterin</h2>
+                <p>Possessive pronouns (iyelik zamirleri), bir şeyin kime ait olduğunu belirtmek için kullanılır. İsim yerine geçerek sahipliği ifade ederler. İngilizce’deki possessive pronouns şunlardır:</p>
+                <img class="responsive-img" src="/images/blog/possesive.jpg" alt="">
+
+                <!-- <table>
+                    <tr>
+                        <th>Possessive Pronouns</th>
+                        <th>İyelik Zamirleri</th>
+                    </tr>
+                    <tr>
+                        <td>Mine</td>
+                        <td>Benimki</td>
+                    </tr>
+                    <tr>
+                        <td>Yours</td>
+                        <td>Seninki / Sizinki</td>
+                    </tr>
+                    <tr>
+                        <td>His</td>
+                        <td>Onunki (Erkek)</td>
+                    </tr>
+                    <tr>
+                        <td>Hers</td>
+                        <td>Onunki (Kadın)</td>
+                    </tr>
+                    <tr>
+                        <td>Its</td>
+                        <td>Onunki (Cansız Varlık)</td>
+                    </tr>
+                    <tr>
+                        <td>Ours</td>
+                        <td>Bizimki</td>
+                    </tr>
+                    <tr>
+                        <td>Theirs</td>
+                        <td>Onlarınki</td>
+                    </tr>
+                </table> -->
+                
+                <p><strong>Örnek Cümle:</strong><br>
+                    "This book is <strong>mine</strong>." (Bu kitap <strong>benim(ki)</strong>.)<br>
+                    "The red car is <strong>theirs</strong>." (Kırmızı araba <strong>onların(ki)</strong>.)<br>
+                    "That laptop is <strong>yours</strong>." (Şu dizüstü bilgisayar <strong>senin(ki)</strong>.)<br>
+                    "These keys are <strong>ours</strong>." (Bu anahtarlar <strong>bizim(ki)</strong>.)<br>
+                    "The idea was <strong>hers</strong>." (Fikir <strong>onundu</strong>.)
+                </p>
+                
+                <h2>3. Reflexive Pronouns (Dönüşlü Zamirler): Eylemi Kendi Üzerinizde Yaptığınızı Belirtin</h2>
+                <p>Reflexive pronouns (dönüşlü zamirler), eylemi gerçekleştiren öznenin eylemi kendi üzerinde yaptığını ifade eder. Bu zamirler, fiilden sonra kullanılarak özneyi güçlendirir. İngilizce’deki reflexive pronouns şunlardır:</p>
+                <img class="responsive-img" src="/images/blog/reflexive.jpg" alt="">
+                <table>
+                    <tr>
+                        <th>Reflexive Pronouns</th>
+                        <th>Dönüşlü Zamirler</th>
+                    </tr>
+                    <tr>
+                        <td>Myself</td>
+                        <td>Kendim</td>
+                    </tr>
+                    <tr>
+                        <td>Yourself</td>
+                        <td>Kendin / Kendiniz</td>
+                    </tr>
+                    <tr>
+                        <td>Himself</td>
+                        <td>Kendisi (Erkek)</td>
+                    </tr>
+                    <tr>
+                        <td>Herself</td>
+                        <td>Kendisi (Kadın)</td>
+                    </tr>
+                    <tr>
+                        <td>Itself</td>
+                        <td>Kendisi (Cansız Varlık)</td>
+                    </tr>
+                    <tr>
+                        <td>Ourselves</td>
+                        <td>Kendimiz</td>
+                    </tr>
+                    <tr>
+                        <td>Themselves</td>
+                        <td>Kendileri</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Örnek Cümle:</strong><br>
+                    "You can do it <strong>yourself</strong>." (Bunu <strong>kendin</strong> yapabilirsin.)<br>
+                    "I made this cake <strong>myself</strong>." (Bu keki <strong>kendim</strong> yaptım.)<br>
+                    "They fixed the car <strong>themselves</strong>." (Arabayı <strong>kendileri</strong> tamir ettiler.)<br>
+                    "She completed the project <strong>herself</strong>." (Projeyi <strong>kendisi</strong> tamamladı.)<br>
+                    "We decorated the room <strong>ourselves</strong>." (Odayı <strong>kendimiz</strong> süsledik.)
+                </p>                
+                
+                <h2>4. Demonstrative Pronouns (Gösterme Zamirleri): Bir Şeye İşaret Edin</h2>
+                <p>Demonstrative pronouns (gösterme zamirleri), bir nesneyi ya da kişiyi işaret etmek için kullanılır. Konuşmada mesafeyi ve konumu ifade eder. İngilizce’deki demonstrative pronouns şunlardır:</p>
+                <table>
+                    <tr>
+                        <th>Demonstrative Pronouns</th>
+                        <th>Gösterme Zamirleri</th>
+                    </tr>
+                    <tr>
+                        <td>This</td>
+                        <td>Bu</td>
+                    </tr>
+                    <tr>
+                        <td>That</td>
+                        <td>Şu / O</td>
+                    </tr>
+                    <tr>
+                        <td>These</td>
+                        <td>Bunlar</td>
+                    </tr>
+                    <tr>
+                        <td>Those</td>
+                        <td>Şunlar / Onlar</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Örnek Cümle:</strong><br>
+                    "<strong>This</strong> is my favorite book." (<strong>Bu</strong> benim favori kitabım.)<br>
+                    "<strong>Those</strong> are the shoes I want." (<strong>Şunlar</strong> benim istediğim ayakkabılar.)<br>
+                    "<strong>That</strong> is her new car." (<strong>O</strong>, onun yeni arabası.)<br>
+                    "<strong>These</strong> bags are ours." (<strong>Bu</strong> çantalar bizim.)
+                </p>                
+                
+                <h2>5. Interrogative Pronouns (Soru Zamirleri): Soru Sorarken İşe Yarar</h2>
+                <img class="responsive-img" src="/images/blog/what.jpg" alt="">
+                <p>Interrogative pronouns (soru zamirleri), soru cümleleri oluşturmak için kullanılır. Bilgi talep ederken sıkça kullanılırlar. İngilizce’deki interrogative pronouns şunlardır:</p>
+                <table>
+                    <tr>
+                        <th>Interrogative Pronouns</th>
+                        <th>Soru Zamirleri</th>
+                    </tr>
+                    <tr>
+                        <td>Who</td>
+                        <td>Kim</td>
+                    </tr>
+                    <tr>
+                        <td>What</td>
+                        <td>Ne</td>
+                    </tr>
+                    <tr>
+                        <td>Which</td>
+                        <td>Hangisi</td>
+                    </tr>
+                    <tr>
+                        <td>Whom</td>
+                        <td>Kimi</td>
+                    </tr>
+                    <tr>
+                        <td>Whose</td>
+                        <td>Kimin</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Örnek Cümle:</strong><br>
+                    "<strong>Who</strong> is coming to the party?" (<strong>Partiye kim</strong> geliyor?)<br>
+                    "<strong>What</strong> do you want to eat?" (<strong>Ne</strong> yemek istersin?)<br>
+                    "<strong>Which</strong> book do you prefer?" (<strong>Hangi</strong> kitabı tercih ediyorsun?)<br>
+                    "<strong>Whose</strong> jacket is this?" (<strong>Bunun kimin</strong> ceketidir?)
+                </p>                
+                
+                <h2>6. Indefinite Pronouns (Belirsiz Zamirler): Genel Kavramları İfade Edin</h2>
+                <p>Indefinite pronouns (belirsiz zamirler), kesin bir kişi veya nesne belirtmeden genel kavramları ifade etmek için kullanılır. İngilizce’deki indefinite pronouns şunlardır:</p>
+                <table>
+                    <tr>
+                        <th>Indefinite Pronouns</th>
+                        <th>Belirsiz Zamirler</th>
+                    </tr>
+                    <tr>
+                        <td>Someone</td>
+                        <td>Biri</td>
+                    </tr>
+                    <tr>
+                        <td>Anyone</td>
+                        <td>Herhangi biri</td>
+                    </tr>
+                    <tr>
+                        <td>No one</td>
+                        <td>Hiç kimse</td>
+                    </tr>
+                    <tr>
+                        <td>Everyone</td>
+                        <td>Herkes</td>
+                    </tr>
+                    <tr>
+                        <td>Something</td>
+                        <td>Bir şey</td>
+                    </tr>
+                    <tr>
+                        <td>Anything</td>
+                        <td>Herhangi bir şey</td>
+                    </tr>
+                    <tr>
+                        <td>Nothing</td>
+                        <td>Hiçbir şey</td>
+                    </tr>
+                    <tr>
+                        <td>Everything</td>
+                        <td>Her şey</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Örnek Cümle:</strong><br>
+                    "<strong>Someone</strong> is at the door." (<strong>Kapıda biri</strong> var.)<br>
+                    "I don't have <strong>anything</strong> to wear." (<strong>Üzerime giyecek bir şey</strong>im yok.)<br>
+                    "<strong>Everybody</strong> loves a good story." (<strong>Herkes</strong> iyi bir hikaye sever.)<br>
+                    "<strong>No one</strong> knows the answer." (<strong>Hiç kimse</strong> cevabı bilmiyor.)
+                </p>                
+                
+                <h2>Zamirler ve İngilizce</h2>
+                <p> İngilizce'de zamirlerin doğru ve etkili kullanımı, dilin akıcılığı ve ifadelerin netliği için son derece kritiktir. Zamirler, cümle içindeki isimleri veya diğer zamirleri temsil ederek dilin yapısını daha da zenginleştirir. Bu yazıda, zamir türlerinin ve kullanım şekillerinin ayrıntılarına değinerek, bu bilgilerin nasıl günlük iletişimde kullanılabileceğini açıkladık.
+                    Zamir türleri, özne, nesne, sahiplik gibi farklı işlevlere sahiptir ve her biri, dilde farklı durumlar için özel bir yer tutar. Doğru zamir kullanımı, cümlelerinizi daha akıcı ve anlaşılır hale getirir, aynı zamanda dil bilginizi de geliştirir. Pratik yaparak bu bilgileri günlük konuşmalarınıza entegre etmek, İngilizce becerilerinizi hızla ilerletmenin en etkili yoludur.                    
+                    Sonuç olarak, zamirlerin İngilizce'deki rolü büyük önem taşımaktadır. Unutmayın, öğrendiklerinizle ilgili olarak düzenli pratik yapmayı ihmal etmeyin; böylece dil becerilerinizi daha da pekiştirebilirsiniz.</p>
+            </main>
+            
+        </div>
+
+        <script src="/js/blog.js"></script>
+
+</body>
+
+</html>

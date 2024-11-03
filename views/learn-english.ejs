@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Blog</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+<body>
+    <%- include('partials/navbar') %>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Konu Başlıkları</h2>
+            <ul id="blog-titles">
+                <% blogPosts.forEach((post, index) => { %>
+                    <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'><%= post.title %></li>
+                <% }) %>
+            </ul>
+        </aside>
+        <main class="content">
+            <h2 id="content-title">İngilizce Dil Bilgisi ve İpuçları</h2>
+            <p>İngilizce öğrenmeye yönelik blogumuza hoş geldiniz! Bu sayfada, İngilizce dilinin temel yapı taşlarından ileri seviyedeki detaylarına kadar uzanan pek çok farklı konuda bilgi bulabilirsiniz. İngilizce dil bilgisinde zorlanabileceğiniz veya kafa karıştırıcı bulabileceğiniz konuları açıklayıcı bir şekilde ele aldık.</p>
+            
+            <p>Blogumuzda, özellikle sıkça karıştırılan konulara değinerek dil becerilerinizi sağlamlaştırmayı hedefliyoruz. Örneğin, İngilizce zamanları ve zaman zarflarının kullanım farkları, doğru fiil kullanımı (make, do, play gibi) ya da zamirlerin doğru yerlerde kullanımı gibi konular, dil öğrenenler için bazen kafa karıştırıcı olabilir. Bu alanlarda doğru bilgileri öğrenmek, İngilizceyi daha etkili bir şekilde kullanmanızı sağlayacaktır.</p>
+            
+            <p>Ayrıca, İngilizce öğrenim sürecinde sıkça yapılan hatalara dair ipuçları ve düzeltici öneriler de bulacaksınız. Bu sayede, dili daha akıcı ve doğal bir şekilde konuşmayı öğrenebilirsiniz. İngilizce dil bilgisi hakkında eksiklerinizi tamamlamak, yeni bilgiler edinmek veya var olan bilginizi pekiştirmek için sayfanın yan tarafındaki listeden dilediğiniz bir konuyu seçebilirsiniz.</p>
+            
+            <p>İngilizce öğrenme yolculuğunuzda size destek olmayı amaçlayan bu içeriklerle, keyifli ve verimli bir öğrenme sürecine adım atabilirsiniz. Şimdi, ihtiyacınız olan bilgiyi seçin ve öğrenmeye başlayın!</p>
+        </main>
+        
+    </div>
+
+    <script src="/js/blog.js"></script>
+</body>
+</html>

@@ -107,6 +107,49 @@ router.use("/a", (req, res) => {
     res.render("a");
 });
 
+router.use("/aa", (req, res) => {
+    res.render("aa");
+});
+
+const blogPosts = [
+    { title: 'Irregular Verbs (Düzensiz Fiiler)', content: 'irregular-verbs' },
+    { title: 'Future Tense (Gelecek Zaman)', content: 'future-tense' },
+    { title: 'Present Tense (Şimdiki Zaman)', content: 'present-tense' },
+    { title: 'Past Tense (Geçmiş Zaman)', content: 'past-tense'},
+    { title: 'Pronouns (Zamirler)', content: 'pronouns'},
+    { title: 'Make-Do-Play Arasındaki Farklar', content: 'make-do-play' },
+    { title: 'Been to - Gone to Farkı Nedir?', content: 'been-gone' },
+    { title: 'a/an/the Nerelerde Kullanılır?', content: 'a-an-the' },
+    { title: 'Preposition(Edatlar,at-in-on)', content: 'preposition' },
+
+];
+
+router.get('/learn-english/:page', (req, res) => {
+    const { page } = req.params;
+    res.render(`partials/${page}`, { blogPosts });
+});
+
+router.use('/learn-english', (req, res) => {
+    res.render('learn-english', { blogPosts });
+});
+
+router.use('/b', (req, res) => {
+    // Eşleştirilecek kelimeler ve anlamlar
+    const words = [
+        { word: "Teacher", definition: "Someone who teaches" },
+        { word: "Doctor", definition: "Someone who treats patients" },
+        { word: "Engineer", definition: "Someone who designs structures" },
+        { word: "Artist", definition: "Someone who creates art" },
+        { word: "Chef", definition: "Someone who cooks food" },
+        { word: "Pilot", definition: "Someone who flies airplanes" },
+        { word: "Nurse", definition: "Someone who cares for patients" },
+        { word: "Writer", definition: "Someone who writes books or articles" }
+      ];
+      
+  
+    res.render('b', { words });
+  });
+
 router.use("/kelime-yarismasi", async (req, res) => {
     const query = "SELECT level FROM words  GROUP BY level ORDER BY level ASC;";
     const queryTrCategory = "SELECT turkish FROM t_category ORDER BY turkish ASC";
@@ -186,60 +229,60 @@ router.use("/", async (req, res) => {
 
 });
 
-const agent = new https.Agent({
-    rejectUnauthorized: false
-});
+// const agent = new https.Agent({
+//     rejectUnauthorized: false
+// });
 
-const username = 'apitest';
-const password = 'test123';
+// const username = 'apitest';
+// const password = 'test123';
 
-async function fetchDataAndUpdateDB() {
-    try {
-        const tokenResponse = await axios.post(
-            'https://efatura.etrsoft.com/fmi/data/v1/databases/testdb/sessions',
-            {},
-            {
-                httpsAgent: agent,
-                headers: {
-                    'Authorization': 'Basic ' + Buffer.from(username + ':' + password).toString('base64'),
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
-        const token = tokenResponse.data.response.token;
-        const dataResponse = await axios.patch(
-            'https://efatura.etrsoft.com/fmi/data/v1/databases/testdb/layouts/testdb/records/1',
-            {
-                "fieldData": {},
-                "script": "getData"
-            },
-            {
-                httpsAgent: agent,
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
+// async function fetchDataAndUpdateDB() {
+//     try {
+//         const tokenResponse = await axios.post(
+//             'https://efatura.etrsoft.com/fmi/data/v1/databases/testdb/sessions',
+//             {},
+//             {
+//                 httpsAgent: agent,
+//                 headers: {
+//                     'Authorization': 'Basic ' + Buffer.from(username + ':' + password).toString('base64'),
+//                     'Content-Type': 'application/json'
+//                 }
+//             }
+//         );
+//         const token = tokenResponse.data.response.token;
+//         const dataResponse = await axios.patch(
+//             'https://efatura.etrsoft.com/fmi/data/v1/databases/testdb/layouts/testdb/records/1',
+//             {
+//                 "fieldData": {},
+//                 "script": "getData"
+//             },
+//             {
+//                 httpsAgent: agent,
+//                 headers: {
+//                     'Authorization': `Bearer ${token}`,
+//                     'Content-Type': 'application/json'
+//                 }
+//             }
+//         );
 
-        const data = dataResponse.data.response.scriptResult;
-        const fetchedData = JSON.parse(data);
+//         const data = dataResponse.data.response.scriptResult;
+//         const fetchedData = JSON.parse(data);
 
-        for (const item of fetchedData) {
-            const hesap_kodu = item.hesap_kodu;
-            const borc = item.borc === '' ? 0 : parseFloat(item.borc);
+//         for (const item of fetchedData) {
+//             const hesap_kodu = item.hesap_kodu;
+//             const borc = item.borc === '' ? 0 : parseFloat(item.borc);
 
-            const [checkResult] = await db.execute('SELECT COUNT(*) AS count FROM data WHERE hesap_kodu = ?', [hesap_kodu]);
+//             const [checkResult] = await db.execute('SELECT COUNT(*) AS count FROM data WHERE hesap_kodu = ?', [hesap_kodu]);
 
-            if (checkResult[0].count > 0) {
-                await db.execute('UPDATE data SET borcu = ? WHERE hesap_kodu = ?', [borc, hesap_kodu]);
-            } else {
-                await db.execute('INSERT INTO data (hesap_kodu, borcu) VALUES (?, ?)', [hesap_kodu, borc]);
-            }
-        }
-    } catch (error) {
-        console.error('Error:', error.message);
-    }
-}
+//             if (checkResult[0].count > 0) {
+//                 await db.execute('UPDATE data SET borcu = ? WHERE hesap_kodu = ?', [borc, hesap_kodu]);
+//             } else {
+//                 await db.execute('INSERT INTO data (hesap_kodu, borcu) VALUES (?, ?)', [hesap_kodu, borc]);
+//             }
+//         }
+//     } catch (error) {
+//         console.error('Error:', error.message);
+//     }
+// }
 
 module.exports = router;

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </aside>
+            <div class="main content">
+                <h1 id="content-title">Present Tense (Şimdiki Zaman) Kullanımı ve Detayları</h1>
+                <p>
+                    Present Tense, İngilizce'de "şimdiki zaman" olarak bilinen ve genel doğruları, alışkanlıkları, sürekli durumları ifade etmek için kullanılan temel bir zaman türüdür. Günlük konuşma ve yazılarda yaygın olarak kullanıldığı için, İngilizce öğrenen herkesin bu zamanı doğru ve etkili şekilde kullanabilmesi önemlidir.
+                </p>
+            
+                <h2>1. Simple Present Tense (Geniş Zaman)</h2>
+                <p><strong>Simple Present Tense</strong>, İngilizce'de tekrarlayan olayları, genel doğruları, alışkanlıkları ve değişmeyen durumları anlatmak için kullanılır. Günlük rutinler, sürekli devam eden veya belirli aralıklarla gerçekleşen eylemler Simple Present Tense ile ifade edilir. Ayrıca, bilimsel ve genel gerçekleri, doğruluğu herkes tarafından kabul edilmiş bilgileri açıklarken de bu zaman kullanılır. Örneğin, "The sun rises in the east" (Güneş doğudan doğar) gibi ifadeler, bu zamanın genel doğruları ve evrensel gerçekleri ifade etme işlevini gösterir.</p>
+                                
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + Fiil (üçüncü tekil şahıs için "-s" takısı) + Nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + do/does not (don’t/doesn’t) + Fiil + Nesne</li>
+                    <li><strong>Soru:</strong> Do/Does + Özne + Fiil + Nesne?</li>
+                </ul>
+            
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> She reads a book every night. (Her gece bir kitap okur.)</li>
+                    <li><strong>Olumsuz:</strong> They don’t go to the gym on weekends. (Hafta sonları spor salonuna gitmezler.)</li>
+                    <li><strong>Soru:</strong> Do you like coffee? (Kahve sever misin?)</li>
+                </ul>
+            
+                <h3>Kullanım Alanları:</h3>
+                <ul>
+                    <li><strong>Alışkanlıklar ve Rutinler:</strong> "I wake up at 7 AM every day." (Her gün sabah 7’de uyanırım.)</li>
+                    <li><strong>Genel Doğrular ve Bilimsel Gerçekler:</strong> "The sun rises in the east." (Güneş doğudan doğar.)</li>
+                    <li><strong>Kalıcı Durumlar:</strong> "He lives in New York." (O, New York’ta yaşıyor.)</li>
+                </ul>
+            
+                <h2>2. Present Continuous Tense (Şimdiki Zaman)</h2>
+                <p><strong>Present Continuous Tense</strong>, şu anda devam eden olayları veya geçici, kısa süreli durumları anlatmak için kullanılan bir zaman dilimidir. Bu tense, kişinin o anda yapmakta olduğu işleri ifade etmenin yanı sıra, yakın gelecekte yapılacak kesinleşmiş planları belirtmek için de kullanılır. Örneğin, "I am studying for my exams" (Sınavlarım için çalışıyorum) ifadesi, kişinin o anda devam eden bir eylemini gösterirken, "We are meeting with friends tonight" (Bu akşam arkadaşlarla buluşuyoruz) ifadesi, yakın gelecekte kesinleşmiş bir planı işaret eder. Present Continuous Tense, bu tür geçici eylemleri anlatmak için ideal bir yapıdır.</p>
+                                
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + am/is/are + Fiil-ing + Nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + am/is/are + not + Fiil-ing + Nesne</li>
+                    <li><strong>Soru:</strong> Am/Is/Are + Özne + Fiil-ing + Nesne?</li>
+                </ul>
+            
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> I am studying for my exams. (Sınavlarıma çalışıyorum.)</li>
+                    <li><strong>Olumsuz:</strong> She isn’t watching TV right now. (Şu an televizyon izlemiyor.)</li>
+                    <li><strong>Soru:</strong> Are they coming to the party? (Partiye geliyorlar mı?)</li>
+                </ul>
+            
+                <h3>Kullanım Alanları:</h3>
+                <ul>
+                    <li><strong>Anlık Durumlar:</strong> "He is talking on the phone." (Telefonda konuşuyor.)</li>
+                    <li><strong>Geçici Durumlar:</strong> "They are staying at a hotel this week." (Bu hafta bir otelde kalıyorlar.)</li>
+                    <li><strong>Gelecek Planları:</strong> "We are meeting him tomorrow." (Onunla yarın buluşuyoruz.)</li>
+                </ul>
+            
+                <h2>3. Present Perfect Tense (Geçmişte Başlayan ve Halen Devam Eden Durumlar)</h2>
+                <p><strong>Present Perfect Tense</strong>, geçmişte başlamış ve etkisi ya da sonucu günümüze kadar devam eden olayları anlatmak için kullanılan bir zaman dilimidir. Bu tense, belirli bir zaman ifadesi içermeden, yaşanan deneyimleri, sonlanmış olayların günümüze olan etkilerini ya da henüz tamamlanmamış süreçleri ifade etmek için tercih edilir. Örneğin, "I have lived in this city for five years" (Bu şehirde beş yıldır yaşıyorum) ifadesi, beş yıl önce başlamış ve hâlâ devam eden bir durumu ifade eder. Aynı zamanda, "She has just finished her project" (Projeyi yeni bitirdi) cümlesi, geçmişte tamamlanmış bir eylemin güncel etkisini vurgular. Present Perfect Tense, kişinin deneyimlerini, başarılarını ya da yaşantılarındaki gelişmeleri belirtmek için yaygın olarak kullanılır.</p>
+                                
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + have/has + Fiil’in 3. Hali + Nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + have/has + not + Fiil’in 3. Hali + Nesne</li>
+                    <li><strong>Soru:</strong> Have/Has + Özne + Fiil’in 3. Hali + Nesne?</li>
+                </ul>
+            
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> She has visited France twice. (Fransa’yı iki kez ziyaret etti.)</li>
+                    <li><strong>Olumsuz:</strong> I haven’t finished my homework yet. (Henüz ödevimi bitirmedim.)</li>
+                    <li><strong>Soru:</strong> Have you ever been to London? (Hiç Londra’ya gittin mi?)</li>
+                </ul>
+            
+                <h3>Kullanım Alanları:</h3>
+                <ul>
+                    <li><strong>Geçmişten Süregelen Durumlar:</strong> "I have lived here for ten years." (On yıldır burada yaşıyorum.)</li>
+                    <li><strong>Hayat Deneyimleri:</strong> "They have seen that movie." (O filmi gördüler.)</li>
+                    <li><strong>Sonuç veya Etkisi Hâlâ Geçerli Olan Olaylar:</strong> "He has lost his keys." (Anahtarlarını kaybetti.)</li>
+                </ul>
+            
+                <h2>4. Present Perfect Continuous Tense (Süregelen Etkisi Olan Olaylar)</h2>
+                <p><strong>Present Perfect Continuous Tense</strong>, geçmişte başlamış ve günümüze kadar devam eden, süreci vurgulayan olayları ifade etmek için kullanılır. Bu tense, olayın başladığı noktadan itibaren hala sürdüğünü ve eylemin süregelmekte olduğunu belirtir. Örneğin, "I have been working here for three years" (Üç yıldır burada çalışıyorum) ifadesi, üç yıl önce başlamış ve hala devam eden bir çalışma sürecini anlatır. Present Perfect Continuous Tense, özellikle süregelen bir eylemin etkisini veya sonucunu vurgulamak istendiğinde tercih edilir. "She has been studying all night" (Bütün gece boyunca ders çalışıyor) gibi cümlelerde, eylemin uzun süreli olduğu ve hala devam ettiği anlamı verilir.
+                </p>
+                                
+                <h3>Kullanımı:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> Özne + have/has been + Fiil-ing + Nesne</li>
+                    <li><strong>Olumsuz:</strong> Özne + have/has been + not + Fiil-ing + Nesne</li>
+                    <li><strong>Soru:</strong> Have/Has + Özne + been + Fiil-ing + Nesne?</li>
+                </ul>
+            
+                <h3>Örnek Cümleler:</h3>
+                <ul>
+                    <li><strong>Olumlu:</strong> We have been waiting for you since morning. (Sabahtan beri seni bekliyoruz.)</li>
+                    <li><strong>Olumsuz:</strong> She hasn’t been feeling well lately. (Son zamanlarda iyi hissetmiyor.)</li>
+                    <li><strong>Soru:</strong> Have you been working on this project for a long time? (Bu proje üzerinde uzun zamandır çalışıyor musun?)</li>
+                </ul>
+            
+                <h3>Kullanım Alanları:</h3>
+                <ul>
+                    <li><strong>Geçmişten Süregelen Etkinlikler:</strong> "I have been learning English for two years." (İki yıldır İngilizce öğreniyorum.)</li>
+                    <li><strong>Etkisi Hâlâ Devam Eden Olaylar:</strong> "It has been raining all day." (Bütün gün yağmur yağıyor.)</li>
+                </ul>
+                
+                <h2>Present Tense Kullanımında Dikkat Edilmesi Gereken Noktalar</h2>
+                <ol>
+                    <li><strong>Alışkanlıklar ve Tekrar Eden Olaylar İçin Simple Present Kullanımı:</strong> "She drinks coffee every morning."</li>
+                    <li><strong>Anlık veya Geçici Durumlar İçin Present Continuous Kullanımı:</strong> "They are having lunch right now."</li>
+                    <li><strong>Sonuç veya Etkisi Hâlâ Süren Durumlar İçin Present Perfect Kullanımı:</strong> "He has just left the office."</li>
+                    <li><strong>Uzun Süreli Devam Eden Durumlar İçin Present Perfect Continuous Kullanımı:</strong> "I have been working here since 2015."</li>
+                </ol>
+                <p>Bu kılavuzla, Present Tense’i daha etkin kullanarak hem yazılı hem de sözlü iletişimde becerilerinizi geliştirebilirsiniz.</p>
+            </div>
+            
+        </div>
+
+        <script src="/js/blog.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+
+                        <% }) %>
+                </ul>
+            </aside>
+            <main class="content">
+
+                <h1 id="content-title">Past Tense Nedir? İngilizce’de Kullanımı ve Türleri</h1>
+                <p>
+                    İngilizce dilinde "Past Tense" (Geçmiş Zaman), geçmişte tamamlanmış, belirli bir zamanda meydana
+                    gelen olayları ifade etmek için kullanılan zaman yapılarını içerir. İngilizce dilinde yaygın olarak
+                    kullanılan dört temel geçmiş zaman türü vardır: <strong>Simple Past Tense</strong>, <strong>Past
+                        Continuous Tense</strong>, <strong>Past Perfect Tense</strong> ve <strong>Past Perfect
+                        Continuous Tense</strong>.
+                </p>
+                <p>
+                    Bu zaman türleri, olayların sıralamasını, süresini veya olaylar arasındaki ilişkileri vurgulamak
+                    için kullanılır. Örneğin, geçmişte kısa bir olaydan bahsederken <em>Simple Past Tense</em>
+                    kullanılırken; geçmişte uzun bir süre devam eden bir durumu anlatmak için <em>Past Continuous
+                        Tense</em> tercih edilir. Daha önce bitmiş bir olaya atıfta bulunmak için <em>Past Perfect
+                        Tense</em>, geçmişte belli bir süre devam eden ve sonradan bitmiş bir olayı ifade etmek içinse
+                    <em>Past Perfect Continuous Tense</em> kullanılır.
+                </p>
+                <p>
+                    Past tense yapıları, İngilizce dilindeki olayları, hikayeleri ya da geçmiş deneyimleri daha net ve
+                    anlaşılır bir şekilde ifade etmemizi sağlar. Her bir yapı, olayın türüne göre farklı bir vurgu
+                    sağlar ve iletişimde detayları aktarma yeteneğimizi artırır. Aşağıda her bir tense türünün nasıl
+                    kullanıldığını daha ayrıntılı bir şekilde inceleyebilirsiniz.
+                </p>
+                <section>
+                    <h2>1. Simple Past Tense (Basit Geçmiş Zaman)</h2>
+                    <p>
+                        Simple past tense, geçmişte belirli bir zamanda gerçekleşmiş ve bitmiş olayları anlatır. Bu
+                        zamanı kullanırken, fiillerin ikinci hali kullanılır (örn. <em>work</em> → <em>worked</em>,
+                        <em>go</em> → <em>went</em>). Düzenli fiiller <em>-ed</em> takısı alırken, düzensiz fiillerin
+                        kendine özgü ikinci halleri vardır.
+                    </p>
+                    <h3>Kullanımı:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> Özne + Fiilin 2. Hali + Nesne</li>
+                        <li><strong>Olumsuz:</strong> Özne + didn’t + Fiilin 1. Hali + Nesne</li>
+                        <li><strong>Soru:</strong> Did + Özne + Fiilin 1. Hali + Nesne?</li>
+                    </ul>
+                    <h3>Örnek Cümleler:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> I watched a movie last night. <em>(Dün gece bir film izledim.)</em>
+                        </li>
+                        <li><strong>Olumsuz:</strong> They didn’t go to the party. <em>(Onlar partiye gitmedi.)</em>
+                        </li>
+                        <li><strong>Soru:</strong> Did you finish your homework? <em>(Ödevini bitirdin mi?)</em></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>2. Past Continuous Tense (Şimdiki Zamanın Hikayesi)</h2>
+                    <p>
+                        Past continuous tense, geçmişte belirli bir zamanda devam eden olayları ifade eder. Fiiller
+                        <em>-ing</em> takısı alır ve "was/were" yardımcı fiilleri ile kullanılır.
+                    </p>
+                    <h3>Kullanımı:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> Özne + was/were + Fiil-ing + Nesne</li>
+                        <li><strong>Olumsuz:</strong> Özne + was/were + not + Fiil-ing + Nesne</li>
+                        <li><strong>Soru:</strong> Was/Were + Özne + Fiil-ing + Nesne?</li>
+                    </ul>
+                    <h3>Örnek Cümleler:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> She was reading a book at 5 PM. <em>(O, saat 5’te bir kitap
+                                okuyordu.)</em></li>
+                        <li><strong>Olumsuz:</strong> They weren’t sleeping when I called them. <em>(Onları aradığımda
+                                uyumuyorlardı.)</em></li>
+                        <li><strong>Soru:</strong> Was he playing football yesterday afternoon? <em>(Dün öğleden sonra
+                                futbol mu oynuyordu?)</em></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>3. Past Perfect Tense (Miş’li Geçmiş Zaman)</h2>
+                    <p>
+                        Past perfect tense, geçmişte belirli bir olaydan daha önce gerçekleşmiş olan olayları anlatır.
+                        Bu zaman, genellikle iki olay arasındaki zamanı belirtmek için kullanılır ve <em>had</em> +
+                        fiilin üçüncü hali ile yapılır.
+                    </p>
+                    <h3>Kullanımı:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> Özne + had + Fiil’in 3. Hali + Nesne</li>
+                        <li><strong>Olumsuz:</strong> Özne + hadn’t + Fiil’in 3. Hali + Nesne</li>
+                        <li><strong>Soru:</strong> Had + Özne + Fiil’in 3. Hali + Nesne?</li>
+                    </ul>
+                    <h3>Örnek Cümleler:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> I had finished my work before they arrived. <em>(Onlar gelmeden
+                                önce işimi bitirmiştim.)</em></li>
+                        <li><strong>Olumsuz:</strong> She hadn’t eaten anything by the time we arrived. <em>(Biz
+                                vardığımızda hiçbir şey yememişti.)</em></li>
+                        <li><strong>Soru:</strong> Had they left when you reached the station? <em>(Sen istasyona
+                                vardığında onlar ayrılmış mıydı?)</em></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>4. Past Perfect Continuous Tense (Süregelen Miş’li Geçmiş Zaman)</h2>
+                    <p>
+                        Past perfect continuous tense, geçmişte belirli bir noktaya kadar devam etmiş bir eylemi
+                        anlatmak için kullanılır. Bu zaman, <em>had been</em> + fiilin <em>-ing</em> hali ile yapılır.
+                    </p>
+                    <h3>Kullanımı:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> Özne + had been + Fiil-ing + Nesne</li>
+                        <li><strong>Olumsuz:</strong> Özne + hadn’t been + Fiil-ing + Nesne</li>
+                        <li><strong>Soru:</strong> Had + Özne + been + Fiil-ing + Nesne?</li>
+                    </ul>
+                    <h3>Örnek Cümleler:</h3>
+                    <ul>
+                        <li><strong>Olumlu:</strong> They had been waiting for hours when the bus finally arrived.
+                            <em>(Otobüs nihayet geldiğinde saatlerdir bekliyorlardı.)</em></li>
+                        <li><strong>Olumsuz:</strong> She hadn’t been studying when her mom called her. <em>(Annesi onu
+                                aradığında ders çalışmıyordu.)</em></li>
+                        <li><strong>Soru:</strong> Had he been working on the project for long? <em>(Projede uzun
+                                süredir çalışıyor muydu?)</em></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Past Tense Kullanımında Dikkat Edilmesi Gereken Noktalar</h2>
+                    <ul>
+                        <li><strong>Zaman Belirteçleri:</strong> Simple past tense genellikle "yesterday, last week, in
+                            2010" gibi belirli zaman zarfları ile kullanılır.</li>
+                        <li><strong>Düzensiz Fiiller:</strong> Düzensiz fiillerin ikinci hallerini ezberlemek önemlidir.
+                            Örneğin, <em>go</em> → <em>went</em>, <em>see</em> → <em>saw</em>, <em>take</em> →
+                            <em>took</em>.</li>
+                        <li><strong>Çekimler Arasındaki Fark:</strong> Olayın süresine veya sırasına göre farklı past
+                            tense yapıları seçilir; geçmişte kısa bir süre devam eden olay için past continuous, iki
+                            olay arasında öncelik belirlemek için past perfect gibi.</li>
+                    </ul>
+                </section>
+
+            </main>
+
+        </div>
+
+        <script src="/js/blog.js"></script>
+
+</body>
+
+</html>
