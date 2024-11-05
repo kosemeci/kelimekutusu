@@ -92,3 +92,6 @@ th {
     margin: 0 auto; /* Ortalamak için */
     object-fit: cover; /* Görüntünün düzgün görünmesi için */
 }
+.irr-verbs {
+    color: #19348e;
+  }

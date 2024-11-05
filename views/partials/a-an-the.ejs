@@ -1,1 +1,143 @@
-<h1>heeeelllo</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronouns (Zamirler) Nedir? İngilizce’de Kullanımı ve Türleri</title>
+    <link rel="stylesheet" href="/css/learn-english.css">
+    <link rel="stylesheet" type="text/css" href="/css/fontawesome-free-6.6.0-web/css/all.min.css">
+</head>
+
+<body>
+    <%- include('navbar') %>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Konu Başlıkları</h2>
+                <ul id="blog-titles">
+                    <% blogPosts.forEach((post, index)=> { %>
+                        <li onclick="showContent('<%= post.content %>')" id='<%= post.content %>'>
+                            <%= post.title %>
+                        </li>
+                    <% }) %>
+                </ul>
+            </aside>
+            <main class="content">
+                <h1 id="content-title">A, An ve The Kullanımı</h1>
+                
+                <section>
+                    <h2><strong>A</strong> ve <strong>An</strong> Kullanımı</h2>
+                    <p>
+                        "<strong>A</strong>" ve "<strong>An</strong>" belirsiz tanımlıklar olarak bilinir ve sayılabilen isimlerden önce gelir. 
+                        Genelde bir şeyin ilk kez bahsedildiği durumda kullanılırlar.
+                    </p>
+                    <h3><strong>A</strong> Kullanımı</h3>
+                    <p>
+                        "<strong>A</strong>", ünlü harflerle başlamayan kelimelerden önce kullanılır. 
+                        Örnekler:
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> I saw a cat in the garden. (Bahçede bir kedi gördüm.)</li>
+                        <li><strong>Örnek Cümle:</strong> He is a teacher at the local school. (O, yerel okulda bir öğretmendir.)</li>
+                        <li><strong>Örnek Cümle:</strong> She wants to be a doctor when she grows up. (Büyüdüğünde doktor olmak istiyor.)</li>
+                    </ul>
+            
+                    <h3><strong>An</strong> Kullanımı</h3>
+                    <p>
+                        "<strong>An</strong>", ünlü harflerle başlayan kelimelerden önce kullanılır. 
+                        Örnekler:
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> I have an apple for lunch. (Öğle yemeği için bir elmam var.)</li>
+                        <li><strong>Örnek Cümle:</strong> She is an artist who specializes in paintings. (O, resim üzerine uzmanlaşmış bir sanatçıdır.)</li>
+                        <li><strong>Örnek Cümle:</strong> It was an honor to meet him. (Onunla tanışmak bir onurdu.)</li>
+                    </ul>
+                </section>
+            
+                <section>
+                    <h2>The Kullanımı</h2>
+                    <p>
+                        "<strong>The</strong>", belirli bir isimden önce kullanılır. Yani, bahsedilen nesnenin ya da kişinin 
+                        kim olduğu belli olduğunda tercih edilir.
+                    </p>
+                    
+                    <h4>Belirli Bir Nesne</h4>
+                    <p>
+                        "<strong>The</strong>" kullanarak belirli bir nesneye veya kişiye atıfta bulunduğumuzda kullanılır.
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> The book on the table is mine. (Masadaki kitap benim.)</li>
+                        <li><strong>Örnek Cümle:</strong> The dog that barks at night is my neighbor's. (Gece havlayan köpek komşumun.)</li>
+                    </ul>
+                    
+                    <h4>Özgül Olan Nesneler</h4>
+                    <p>
+                        Eğer bir nesne, belirli bir şekilde tanımlanabiliyorsa "<strong>the</strong>" kullanılır.
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> The tallest building in the city is very famous. (Şehirdeki en yüksek bina çok ünlü.)</li>
+                        <li><strong>Örnek Cümle:</strong> The Amazon River is one of the longest rivers in the world. (Amazon Nehri, dünyanın en uzun nehirlerinden biridir.)</li>
+                    </ul>
+                    
+                    <h4>Genel Bilgiler</h4>
+                    <p>
+                        Genel bir durumu veya nesneyi ifade ederken de "<strong>the</strong>" kullanılır.
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> The earth revolves around the sun. (Dünya, güneş etrafında döner.)</li>
+                        <li><strong>Örnek Cümle:</strong> The internet has changed the way we communicate. (İnternet, iletişim şeklimizi değiştirdi.)</li>
+                    </ul>
+                    
+                    <h4>Tekil ve Çoğul Kullanım</h4>
+                    <p>
+                        "<strong>The</strong>" hem tekil hem de çoğul isimlerle kullanılabilir.
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> The teacher gave us a lot of homework. (Öğretmen bize çok fazla ödev verdi.)</li>
+                        <li><strong>Örnek Cümle:</strong> The students are preparing for their exams. (Öğrenciler sınavlarına hazırlanıyorlar.)</li>
+                    </ul>
+                    
+                    <h4>Coğrafi İsimler</h4>
+                    <p>
+                        Bazı coğrafi isimlerle birlikte "<strong>the</strong>" kullanılır.
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> The United States is located in North America. (Amerika Birleşik Devletleri Kuzey Amerika'da yer almaktadır.)</li>
+                        <li><strong>Örnek Cümle:</strong> The Himalayas are the highest mountains in the world. (Himalayalar, dünyanın en yüksek dağlarıdır.)</li>
+                    </ul>
+                    
+                    <h4>Belirli Zamanlar ve Olaylar</h4>
+                    <p>
+                        Tarih veya belirli bir olaydan bahsederken "<strong>the</strong>" kullanılır.
+                    </p>
+                    <ul>
+                        <li><strong>Örnek Cümle:</strong> The 20th century brought many changes to the world. (20. yüzyıl dünyada birçok değişim getirdi.)</li>
+                        <li><strong>Örnek Cümle:</strong> The Great Wall of China is a famous landmark. (Çin Seddi ünlü bir simge yapıdır.)</li>
+                    </ul>
+                </section>
+            
+                <section>
+                    <h2>Özet</h2>
+                    <p>
+                        - "<strong>A</strong>" ve "<strong>An</strong>" belirsiz tanımlıklar olarak, ilk kez bahsedilen bir nesne veya kişi için kullanılır. Bu tanımlıklar, nesne veya kişinin tam olarak hangi nesne ya da kişi olduğunu bilmediğimiz durumlarda kullanılır. 
+                    </p>
+                    <p>
+                        - "<strong>The</strong>" ise belirli bir nesne veya kişi için kullanılır. Kullanıcıya, bahsedilen nesnenin veya kişinin kim olduğunu bildiren bir işlevi vardır. Örneğin, "the book" (o kitap) ifadesi, genel bir kitabı değil, belirli bir kitabı ifade eder.
+                    </p>
+                    <p>
+                        - "<strong>A</strong>" ve "<strong>An</strong>" kullanılırken, bir nesne veya kişiden ilk kez bahsettiğimizde tercih edilir. Örneğin, "I saw a dog" (bir köpek gördüm) derken, bahsedilen köpek hakkında önceden bir bilgi yoktur. Ancak daha sonra bahsedildiğinde "the dog" (o köpek) ifadesi kullanılır.
+                    </p>
+                    <p>
+                        - "<strong>The</strong>" kullanırken, nesne veya kişi hakkında daha önce bilgi verildiyse ya da nesne biliniyorsa kullanılır. Örneğin, "The sun rises in the east" (Güneş doğudan doğar) cümlesinde "the sun" ifadesi, herkesin bildiği belirli bir nesneye atıfta bulunur. Bu bağlamda, "A" ve "An" ile "The" arasındaki fark, bilinirlik ve belirginliktir.
+                    </p>
+                </section>
+                
+            </main>
+        </div>
+
+        <script src="/js/blog.js"></script>
+
+</body>
+
+</html>

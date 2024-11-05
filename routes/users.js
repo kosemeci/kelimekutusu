@@ -107,10 +107,6 @@ router.use("/a", (req, res) => {
     res.render("a");
 });
 
-router.use("/aa", (req, res) => {
-    res.render("aa");
-});
-
 const blogPosts = [
     { title: 'Irregular Verbs (Düzensiz Fiiler)', content: 'irregular-verbs' },
     { title: 'Future Tense (Gelecek Zaman)', content: 'future-tense' },
@@ -121,7 +117,6 @@ const blogPosts = [
     { title: 'Been to - Gone to Farkı Nedir?', content: 'been-gone' },
     { title: 'a/an/the Nerelerde Kullanılır?', content: 'a-an-the' },
     { title: 'Preposition(Edatlar,at-in-on)', content: 'preposition' },
-
 ];
 
 router.get('/learn-english/:page', (req, res) => {
